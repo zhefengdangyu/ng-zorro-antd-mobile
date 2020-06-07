@@ -1,6 +1,10 @@
 {
   "name": "ng-zorro-antd-mobile",
+<<<<<<< HEAD
   "version": "0.11.3",
+=======
+  "version": "2.0.1",
+>>>>>>> upstream/master
   "description": "An enterprise-class mobile UI components based on Ant Design and Angular",
   "schematics": "./schematics/collection.json",
   "keywords": [
@@ -22,6 +26,7 @@
     "url": "https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@angular/cdk": "^7.2.0",
     "@angular/animations": "^7.1.0",
     "@ant-design/icons-angular": "~2.0.1"
@@ -43,6 +48,29 @@
     "tslint": "~5.11.0",
     "tslib": "^1.9.0",
     "typescript": "~3.1.1"
+=======
+    "@angular/cdk": "^9.0.0",
+    "@angular/animations": "^9.0.0",
+    "@ant-design/icons-angular": "^9.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^9.0.0",
+    "@angular/compiler": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/forms": "^9.0.0",
+    "@angular/http": "^7.2.13",
+    "@angular/platform-browser": "^9.0.0",
+    "@angular/platform-browser-dynamic": "^9.0.0",
+    "@angular/router": "^9.0.0",
+    "@angular/upgrade": "^9.0.0",
+    "@angular-devkit/build-angular": "^0.803.2",
+    "@angular/cli": "^9.0.0",
+    "@angular/compiler-cli": "^9.0.0",
+    "@angular/platform-server": "^9.0.0",
+    "tslint": "~5.18.0",
+    "tslib": "^1.9.0",
+    "typescript": "~3.7.4"
+>>>>>>> upstream/master
   },
   "lint-staged": {
     "{src,docs}/**/*.{scss}": [

@@ -1,7 +1,7 @@
 import { Inject, Injectable, Provider, Optional, SkipSelf } from '@angular/core';
 import { LOCAL_PROVIDER_TOKEN } from './locale-provider.token';
 import { BehaviorSubject, Observable } from 'rxjs';
-import zh_CN from './languages/zh_CN';
+import zh_CN from './locale/zh_CN';
 
 @Injectable()
 export class LocaleProviderService {
@@ -65,7 +65,13 @@ export function LOCALE_PROVIDER_SERVICE_FACTORY(exist: LocaleProviderService, lo
 }
 
 export const LOCALE_PROVIDER_SERVICE_PROVIDER: Provider = {
+<<<<<<< HEAD
   provide   : LocaleProviderService,
   useFactory: LOCALE_PROVIDER_SERVICE_FACTORY,
   deps      : [ [ new Optional(), new SkipSelf(), LocaleProviderService ], LOCAL_PROVIDER_TOKEN]
+=======
+  provide: LocaleProviderService,
+  useFactory: LOCALE_PROVIDER_SERVICE_FACTORY,
+  deps: [[new Optional(), new SkipSelf(), LocaleProviderService], LOCAL_PROVIDER_TOKEN]
+>>>>>>> upstream/master
 };

@@ -10,16 +10,40 @@ declare const docsearch: any;
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, AfterViewInit {
+  color = `#1890ff`;
+  lessLoaded = false;
   hide = true;
   routerList = ROUTER_LIST;
   componentList = [];
   searchComponent = null;
   docsearch = null;
-  public kitchenUrl = window.location.origin + '/#/kitchen-sink?lang=zh-CN';
+  kitchenUrl = window.location.origin + '/#/kitchen-sink?lang=zh-CN';
+  language = 'zh';
+  versionList = ['0.12.x', '1.0.1', '1.0.2', '1.0.3', '1.0.4', '1.0.5', '2.0.1'];
+  versionMap = {
+    '0.12.x': '0.12.5',
+    '1.0.1': '1.0.11',
+    '1.0.2': '1.0.2',
+    '1.0.3': '1.0.3',
+    '1.0.4': '1.0.4',
+    '1.0.5': '1.0.51',
+    '2.0.1': '2.0.100'
+  };
+  currentVersion = '2.0.1';
+  isHomeURL = true;
+  isKitchenURL = false;
+  demoTitle = '';
+  qrcode: string = '';
+
+  private listenerQRCode: any;
+
+  constructor(private router: Router, private title: Title) {}
+
   get useDocsearch(): boolean {
     return true; //window && window.location.href.indexOf('/version') === -1;
   }
 
+<<<<<<< HEAD:scripts/site/_site/src/app/app.component.ts
   language = 'zh';
   versionList = ['0.11.x'];
   currentVersion = '0.11.x';
@@ -29,6 +53,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   public qrcode: string = '';
   private listenerQRCode: any;
   // @ViewChild('searchInput') searchInput: ElementRef<HTMLInputElement>;
+=======
+>>>>>>> upstream/master:scripts/site/_site/src/app/app.component.ts
   switchLanguage(language) {
     const url = this.router.url.split('/');
     url.splice(-1);
@@ -38,10 +64,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   toggleHide() {
     this.hide = !this.hide;
   }
-
-  constructor(private router: Router, private title: Title) // private nzI18nService: NzI18nService,
-  // private msg: NzMessageService
-  {}
 
   navigateToPage(url) {
     if (url) {
@@ -64,106 +86,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   navigateToVersion(version) {
     if (version !== this.currentVersion) {
-      window.location.href = window.location.origin + `/version/` + version;
+      window.location.href = window.location.origin + `/version/` + this.versionMap[version];
     } else {
       window.location.href = window.location.origin;
     }
     this.currentVersion = version;
-  }
-
-  ngOnInit(): void {
-    this.routerList.components.forEach(group => {
-      this.componentList = this.componentList.concat([...group.children]);
-    });
-    this.router.events.subscribe(event => {
-      if (
-        event &&
-        event['url'] &&
-        (event['url'].indexOf('demo-zh') >= 0 || event['url'].indexOf('demo-en') >= 0 || event['url'].indexOf('/kitchen-sink') >= 0)
-      ) {
-        this.isHomeURL = false;
-      }
-
-      if (event && event['url'] && event['url'].includes('/kitchen-sink')) {
-        this.isKitchenURL = true;
-      }
-
-      if (event && event['url'] && event['url'].split('/')[2]) {
-        this.demoTitle = event['url'].split('/')[2];
-        this.demoTitle = this.demoTitle.substring(0, 1).toUpperCase() + this.demoTitle.substring(1);
-      }
-      if (event instanceof NavigationEnd) {
-        const currentDemoComponent = this.componentList.find(component => `/${component.path}` === this.router.url);
-        if (currentDemoComponent) {
-          this.title.setTitle(`${currentDemoComponent.zh} ${currentDemoComponent.label} - NG-ZORRO-MOBILE`);
-        }
-        const currentIntroComponent = this.routerList.intro.find(component => `/${component.path}` === this.router.url);
-        if (currentIntroComponent) {
-          this.title.setTitle(`${currentIntroComponent.label} - NG-ZORRO-MOBILE`);
-        }
-        if (this.router.url !== '/' + this.searchComponent) {
-          this.searchComponent = null;
-        }
-        this.language = this.router.url.split('/')[this.router.url.split('/').length - 1].split('#')[0].split(';')[0];
-        // this.nzI18nService.setLocale(this.language === 'en' ? en_US : zh_CN);
-        if (this.docsearch) {
-          this.docsearch.algoliaOptions = { hitsPerPage: 5, facetFilters: [`tags:${this.language}`] };
-        }
-        if (environment.production) {
-          window.scrollTo(0, 0);
-        }
-        setTimeout(() => {
-          const toc = this.router.parseUrl(this.router.url).fragment || '';
-          if (toc) {
-            document.querySelector(`#${toc}`).scrollIntoView();
-          }
-        }, 200);
-
-        // 锚点功能
-        if (!this.isKitchenURL) {
-          setTimeout(() => {
-              const anchor = this.router.url.split(';')[1];
-              if (anchor) {
-                const dom = decodeURIComponent(anchor.split('=')[1]);
-                dom && document.querySelector(`#${dom}`).scrollIntoView();
-              }
-          }, 500);
-        }
-
-        setTimeout(() => {
-          if (this.listenerQRCode) {
-            this.listenerQRCode = null;
-          }
-
-          this.listenerQRCode = document.querySelector('span.edit-button') && document.querySelector('span.edit-button').addEventListener('mouseenter', function() {
-            setTimeout(() => {
-              if (document.querySelector('#qrcode')) {
-                this.qrcode = new window['QRCode'](document.querySelector('#qrcode'), {
-                  text: window['__zorro_mobile_url__'],
-                  width: 140,
-                  height: 140
-                });
-              }
-            }, 180);
-          }, false);
-        }, 500);
-      }
-    });
-    this.initColor();
-    const self = this;
-    window.addEventListener('hashchange', function(event) {
-      if (event && event['newURL'] && event['newURL'].indexOf('/kitchen-sink') >= 0) {
-        self.isKitchenURL = true;
-      } else {
-        self.isKitchenURL = false;
-      }
-    });
-  }
-
-  ngAfterViewInit(): void {
-    // if (this.useDocsearch && this.isHomeURL) {
-    //   this.initDocsearch();
-    // }
   }
 
   initDocsearch() {
@@ -186,15 +113,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // @HostListener('document:keyup.s', ['$event'])
-  // onKeyUp(event: KeyboardEvent) {
-  //   if (this.useDocsearch && this.searchInput && this.searchInput.nativeElement && event.target === document.body) {
-  //     this.searchInput.nativeElement.focus();
-  //   }
-  // }
-
-  // region: color
-  color = `#1890ff`;
   initColor() {
     const node = document.createElement('link');
     node.rel = 'stylesheet/less';
@@ -202,7 +120,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     node.href = '/assets/color.less';
     document.getElementsByTagName('head')[0].appendChild(node);
   }
-  lessLoaded = false;
+
   changeColor(res: any) {
     const changeColor = () => {
       (window as any).less
@@ -241,5 +159,113 @@ export class AppComponent implements OnInit, AfterViewInit {
       document.head.appendChild(script);
     });
   }
-  // endregion
+
+  ngOnInit(): void {
+    this.routerList.components.forEach(group => {
+      this.componentList = this.componentList.concat([...group.children]);
+    });
+    this.router.events.subscribe(event => {
+      if (
+        event &&
+        event['url'] &&
+        (event['url'].indexOf('demo-zh') >= 0 ||
+          event['url'].indexOf('demo-en') >= 0 ||
+          event['url'].indexOf('/kitchen-sink') >= 0)
+      ) {
+        this.isHomeURL = false;
+      }
+
+      if (event && event['url'] && event['url'].includes('/kitchen-sink')) {
+        this.isKitchenURL = true;
+      }
+
+      if (event && event['url'] && event['url'].split('/')[2]) {
+        const demoTitleArray = event['url'].split('/')[2].split('-');
+        this.demoTitle = '';
+        for (let i = 0; i < demoTitleArray.length; ++i) {
+          this.demoTitle += demoTitleArray[i].substring(0, 1).toUpperCase() + demoTitleArray[i].substring(1);
+        }
+      }
+      if (event instanceof NavigationEnd) {
+        const currentDemoComponent = this.componentList.find(component => `/${component.path}` === this.router.url);
+        if (currentDemoComponent) {
+          this.title.setTitle(`${currentDemoComponent.zh} ${currentDemoComponent.label} - NG-ZORRO-MOBILE`);
+        }
+        const currentIntroComponent = this.routerList.intro.find(component => `/${component.path}` === this.router.url);
+        if (currentIntroComponent) {
+          this.title.setTitle(`${currentIntroComponent.label} - NG-ZORRO-MOBILE`);
+        }
+        if (this.router.url !== '/' + this.searchComponent) {
+          this.searchComponent = null;
+        }
+        this.language = this.router.url
+          .split('/')
+          [this.router.url.split('/').length - 1].split('#')[0]
+          .split(';')[0];
+        // this.nzI18nService.setLocale(this.language === 'en' ? en_US : zh_CN);
+        if (this.docsearch) {
+          this.docsearch.algoliaOptions = { hitsPerPage: 5, facetFilters: [`tags:${this.language}`] };
+        }
+        if (environment.production) {
+          window.scrollTo(0, 0);
+        }
+        setTimeout(() => {
+          const toc = this.router.parseUrl(this.router.url).fragment || '';
+          if (toc) {
+            document.querySelector(`#${toc}`).scrollIntoView();
+          }
+        }, 200);
+
+        // 锚点功能
+        if (!this.isKitchenURL) {
+          setTimeout(() => {
+            const anchor = this.router.url.split(';')[1];
+            if (anchor) {
+              const dom = decodeURIComponent(anchor.split('=')[1]);
+              dom && document.querySelector(`#${dom}`).scrollIntoView();
+            }
+          }, 500);
+        }
+
+        setTimeout(() => {
+          if (this.listenerQRCode) {
+            this.listenerQRCode = null;
+          }
+
+          this.listenerQRCode =
+            document.querySelector('span.edit-button') &&
+            document.querySelector('span.edit-button').addEventListener(
+              'mouseenter',
+              function() {
+                setTimeout(() => {
+                  if (document.querySelector('#qrcode')) {
+                    this.qrcode = new window['QRCode'](document.querySelector('#qrcode'), {
+                      text: window['__zorro_mobile_url__'],
+                      width: 140,
+                      height: 140
+                    });
+                  }
+                }, 180);
+              },
+              false
+            );
+        }, 500);
+      }
+    });
+    this.initColor();
+    const self = this;
+    window.addEventListener('hashchange', function(event) {
+      if (event && event['newURL'] && event['newURL'].indexOf('/kitchen-sink') >= 0) {
+        self.isKitchenURL = true;
+      } else {
+        self.isKitchenURL = false;
+      }
+    });
+  }
+
+  ngAfterViewInit(): void {
+    // if (this.useDocsearch && this.isHomeURL) {
+    //   this.initDocsearch();
+    // }
+  }
 }

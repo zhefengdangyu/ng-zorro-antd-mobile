@@ -33,7 +33,7 @@ $ ionic start PROJECT-NAME
 $ ng add ng-zorro-antd-mobile
 ```
 
-`ng-zorro-antd-mobile` supports init configuration with schematics, you can get more info in the [schematics](http://ng.mobile.ant.design/#/docs/schematics/en) part.
+`ng-zorro-antd-mobile` supports init configuration with schematics, you can get more info in the [schematics](https://ng.mobile.ant.design/#/docs/schematics/en) part.
 
 ### 4. Development & Debugging
 
@@ -43,7 +43,7 @@ Run your project now, you can see the image below now.
 $ ionic serve
 ```
 
-<img style="display: block;padding: 30px 30%;height: 260px;" src="https://gw.alicdn.com/tfs/TB18hC5dPDpK1RjSZFrXXa78VXa-440-550.png">
+<img style="display: block;padding: 30px 30%;height: 260px;" src="https://img.alicdn.com/tfs/TB15EhGJwHqK1RjSZFPXXcwapXa-500-539.png">
 
 ## Customized Work Flow
 
@@ -75,7 +75,6 @@ import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

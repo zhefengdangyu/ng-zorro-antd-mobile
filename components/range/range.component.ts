@@ -7,12 +7,20 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
+<<<<<<< HEAD
       useExisting: forwardRef(() => Range),
+=======
+      useExisting: forwardRef(() => RangeComponent),
+>>>>>>> upstream/master
       multi: true
     }
   ]
 })
+<<<<<<< HEAD
 export class Range implements OnInit, ControlValueAccessor {
+=======
+export class RangeComponent implements OnInit, ControlValueAccessor {
+>>>>>>> upstream/master
   prefixCls: string = 'am-slider';
   offset: any[] = [];
   length: any[] = [];
@@ -163,8 +171,13 @@ export class Range implements OnInit, ControlValueAccessor {
     const minTemp = this._min;
     if (!this.verifyPushable()) {
       this._pushable = 0;
+<<<<<<< HEAD
       console.log('pushable设置无效，已大于有些value间隔，被强制设为0');
    }
+=======
+      console.warn('pushable设置无效，已大于有些value间隔，被强制设为0');
+    }
+>>>>>>> upstream/master
     const initialValue = Array.apply(null, Array(this._count + 1)).map(function() {
       return minTemp;
     });

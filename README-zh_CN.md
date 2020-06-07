@@ -1,8 +1,9 @@
-<div align="center" ><img width="300" src="https://gw.alicdn.com/tfs/TB1U7SsecfpK1RjSZFOXXa6nFXa-1462-1399.png"></div>
+<div align="center" ><img width="300" src="https://gw.alicdn.com/tfs/TB18WVWJpzqK1RjSZSgXXcpAVXa-106-120.svg"></div>
 <br/>
 
 # NG-ZORRO-MOBILE
 
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.com/NG-ZORRO/ng-zorro-antd-mobile.svg?branch=master)](https://travis-ci.com/NG-ZORRO/ng-zorro-antd-mobile)
 [![codecov](https://codecov.io/gh/NG-ZORRO/ng-zorro-antd-mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/NG-ZORRO/ng-zorro-antd-mobile)
 [![Dependencies](https://img.shields.io/david/NG-ZORRO/ng-zorro-antd-mobile.svg?style=flat-square)](https://david-dm.org/NG-ZORRO/ng-zorro-antd-mobile)
@@ -12,6 +13,17 @@
 [![NPM downloads](http://img.shields.io/npm/dm/ng-zorro-antd-mobile.svg?style=flat-square)](https://npmjs.org/package/ng-zorro-antd-mobile)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/blob/master/LICENSE)
 [![Gitter](https://img.shields.io/gitter/room/ng-zorro/ng-zorro-antd-mobile.svg?style=flat-square)](https://gitter.im/ng-zorro/ng-zorro-antd-mobile)
+=======
+[![CodeFactor](https://www.codefactor.io/repository/github/ng-zorro/ng-zorro-antd-mobile/badge?style=flat-square)](https://www.codefactor.io/repository/github/ng-zorro/ng-zorro-antd-mobile)
+[![Build Status](https://travis-ci.com/NG-ZORRO/ng-zorro-antd-mobile.svg?branch=master)](https://travis-ci.com/NG-ZORRO/ng-zorro-antd-mobile)
+[![codecov](https://codecov.io/gh/NG-ZORRO/ng-zorro-antd-mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/NG-ZORRO/ng-zorro-antd-mobile)
+[![GitHub Release Date](https://img.shields.io/github/release-date/NG-ZORRO/ng-zorro-antd-mobile.svg?style=flat-square)](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/releases)
+[![npm package](https://img.shields.io/npm/v/ng-zorro-antd-mobile.svg?style=flat-square)](https://www.npmjs.org/package/ng-zorro-antd-mobile)
+[![NPM downloads](https://img.shields.io/npm/dm/ng-zorro-antd-mobile.svg?style=flat-square)](https://npmjs.org/package/ng-zorro-antd-mobile)
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/blob/master/LICENSE)
+[![Gitter](https://img.shields.io/gitter/room/ng-zorro/ng-zorro-antd-mobile.svg?style=flat-square)](https://gitter.im/ng-zorro/ng-zorro-antd-mobile)
+[![Twitter](https://img.shields.io/badge/Twitter-NG--ZORRO-blue.svg?style=flat-square&logo=twitter)](https://twitter.com/NG_ZORRO)
+>>>>>>> upstream/master
 
 这里是 **Ant Design** 移动规范的 **Angular** 实现，服务于阿里巴巴集团数据无线业务。
 
@@ -19,7 +31,7 @@
 
 ## 扫码体验
 
-![ng-zorro-mobile](https://gw.alicdn.com/tfs/TB1KPm6dSzqK1RjSZFjXXblCFXa-260-260.png)
+![ng-zorro-mobile](https://img.alicdn.com/tfs/TB1QMx.JwHqK1RjSZJnXXbNLpXa-260-260.png)
 
 ## 特性
 
@@ -36,9 +48,14 @@
 - `iOS 7.0+`
 - `Android 4.4+`
 
+## Angular 支持
+
+现在支持 Angular `^9.0.0`.
+
 ## 安装
 
 我们强烈推荐官方的 `@angular/cli` 工具链辅助进行开发，在实际项目开发中，它可以很好的满足对 TypeScript 代码的构建、调试、代理、打包部署等一系列工程化的需求。
+
 ```bash
 $ ng new PROJECT_NAME
 $ cd PROJECT_NAME
@@ -49,7 +66,7 @@ $ ng add ng-zorro-antd-mobile
 
 ## 链接
 
-- [首页](http://ng.mobile.ant.design)
+- [首页](https://ng.mobile.ant.design)
 - [Angular官方文档](https://angular.io/)
 - [开发脚手架](https://cli.angular.io/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -57,9 +74,9 @@ $ ng add ng-zorro-antd-mobile
 
 ## 如何贡献
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/blob/master/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pulls)，或给我们 [报告 Bug](http://ng.mobile.ant.design/issue-helper/#/zh)。
+在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/blob/master/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pulls)，或给我们 [报告 Bug](https://ng.mobile.ant.design/issue-helper/#/zh)。
 
-> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)(本指南不提供此项目的实际支持服务！)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
+> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)(本指南不提供此项目的实际支持服务！)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](https://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
 
 ## 社区互助
 
@@ -71,11 +88,19 @@ $ ng add ng-zorro-antd-mobile
 2. [<img alt="Segment Fault" src="https://gw.alipayobjects.com/zos/rmsportal/hfYFfCvHTQTUKntlJbMF.svg" width="100" />](https://segmentfault.com/t/ng-zorro-mobile)（中文）
 3. [![Gitter](https://img.shields.io/gitter/room/ng-zorro/ng-zorro-antd-mobile.svg?style=flat-square)](https://gitter.im/ng-zorro/ng-zorro-antd-mobile)（English & 中文）
 4. 加入钉钉 **NG-ZORRO-MOBILE** 自助服务群（中文）<br/>
+<<<<<<< HEAD
 <img src="https://img.alicdn.com/tfs/TB1jMaZj3HqK1RjSZFkXXX.WFXa-1125-1485.jpg" width="300">
 
 ## 谁在使用
 
 - [阿里巴巴](http://www.alibaba.com/)
+=======
+<img src="https://img.alicdn.com/tfs/TB1cABKAkL0gK0jSZFAXXcA9pXa-1125-1485.jpg" width="300">
+
+## 谁在使用
+
+- [阿里巴巴](https://www.alibaba.com/)
+>>>>>>> upstream/master
 
 > 如果你的公司和产品使用了 **NG-ZORRO-MOBILE**，欢迎到 [这里](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/3) 留言。
 

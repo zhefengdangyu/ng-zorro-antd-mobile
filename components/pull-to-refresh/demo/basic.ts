@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'demo-pull-to-refresh-basic',
   template: `
+<<<<<<< HEAD
     <NoticeBar *ngIf="!isMobile"
                style="margin-bottom: 10px"
                [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
@@ -13,8 +14,22 @@ import { Component, OnInit } from '@angular/core';
                    [(ngModel)]="state.refreshState"
                    [endReachedRefresh]="state.endReachedRefresh"
                    (onRefresh)="pullToRefresh($event)"
+=======
+    <NoticeBar
+      *ngIf="!isMobile"
+      style="margin-bottom: 10px"
+      [option]="{ content: '该组件只支持Touch事件，请使用移动模式/设备打开此页。', marqueeProps: { fps: 100 } }"
+    ></NoticeBar>
+    <div Button (onClick)="onClick()">direction: {{ state.directionName }}</div>
+    <PullToRefresh
+      [ngStyle]="dtPullToRefreshStyle"
+      [direction]="state.direction"
+      [(ngModel)]="state.refreshState"
+      [endReachedRefresh]="state.endReachedRefresh"
+      (onRefresh)="pullToRefresh($event)"
+>>>>>>> upstream/master
     >
-      <div *ngFor="let i of this.state.data" style="text-align: center; padding: 20px">{{i}}</div>
+      <div *ngFor="let i of this.state.data" style="text-align: center; padding: 20px">{{ i }}</div>
     </PullToRefresh>
 
     <ng-template #loading>
@@ -43,16 +58,25 @@ export class DemoPullToRefreshBasicComponent implements OnInit {
   constructor() {}
 
   onClick() {
+<<<<<<< HEAD
     this.directionCount ++;
+=======
+    this.directionCount++;
+>>>>>>> upstream/master
     switch (this.directionCount) {
       case 0:
         this.state.direction = '';
         this.state.directionName = 'both up and down';
+<<<<<<< HEAD
       break;
+=======
+        break;
+>>>>>>> upstream/master
       case 1:
         this.state.direction = 'down';
         this.state.endReachedRefresh = true;
         this.state.directionName = 'down';
+<<<<<<< HEAD
       break;
       case 2:
         this.state.direction = 'up';
@@ -62,12 +86,24 @@ export class DemoPullToRefreshBasicComponent implements OnInit {
       this.directionCount = 0;
       this.state.direction = '';
       this.state.directionName = 'both up and down';
+=======
+        break;
+      case 2:
+        this.state.direction = 'up';
+        this.state.directionName = 'up';
+        break;
+      default:
+        this.directionCount = 0;
+        this.state.direction = '';
+        this.state.directionName = 'both up and down';
+>>>>>>> upstream/master
         break;
     }
   }
 
   pullToRefresh(event) {
     if (event === 'endReachedRefresh') {
+<<<<<<< HEAD
         if (this.page < 9) {
           this.page++;
           this.addItems(this.page * this.pageLimit);
@@ -78,6 +114,18 @@ export class DemoPullToRefreshBasicComponent implements OnInit {
         }
     } else {
        if (event === 'down') {
+=======
+      if (this.page < 9) {
+        this.page++;
+        this.addItems(this.page * this.pageLimit);
+        this.state.refreshState.currentState = 'release';
+        setTimeout(() => {
+          this.state.refreshState.currentState = 'finish';
+        }, 1000);
+      }
+    } else {
+      if (event === 'down') {
+>>>>>>> upstream/master
         this.state.data = [];
         this.page = 0;
         this.addItems(0);
@@ -94,14 +142,6 @@ export class DemoPullToRefreshBasicComponent implements OnInit {
     for (let i = startIndex; i < this.pageLimit * (this.page + 1); i++) {
       this.state.data.push(i);
     }
-  }
-
-  genData() {
-    const dataArr = [];
-    for (let i = 0; i < 100; i++) {
-      dataArr.push(i);
-    }
-    return dataArr;
   }
 
   ngOnInit() {

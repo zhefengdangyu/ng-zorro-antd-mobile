@@ -7,21 +7,27 @@ import {
   Input,
   Output,
   HostBinding,
-  EventEmitter
+  EventEmitter,
+  ViewChild
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+<<<<<<< HEAD
 import { Models } from './date/DataTypes';
+=======
+import { DateModels } from './date/DataTypes';
+>>>>>>> upstream/master
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
-import PropsType from './calendar.props.component';
+import { CalendarPropsType } from './calendar.props.component';
 import { LocaleProviderService } from '../locale-provider/locale-provider.service';
-import { mergeDateTime } from './util/index';
+import { mergeDateTime, isSameDate } from './util/index';
 import { takeUntil } from 'rxjs/operators';
+import { CalendarDatePickerComponent } from './datepicker/datepicker.component';
 import { Subject } from 'rxjs';
 
-export { PropsType };
+export { CalendarPropsType };
 
-export interface StateType {
+export interface CalendarStateType {
   showTimePicker: boolean;
   timePickerTitle?: string;
   startDate?: Date;
@@ -41,6 +47,7 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
   contentAnimateClass: string;
   maskAnimateClass: string;
   showClear: boolean = false;
+  isSameDate: Function = isSameDate;
 
   props = {
     visible: false,
@@ -51,7 +58,7 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
     prefixCls: 'rmc-calendar',
     type: 'range',
     defaultTimeValue: new Date(2000, 0, 1, 8)
-  } as PropsType;
+  } as CalendarPropsType;
 
   state = {
     showTimePicker: false,
@@ -60,15 +67,21 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
     endDate: undefined,
     disConfirmBtn: true,
     clientHight: 0
-  } as StateType;
+  } as CalendarStateType;
 
   private _unsubscribe$ = new Subject<void>();
   private _enterDirection: string;
   private _dateModelType: number;
   private _dateModelValue: any;
   private _dateModelTime: number = 0;
+<<<<<<< HEAD
   private onChangeFn: (date: Date|Array<Date>) => void = () => {};
   private onTouchFn: (date: Date|Array<Date>) => void = () => {};
+=======
+
+  @ViewChild(CalendarDatePickerComponent)
+  datepicker: CalendarDatePickerComponent;
+>>>>>>> upstream/master
 
   @Input()
   set locale(value) {
@@ -161,6 +174,7 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
   set onSelect(value) {
     this.props.onSelect = value;
   }
+
   @Output()
   onCancel: EventEmitter<any> = new EventEmitter<any>();
   @Output()
@@ -173,7 +187,11 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
 
   constructor(private _localeProviderService: LocaleProviderService) {}
 
+<<<<<<< HEAD
   writeValue(value: Date|Array<Date>|null): void {
+=======
+  writeValue(value: Date | Array<Date> | null): void {
+>>>>>>> upstream/master
     this._dateModelType = null;
     if (value && value instanceof Array) {
       if (value.length === 0) {
@@ -198,7 +216,11 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
     }
   }
 
+<<<<<<< HEAD
   registerOnChange(fn: (date: Date|Array<Date>) => void): void {
+=======
+  registerOnChange(fn: (date: Date | Array<Date>) => void): void {
+>>>>>>> upstream/master
     this.onChangeFn = fn;
   }
 
@@ -206,7 +228,11 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
     this.onTouchFn = fn;
   }
 
+<<<<<<< HEAD
   receiveProps(nextProps: PropsType) {
+=======
+  receiveProps(nextProps: CalendarPropsType) {
+>>>>>>> upstream/master
     if (nextProps.visible && nextProps.defaultValue) {
       this.shortcutSelect(nextProps.defaultValue[0], nextProps.defaultValue[1], nextProps);
     }
@@ -237,10 +263,10 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
     props = this.props
   ) => {
     if (!date) {
-      return {} as StateType;
+      return {} as CalendarStateType;
     }
-    let newState = {} as StateType;
-    const { type, pickTime, defaultTimeValue, locale = {} as Models.Locale } = props;
+    let newState = {} as CalendarStateType;
+    const { type, pickTime, defaultTimeValue, locale = {} as DateModels.Locale } = props;
     const newDate = pickTime && !useDateTime ? mergeDateTime(date, defaultTimeValue) : date;
     const { startDate, endDate } = oldState;
 
@@ -278,10 +304,13 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
         } else {
           newState = {
             ...newState,
-            timePickerTitle: +newDate >= +startDate ? locale.selectEndTime : locale.selectStartTime,
+            timePickerTitle:
+              +newDate >= +startDate || this.isSameDate(startDate, newDate)
+                ? locale.selectEndTime
+                : locale.selectStartTime,
             disConfirmBtn: false,
             endDate:
-              pickTime && !useDateTime && +newDate >= +startDate
+              pickTime && !useDateTime && (+newDate >= +startDate || this.isSameDate(startDate, newDate))
                 ? new Date(+mergeDateTime(newDate, startDate) + 3600000)
                 : newDate
           };
@@ -349,7 +378,9 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
 
   triggerSelectHasDisableDate = (date: Date[]) => {
     this.triggerClear();
-    this.onSelectHasDisableDate && this.onSelectHasDisableDate.emit(date);
+    if (this.onSelectHasDisableDate) {
+      this.onSelectHasDisableDate.emit(date);
+    }
   }
 
   onClose = () => {
@@ -360,7 +391,7 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
       endDate: undefined,
       disConfirmBtn: true,
       clientHight: 0
-    } as StateType;
+    } as CalendarStateType;
     this.showClear = !!this.state.startDate;
   }
 
@@ -370,14 +401,20 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
       this.onClose();
       return this.onConfirm && this.onConfirm.emit({ startDate: endDate, endDate: startDate });
     }
-    this.onConfirm && this.onConfirm.emit({ startDate, endDate });
+    if (this.onConfirm) {
+      this.onConfirm.emit({ startDate, endDate });
+    }
     this.onClose();
   }
 
   triggerCancel() {
-    this.props.onCancel && this.props.onCancel();
+    if (this.props.onCancel) {
+      this.props.onCancel();
+    }
     this.onClose();
-    this.onCancel && this.onCancel.emit();
+    if (this.onCancel) {
+      this.onCancel.emit();
+    }
   }
 
   triggerClear = () => {
@@ -387,7 +424,9 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
         ...this.state,
         ...{ startDate: undefined, endDate: undefined, showTimePicker: false }
       };
-      this.props.onClear && this.props.onClear();
+      if (this.props.onClear) {
+        this.props.onClear();
+      }
       this.showClear = !!this.state.startDate;
     }, 0);
   }
@@ -424,7 +463,7 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
     }
 
     this._localeProviderService.localeChange.pipe(takeUntil(this._unsubscribe$)).subscribe(_ => {
-      this.props.locale = { ...this._localeProviderService.getLocaleSubObj('Calendar') } as Models.Locale;
+      this.props.locale = { ...this._localeProviderService.getLocaleSubObj('Calendar') } as DateModels.Locale;
     });
   }
 
@@ -432,4 +471,7 @@ export class CalendarComponent implements ControlValueAccessor, OnInit, OnDestro
     this._unsubscribe$.next();
     this._unsubscribe$.complete();
   }
+
+  private onChangeFn: (date: Date | Array<Date>) => void = () => {};
+  private onTouchFn: (date: Date | Array<Date>) => void = () => {};
 }

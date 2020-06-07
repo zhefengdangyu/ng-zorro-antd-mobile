@@ -2,7 +2,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { async, TestBed } from '@angular/core/testing';
-import { Button } from './button.component';
+import { ButtonComponent } from './button.component';
 import { ButtonModule } from './button.module';
 import { IconModule, WingBlankModule, WhiteSpaceModule, ListModule } from '../..';
 import { dispatchTouchEvent } from '../core/testing';
@@ -15,15 +15,15 @@ describe('button', () => {
     let buttons;
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        declarations: [TestButton],
+        declarations: [TestButtonComponent],
         imports: [ButtonModule, IconModule, WingBlankModule, WhiteSpaceModule, ListModule]
       }).compileComponents();
     }));
 
     beforeEach(() => {
-      fixture = TestBed.createComponent(TestButton);
+      fixture = TestBed.createComponent(TestButtonComponent);
       component = fixture.componentInstance;
-      buttons = fixture.debugElement.queryAll(By.directive(Button));
+      buttons = fixture.debugElement.queryAll(By.directive(ButtonComponent));
       fixture.detectChanges();
     });
 
@@ -69,31 +69,51 @@ describe('button', () => {
       expect(buttons[14].nativeElement.classList.contains('am-button-disabled')).toBe(true);
     });
 
+<<<<<<< HEAD
     it ('should touchstart work', () => {
+=======
+    it('should touchstart work', () => {
+>>>>>>> upstream/master
       dispatchTouchEvent(buttons[0].nativeElement, 'touchstart');
       fixture.detectChanges();
     });
 
+<<<<<<< HEAD
     it ('should mousedown work', () => {
+=======
+    it('should mousedown work', () => {
+>>>>>>> upstream/master
       dispatchTouchEvent(buttons[0].nativeElement, 'mousedown');
       fixture.detectChanges();
     });
 
+<<<<<<< HEAD
     it ('should touchend work', () => {
+=======
+    it('should touchend work', () => {
+>>>>>>> upstream/master
       dispatchTouchEvent(buttons[0].nativeElement, 'touchend');
       fixture.detectChanges();
       dispatchTouchEvent(buttons[0].nativeElement, 'mouseup');
       fixture.detectChanges();
     });
 
+<<<<<<< HEAD
     it ('should touchstart disable work', () => {
+=======
+    it('should touchstart disable work', () => {
+>>>>>>> upstream/master
       dispatchTouchEvent(buttons[1].nativeElement, 'touchstart');
       fixture.detectChanges();
       dispatchTouchEvent(buttons[1].nativeElement, 'mousedown');
       fixture.detectChanges();
     });
 
+<<<<<<< HEAD
     it ('should loading work', () => {
+=======
+    it('should loading work', () => {
+>>>>>>> upstream/master
       dispatchTouchEvent(buttons[6].nativeElement, 'touchstart');
       component.loading = false;
       fixture.detectChanges();
@@ -102,7 +122,11 @@ describe('button', () => {
       fixture.detectChanges();
     });
 
+<<<<<<< HEAD
     it ('should touchend disable work', () => {
+=======
+    it('should touchend disable work', () => {
+>>>>>>> upstream/master
       dispatchTouchEvent(buttons[1].nativeElement, 'touchend');
       fixture.detectChanges();
       dispatchTouchEvent(buttons[1].nativeElement, 'mouseup');
@@ -114,6 +138,7 @@ describe('button', () => {
 @Component({
   selector: 'test-button',
   template: `
+<<<<<<< HEAD
   <WingBlank>
   <div Button (onClick)="onClick()">default</div>
   <WhiteSpace ></WhiteSpace>
@@ -166,9 +191,65 @@ describe('button', () => {
   <ng-template #primary>
     <div Button [type]="'primary'" [inline]="true" style="margin-right: 4px" [size]="'small'">small</div>
   </ng-template>
+=======
+    <WingBlank>
+      <div Button (onClick)="onClick()">default</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [disabled]="true">default diasbled</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [type]="'primary'">primary</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [type]="'primary'" [disabled]="true">primary diasbled</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [type]="'warning'">warning</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [type]="'warning'" [disabled]="true">warning</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [loading]="loading">loading</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [icon]="'check-circle-o'">with icon</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button [icon]="img">
+        with custom icon
+      </div>
+
+      <ng-template #img>
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" alt="" />
+      </ng-template>
+
+      <WhiteSpace></WhiteSpace>
+      <div Button style="margin-right: 4px" [type]="'primary'" [inline]="true">inline primary</div>
+      <div Button [type]="'ghost'" [inline]="true">inline ghost</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button style="margin-right: 4px" [type]="'primary'" [inline]="true" [size]="'small'">primary</div>
+      <div Button [type]="'primary'" [inline]="true" [disabled]="true" [size]="'small'">primary diasbled</div>
+      <WhiteSpace></WhiteSpace>
+      <div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'">ghost</div>
+      <div Button [type]="'ghost'" [inline]="true" [disabled]="true" [size]="'small'">ghost diasbled</div>
+    </WingBlank>
+
+    <List className="my-list">
+      <ListItem [extra]="ghost" [arrow]="'horizontal'"
+        >Regional manager
+        <Brief>Can be collected, refund, discount management, view data and other operations</Brief>
+      </ListItem>
+      <ListItem [extra]="primary" [arrow]="'horizontal'"
+        >Regional manager
+        <Brief>Can be collected, refund, discount management, view data and other operations</Brief>
+      </ListItem>
+    </List>
+
+    <ng-template #ghost>
+      <div Button [type]="'ghost'" [inline]="true" style="margin-right: 4px" [size]="'small'">small</div>
+    </ng-template>
+
+    <ng-template #primary>
+      <div Button [type]="'primary'" [inline]="true" style="margin-right: 4px" [size]="'small'">small</div>
+    </ng-template>
+>>>>>>> upstream/master
   `
 })
-export class TestButton implements OnInit, OnDestroy {
+export class TestButtonComponent implements OnInit, OnDestroy {
   type = 'primary';
   size = 'small';
   inline = true;

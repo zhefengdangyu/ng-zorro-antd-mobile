@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
@@ -8,6 +9,18 @@ import { Picker } from './picker.service';
 import { dispatchTouchEvent } from '../core/testing';
 import { LocaleProviderService, LocaleProviderModule } from '../..';
 import { Button } from '../button/button.component';
+=======
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { ListModule, PickerModule, PickerComponent, PickerDirective } from '../..';
+import { PickerOptions } from './picker-options.provider';
+import { PickerService } from './picker.service';
+import { dispatchTouchEvent } from '../core/testing';
+import { LocaleProviderService, LocaleProviderModule, PickerRef } from '../..';
+import { ButtonComponent } from '../button/button.component';
+>>>>>>> upstream/master
 import { ButtonModule } from '../button/button.module';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 
@@ -21,19 +34,29 @@ describe('PickerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TestPickerBasicComponent],
+<<<<<<< HEAD
       providers: [PickerOptions, LocaleProviderService, Picker, Overlay],
       imports: [ListModule, PickerModule, LocaleProviderModule, ButtonModule, FormsModule]
     }).compileComponents();
     TestBed.overrideModule(PickerModule, {
       set: { entryComponents: [PickerComponent] }
+=======
+      providers: [PickerOptions, LocaleProviderService, Overlay],
+      imports: [ListModule, PickerModule, LocaleProviderModule, ButtonModule, FormsModule]
+>>>>>>> upstream/master
     }).compileComponents();
+    TestBed.overrideModule(PickerModule, {}).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestPickerBasicComponent);
     component = fixture.componentInstance;
     lists = fixture.debugElement.queryAll(By.css('listitem'));
+<<<<<<< HEAD
     buttons = fixture.debugElement.queryAll(By.directive(Button));
+=======
+    buttons = fixture.debugElement.queryAll(By.directive(ButtonComponent));
+>>>>>>> upstream/master
     fixture.detectChanges();
   });
 
@@ -112,6 +135,19 @@ describe('PickerComponent', () => {
     fixture.detectChanges();
   });
 
+<<<<<<< HEAD
+=======
+  it('should okText dismissText work', () => {
+    const list = lists[0].nativeElement;
+    list.click();
+    fixture.detectChanges();
+    pickerEle = document.querySelector('picker');
+    expect(pickerEle.querySelector('.am-picker-popup-header-left').innerText).toEqual('dismissText');
+    expect(pickerEle.querySelector('.am-picker-popup-header-right').innerText).toEqual('okText');
+    fixture.detectChanges();
+  });
+
+>>>>>>> upstream/master
   it('should showPicker work', () => {
     const button = buttons[0].nativeElement;
     button.click();
@@ -153,6 +189,77 @@ describe('PickerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create', () => {
+    let data1 = [
+      {
+        value: '',
+        label: 'd',
+        children: [
+          {
+            value: '',
+            label: '',
+            children: []
+          }
+        ]
+      }
+    ];
+
+    let data2 = [
+      {
+        value: 'dd',
+        label: '',
+        children: [
+          {
+            value: '',
+            label: '',
+            children: []
+          }
+        ]
+      }
+    ];
+    let data3 = null;
+    let data4 = [];
+
+    let data5 = [
+      {
+        value: 'dd',
+        label: ''
+      },
+      {
+        value: 'dd',
+        label: ''
+      }
+    ];
+    let data6 = [
+      {
+        value: 'dd',
+        label: 'd'
+      },
+      {
+        value: 'dd',
+        label: ''
+      }
+    ];
+    let data7 = [
+      {
+        value: 'dd',
+        label: ''
+      },
+      null
+    ];
+    expect(component.picker.isPickerDataEqual(data1, data2)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data1, data3)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data3, data2)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data1, data4)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data1, data5)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data3, data4)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data5, data6)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data5, data7)).toBe(false);
+    expect(component.picker.isPickerDataEqual(data3, data3)).toBe(true);
+    expect(component.picker.isPickerDataEqual(data4, data4)).toBe(true);
+    expect(component.picker.isPickerDataEqual(data1, data1)).toBe(true);
+  });
 });
 
 @Component({
@@ -168,6 +275,11 @@ describe('PickerComponent', () => {
         [data]="singleArea"
         [arrow]="'horizontal'"
         [appendToBody]="true"
+<<<<<<< HEAD
+=======
+        [okText]="'okText'"
+        [dismissText]="'dismissText'"
+>>>>>>> upstream/master
         (ngModelChange)="modelChange($event)"
       >
         Multiple & cascader
@@ -188,8 +300,12 @@ describe('PickerComponent', () => {
       </ListItem>
     </List>
     <div Button (click)="showPicker()">operation</div>
+<<<<<<< HEAD
   `,
   providers: [Picker]
+=======
+  `
+>>>>>>> upstream/master
 })
 export class TestPickerBasicComponent {
   singleArea = [
@@ -219,7 +335,14 @@ export class TestPickerBasicComponent {
   mask = true;
   modelChange = jasmine.createSpy('ngModel change callback');
 
+<<<<<<< HEAD
   constructor(private _picker: Picker) {}
+=======
+  @ViewChild(PickerDirective)
+  picker: PickerDirective;
+
+  constructor(private _picker: PickerService) {}
+>>>>>>> upstream/master
 
   getResult(result) {
     this.value = [];
@@ -242,6 +365,16 @@ export class TestPickerBasicComponent {
   }
 
   showPicker() {
+<<<<<<< HEAD
     Picker.showPicker({ value: this.value, data: this.singleArea }, result => {}, cancel => {});
+=======
+    const ref: PickerRef = this._picker.showPicker(
+      { value: this.value, data: this.singleArea },
+      result => {},
+      cancel => {}
+    );
+    ref.getInstance();
+    ref.getElement();
+>>>>>>> upstream/master
   }
 }

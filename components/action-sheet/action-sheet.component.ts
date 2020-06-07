@@ -1,16 +1,33 @@
+<<<<<<< HEAD
 import { Component, TemplateRef, ViewEncapsulation, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LocaleProviderService } from '../locale-provider/locale-provider.service';
+=======
+import { OnInit, Component, OnDestroy, ElementRef, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { LocaleProviderService } from '../locale-provider/locale-provider.service';
+import { ActionSheetRef } from './action-sheet-ref.class';
+>>>>>>> upstream/master
 @Component({
   selector: 'ActionSheet',
   templateUrl: './action-sheet.component.html',
   encapsulation: ViewEncapsulation.None
 })
+<<<<<<< HEAD
 export class ActionSheetComponent implements OnInit, OnDestroy {
   unsubscribe$ = new Subject<void>();
   option: any;
   constructor(private localeProviderService: LocaleProviderService) {}
+=======
+export class ActionSheetComponent<T = any, R = any> extends ActionSheetRef<T, R> implements OnInit, OnDestroy {
+  unsubscribe$ = new Subject<void>();
+  option: any;
+  constructor(private localeProviderService: LocaleProviderService, public elementRef: ElementRef) {
+    super();
+  }
+>>>>>>> upstream/master
 
   ngOnInit() {
     this.localeProvider();
@@ -43,10 +60,7 @@ export class ActionSheetComponent implements OnInit, OnDestroy {
   }
 
   isTemplateRef(value) {
-    if (value) {
-      return value instanceof TemplateRef;
-    }
-    return false;
+    return value instanceof TemplateRef;
   }
 
   isArray(options: any, value: any) {
@@ -56,6 +70,27 @@ export class ActionSheetComponent implements OnInit, OnDestroy {
     return false;
   }
 
+<<<<<<< HEAD
+=======
+  getInstance(): ActionSheetComponent {
+    return this;
+  }
+
+  getElement(): HTMLElement {
+    return this.elementRef && this.elementRef.nativeElement;
+  }
+
+  close(): void {
+    if (this.option.close) {
+      this.option.close();
+    }
+  }
+
+  destroy(): void {
+    this.close();
+  }
+
+>>>>>>> upstream/master
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

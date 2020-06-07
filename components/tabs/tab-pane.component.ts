@@ -1,24 +1,8 @@
-import { Component, Input, HostBinding, TemplateRef } from '@angular/core';
-import { trigger, state, style } from '@angular/animations';
-
-export type TabPanelPositionState =
-  | 'center-with-animation'
-  | 'center-without-animation'
-  | 'top-with-animation'
-  | 'top-with-animation-with-higher-zindex'
-  | 'top-without-animation'
-  | 'left-with-animation'
-  | 'left-with-animation-with-higher-zindex'
-  | 'left-without-animation'
-  | 'bottom-with-animation'
-  | 'bottom-with-animation-with-higher-zindex'
-  | 'bottom-without-animation'
-  | 'right-with-animation'
-  | 'right-with-animation-with-higher-zindex'
-  | 'right-without-animation';
+import { Component, Input, ViewChild, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'TabPane, nzm-tab-pane',
+<<<<<<< HEAD
   templateUrl: './tab-pane.component.html',
   styles: [`:host {touch-action: auto}`],
   host: {
@@ -103,17 +87,16 @@ export type TabPanelPositionState =
       state('center-without-animation', style({ transform: 'translate3d(0, 0, 0)' }))
     ])
   ]
+=======
+  templateUrl: './tab-pane.component.html'
+>>>>>>> upstream/master
 })
-export class TabPane {
-  prefixCls: string = 'am-tabs-pane';
-  tintColor: string = '#108ee9';
-  unselectedTintColor: string = '#888';
-  active: boolean = true;
-  isTitleString: boolean = true;
-  showTabPanelContent: boolean = false;
-  position: TabPanelPositionState;
+export class TabPaneComponent {
+  public isTitleString: boolean = true;
 
   private _title: string | TemplateRef<void>;
+
+  @ViewChild('content', { static: true }) content: TemplateRef<void>;
 
   @Input()
   get title(): string | TemplateRef<void> {
@@ -124,54 +107,5 @@ export class TabPane {
     this._title = value;
   }
 
-  @HostBinding('class.am-tabs-pane-wrap')
-  paneWrap: boolean = true;
-  @HostBinding('class.am-tabs-pane-wrap-active')
-  get wrapActive(): boolean {
-    return this.active;
-  }
-  @HostBinding('class.am-tabs-pane-wrap-inactive')
-  get wrapInactive(): boolean {
-    return !this.active;
-  }
-
   constructor() {}
-
-  onTranslateTabStarted(e: any) {
-    if (
-      (e.toState == 'center-with-animation' ||
-        e.toState == 'center-without-animation' ||
-        e.toState == 'left-with-animation-with-higher-zindex' ||
-        e.toState == 'right-with-animation-with-higher-zindex' ||
-        e.toState == 'top-with-animation-with-higher-zindex' ||
-        e.toState == 'bottom-with-animation-with-higher-zindex') &&
-      (this.position == 'center-with-animation' ||
-        this.position == 'center-without-animation' ||
-        this.position == 'left-with-animation-with-higher-zindex' ||
-        this.position == 'right-with-animation-with-higher-zindex' ||
-        this.position == 'top-with-animation-with-higher-zindex' ||
-        this.position == 'bottom-with-animation-with-higher-zindex')
-    ) {
-      this.showTabPanelContent = true;
-    }
-  }
-
-  onTranslateTabComplete(e: any) {
-    if (
-      e.toState !== 'center-with-animation' &&
-      e.toState !== 'center-without-animation' &&
-      e.toState !== 'left-with-animation-with-higher-zindex' &&
-      e.toState !== 'right-with-animation-with-higher-zindex' &&
-      e.toState !== 'top-with-animation-with-higher-zindex' &&
-      e.toState !== 'bottom-with-animation-with-higher-zindex' &&
-      this.position !== 'center-with-animation' &&
-      this.position !== 'center-without-animation' &&
-      this.position !== 'left-with-animation-with-higher-zindex' &&
-      this.position !== 'right-with-animation-with-higher-zindex' &&
-      this.position !== 'top-with-animation-with-higher-zindex' &&
-      this.position !== 'bottom-with-animation-with-higher-zindex'
-    ) {
-      this.showTabPanelContent = false;
-    }
-  }
 }

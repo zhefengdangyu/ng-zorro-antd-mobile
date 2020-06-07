@@ -1,12 +1,4 @@
-import {
-  Component,
-  ViewEncapsulation,
-  Input,
-  Output,
-  EventEmitter,
-  forwardRef,
-  HostBinding
-} from '@angular/core';
+import { Component, ViewEncapsulation, Input, Output, EventEmitter, forwardRef, HostBinding } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -17,12 +9,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => Switch),
+      useExisting: forwardRef(() => SwitchComponent),
       multi: true
     }
   ]
 })
-export class Switch {
+export class SwitchComponent {
   prefixCls = 'am-switch';
   wrapCls = 'am-switch';
   checkboxCls = {
@@ -110,5 +102,8 @@ export class Switch {
   registerOnTouched(fn: () => {}): void {
     this.onTouched = fn;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 }

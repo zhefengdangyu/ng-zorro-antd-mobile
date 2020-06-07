@@ -1,12 +1,14 @@
-<List class="{{subMenuPrefixCls}}" style="padding: 0">
-  <ListItem *ngFor="let dataItem of subMenuData; let i = index;"
-            key="i"
-            [className]="getClass(dataItem)"
-            [extra]="extra"
+<List class="{{ subMenuPrefixCls }}" style="padding: 0">
+  <ListItem
+    *ngFor="let dataItem of subMenuData; let i = index"
+    key="i"
+    [className]="getClass(dataItem)"
+    [extra]="extra"
   >
-    {{dataItem.label}}
+    {{ dataItem.label }}
 
     <ng-template #extra>
+<<<<<<< HEAD
       <label Radio
              *ngIf="!multiSelect"
              [checked]="dataItem.checked"
@@ -19,6 +21,22 @@
              [checked]="dataItem.checked"
              [disabled]="dataItem.disabled"
              (onChange)="onClick(dataItem)"
+=======
+      <label
+        Radio
+        *ngIf="!multiSelect"
+        [checked]="dataItem.checked"
+        [disabled]="dataItem.disabled"
+        (onChange)="onClick(dataItem)"
+      >
+      </label>
+      <label
+        Checkbox
+        *ngIf="multiSelect"
+        [checked]="dataItem.checked"
+        [disabled]="dataItem.disabled"
+        (onChange)="onClick(dataItem)"
+>>>>>>> upstream/master
       >
       </label>
     </ng-template>

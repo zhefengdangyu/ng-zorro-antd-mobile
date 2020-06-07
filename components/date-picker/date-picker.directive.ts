@@ -30,6 +30,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class DatePickerDirective implements OnDestroy, OnChanges, OnInit, ControlValueAccessor {
   picker: ComponentRef<DatePickerComponent>;
+  appendToBodyElement: HTMLElement;
   private _eventListeners: Array<() => void> = [];
   private _ngModelOnChange: (value: Date) => {};
   private _ngModelOnTouched: () => {};
@@ -44,6 +45,8 @@ export class DatePickerDirective implements OnDestroy, OnChanges, OnInit, Contro
   maxDate: string;
   @Input()
   use12Hours: boolean;
+  @Input()
+  minuteStep: number = 1;
   @Input()
   value: Date = new Date();
   @Input()
@@ -101,6 +104,10 @@ export class DatePickerDirective implements OnDestroy, OnChanges, OnInit, Contro
         },
         updateNgModel: (value: Date): void => {
           if (this._ngModelOnChange) {
+<<<<<<< HEAD
+=======
+            this.value = value;
+>>>>>>> upstream/master
             this._ngModelOnChange(value);
           }
         }
@@ -110,6 +117,7 @@ export class DatePickerDirective implements OnDestroy, OnChanges, OnInit, Contro
         'mode',
         'minDate',
         'maxDate',
+        'minuteStep',
         'value',
         'mask',
         'title',
@@ -144,13 +152,17 @@ export class DatePickerDirective implements OnDestroy, OnChanges, OnInit, Contro
         childInjector
       );
       if (options.appendToBody) {
-        document.body.appendChild(this.picker.location.nativeElement);
+        this.appendToBodyElement = document.body.appendChild(this.picker.location.nativeElement);
       }
       this.onVisibleChange.emit(true);
     }
   }
 
   hidePicker(): void {
+    if (this.appendToBodyElement) {
+      document.body.removeChild(this.appendToBodyElement);
+      this.appendToBodyElement = null;
+    }
     if (this.picker) {
       this.picker.destroy();
       delete this.picker;

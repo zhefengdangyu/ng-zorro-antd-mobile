@@ -16,7 +16,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   templateUrl: './button.component.html'
 })
-export class Button implements AfterViewInit {
+export class ButtonComponent implements AfterViewInit {
   prefixCls: string = 'am-button';
   ngTemplate: boolean = false;
   iconType: any;
@@ -81,8 +81,13 @@ export class Button implements AfterViewInit {
     if (this._disabled) {
       return;
     }
+<<<<<<< HEAD
       this._active = true;
       this.setClassMap();
+=======
+    this._active = true;
+    this.setClassMap();
+>>>>>>> upstream/master
   }
   @HostListener('touchend', ['$event'])
   @HostListener('mouseup', ['$event'])
@@ -131,7 +136,11 @@ export class Button implements AfterViewInit {
   set loading(value: boolean) {
     this._loading = value;
     if (this._el.querySelector('icon')) {
+<<<<<<< HEAD
       const icon =  this._el.querySelector('icon') as HTMLElement;
+=======
+      const icon = this._el.querySelector('icon') as HTMLElement;
+>>>>>>> upstream/master
       icon.style.display = value ? '' : 'none';
     }
     this.setClassMap();

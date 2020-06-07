@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Injectable, Injector } from '@angular/core';
 import { PickerComponent } from './picker.component';
 import { PickerCallBack, PickerOptions } from './picker-options.provider';
@@ -11,6 +12,23 @@ export class Picker extends PopupService {
     confirmCallback?: PickerCallBack,
     cancelCallback?: PickerCallBack
   ): void {
+=======
+import { Injectable, Injector, ComponentRef } from '@angular/core';
+import { PickerComponent } from './picker.component';
+import { PickerCallBack, PickerOptions } from './picker-options.provider';
+import { PopupService } from '../core/services/popup.service';
+
+@Injectable()
+export class PickerService extends PopupService {
+  comRef: ComponentRef<PickerComponent> = null;
+  defaultOptions: PickerOptions = new PickerOptions();
+
+  showPicker(
+    config: PickerOptions = this.defaultOptions,
+    confirmCallback?: PickerCallBack,
+    cancelCallback?: PickerCallBack
+  ): any {
+>>>>>>> upstream/master
     const options = new PickerOptions();
     Object.assign(options, config, {
       hidePicker: (event): void => {
@@ -34,10 +52,19 @@ export class Picker extends PopupService {
         useValue: options
       }
     ]);
+<<<<<<< HEAD
     Picker.showPopup(PickerComponent, childInjector);
   }
 
   static hidePicker(): void {
     Picker.hidePopup();
+=======
+    this.comRef = this.showPopup(PickerComponent, childInjector);
+    return this.comRef && this.comRef.instance;
+  }
+
+  hidePicker(): void {
+    this.hidePopup();
+>>>>>>> upstream/master
   }
 }

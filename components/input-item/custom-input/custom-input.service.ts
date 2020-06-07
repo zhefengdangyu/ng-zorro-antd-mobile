@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   Injectable,
   ComponentRef,
@@ -6,6 +7,10 @@ import {
   ComponentFactoryResolver
 } from '@angular/core';
 import { CustomKeyboard } from '../custom-keyboard/custom-keyboard.component';
+=======
+import { Injectable, ComponentRef, ComponentFactory, ApplicationRef, ComponentFactoryResolver } from '@angular/core';
+import { CustomKeyboardComponent } from '../custom-keyboard/custom-keyboard.component';
+>>>>>>> upstream/master
 
 @Injectable()
 export class CustomInputService {
@@ -13,12 +18,12 @@ export class CustomInputService {
   static appRef: ApplicationRef = null;
   static isShow = false;
   static clickValue = null;
-  static _inputCompFactory: ComponentFactory<CustomKeyboard> = null;
+  static _inputCompFactory: ComponentFactory<CustomKeyboardComponent> = null;
   static _keyboardPrefixCls = 'am-number-keyboard';
 
   constructor(private _appRef: ApplicationRef, private _cfr: ComponentFactoryResolver) {
     CustomInputService.appRef = this._appRef;
-    CustomInputService._inputCompFactory = this._cfr.resolveComponentFactory(CustomKeyboard);
+    CustomInputService._inputCompFactory = this._cfr.resolveComponentFactory(CustomKeyboardComponent);
   }
 
   static getShowStatus() {

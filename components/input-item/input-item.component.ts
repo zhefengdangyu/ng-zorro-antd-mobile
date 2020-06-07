@@ -1,17 +1,23 @@
 import {
   Component,
-  OnInit,
+  AfterViewInit,
   Input,
   Output,
   EventEmitter,
   ViewChild,
-  OnChanges,
+  OnInit,
   HostBinding,
   Renderer2,
   ElementRef,
-  forwardRef
+  forwardRef,
+  TemplateRef
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+<<<<<<< HEAD
+=======
+import { isTemplateRef } from '../core/util/check';
+import { NzmInputType } from './input-item.definitions';
+>>>>>>> upstream/master
 
 @Component({
   selector: 'InputItem, nzm-input-item',
@@ -19,12 +25,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputItem),
+      useExisting: forwardRef(() => InputItemComponent),
       multi: true
     }
   ]
 })
+<<<<<<< HEAD
 export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
+=======
+export class InputItemComponent implements OnInit, AfterViewInit, ControlValueAccessor {
+>>>>>>> upstream/master
   prefixCls: string = 'am-input';
   wrapCls: object;
   labelCls: object;
@@ -32,10 +42,12 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
   setFocus: object = {};
   pattern: string = '';
   autoFocus: boolean = false;
-  inputType: string = 'text';
+  inputType: NzmInputType = 'text';
+  ngTemplate: boolean = false;
+  isTemplateRef = isTemplateRef;
 
   private _el: HTMLElement;
-  private _type: string = 'text';
+  private _type: NzmInputType = 'text';
   private _value: string;
   private _defaultValue: string = '';
   private _placeholder: string = '';
@@ -44,7 +56,7 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
   private _clear: boolean = false;
   private _maxLength: number;
   private _error: boolean = false;
-  private _extra: string = '';
+  private _extra: string | TemplateRef<any> = '';
   private _labelNumber: number = 5;
   private _updatePlaceholder: boolean = false;
   private _prefixListCls: string = 'am-list';
@@ -54,18 +66,22 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
   private _focus: boolean = false;
   private _isClear: boolean = false;
   private _fontColor: string;
+<<<<<<< HEAD
+=======
+  private _content: string | TemplateRef<any> = '';
+>>>>>>> upstream/master
   private _inputLock = false;
 
-  @ViewChild('lableContent')
-  lableRef;
+  @ViewChild('lableContent', { static: true })
+  lableRef: ElementRef;
   @ViewChild('inputElement')
-  inputElementRef;
+  inputElementRef: ElementRef;
 
   @Input()
-  get type(): string {
+  get type(): NzmInputType {
     return this._type;
   }
-  set type(value: string) {
+  set type(value: NzmInputType) {
     if (value && value.length > 0) {
       this.inputType = value;
       if (value === 'bankCard' || value === 'phone') {
@@ -87,7 +103,7 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
     return this._value;
   }
   set value(v: string) {
-    if (typeof v === undefined || v === null) {
+    if (typeof v === 'undefined' || v === null) {
       this._value = '';
     } else {
       this._value = v;
@@ -99,7 +115,9 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
   }
   set defaultValue(value: string) {
     this._defaultValue = value;
-    this._value = this._defaultValue;
+    if (!this._value) {
+      this._value = this._defaultValue;
+    }
   }
   @Input()
   get placeholder(): string {
@@ -148,10 +166,15 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
     this.clsError = value;
   }
   @Input()
-  get extra(): string {
+  get extra(): string | TemplateRef<any> {
     return this._extra;
   }
-  set extra(value: string) {
+  set extra(value: string | TemplateRef<any>) {
+    if (value instanceof TemplateRef) {
+      this.ngTemplate = true;
+    } else {
+      this.ngTemplate = false;
+    }
     this._extra = value;
   }
   @Input()
@@ -210,6 +233,14 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
       }
     }
   }
+  @Input()
+  get content() {
+    return this._content;
+  }
+  set content(value: string | TemplateRef<any>) {
+    this._content = value;
+    this.setCls();
+  }
 
   @Output()
   onChange: EventEmitter<any> = new EventEmitter<any>();
@@ -237,12 +268,13 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
     this._el = element.nativeElement;
   }
 
-  _onChange = (_: any) => {};
+  _onChange = (_: any) => { };
 
   setCls() {
     if (
       this.lableRef.nativeElement.children.length > 0 ||
-      (this.lableRef.nativeElement && this.lableRef.nativeElement.innerText !== '')
+      (this.lableRef.nativeElement && this.lableRef.nativeElement.innerText !== '') ||
+      this._content != undefined
     ) {
       this.labelCls = {
         [`${this.prefixCls}-label`]: true,
@@ -257,6 +289,7 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
     this.controlCls = { [`${this.prefixCls}-control`]: true };
   }
 
+<<<<<<< HEAD
   inputChange(e) {
     if (this._inputLock && this.inputType === 'text') {
       return;
@@ -283,17 +316,45 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
       case 'password':
         break;
       default:
+=======
+  inputChange(inputValue: string) {
+    setTimeout(() => {
+      if (this._inputLock && this.inputType === 'text') {
+        return;
+      }
+      let value = inputValue;
+      switch (this.inputType) {
+        case 'bankCard':
+          value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
+          break;
+        case 'phone':
+          value = value.replace(/\D/g, '').substring(0, 11);
+          const valueLen = value.length;
+          if (valueLen > 3 && valueLen < 8) {
+            value = `${value.substr(0, 3)} ${value.substr(3)}`;
+          } else if (valueLen >= 8) {
+            value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(7)}`;
+          }
+          break;
+        case 'number':
+          value = value.replace(/\D/g, '');
+          break;
+      }
+      if (this.inputType !== 'text') {
+>>>>>>> upstream/master
         this._value = value;
-        break;
-    }
-    this._value = value;
+      }
+      this._onChange(this._value);
+      this.onChange.emit(this._value);
+    }, 0);
+  }
 
-    if (this._type !== 'money') {
-      this.inputElementRef.nativeElement.value = this._value;
-    }
+  compositionStart() {
+    this._inputLock = true;
+  }
 
-    this._onChange(this._value);
-    this.onChange.emit(this._value);
+  compositionEnd() {
+    this._inputLock = false;
   }
 
   compositionStart() {
@@ -305,6 +366,9 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
   }
 
   inputFocus(value) {
+    if (!this._editable && document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
     setTimeout(() => {
       this._focus = true;
       this.clsFocus = true;
@@ -330,11 +394,9 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
       this._placeholder = this._value;
     }
     this._value = '';
-    this.onChange.emit('');
+    this.onChange.emit(this._value);
+    this._onChange(this._value);
     this._isClear = true;
-    if (this._type !== 'money') {
-      this.inputElementRef.nativeElement.value = this._value;
-    }
     this.inputFocus(this._value);
   }
 
@@ -355,6 +417,7 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
       this._value = '';
     } else {
       this._value = value;
+<<<<<<< HEAD
     }
   }
 
@@ -367,12 +430,30 @@ export class InputItem implements OnInit, OnChanges, ControlValueAccessor {
   ngOnChanges() {
     if (this.inputElementRef && this._type !== 'money' && this._value !== undefined) {
       this.inputElementRef.nativeElement.value = this._value;
+=======
+>>>>>>> upstream/master
     }
   }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  registerOnChange(fn: (_: any) => void): void {
+    this._onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void { }
 
   ngOnInit() {
     this.setCls();
     this.render.addClass(this._el, this._prefixListCls + '-item');
     this.render.addClass(this._el, this._prefixListCls + '-item-middle');
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.setCls();
+    }, 0);
   }
 }

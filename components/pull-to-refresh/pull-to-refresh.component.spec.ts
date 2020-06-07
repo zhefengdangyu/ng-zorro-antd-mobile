@@ -131,6 +131,7 @@ describe('PullToRefreshComponent', () => {
 @Component({
   selector: 'demo-notice-bar-basic',
   template: `
+<<<<<<< HEAD
   <PullToRefresh [ngStyle]="dtPullToRefreshStyle"
                  [endReachedRefresh]="state.scrollRefresh"
                  [(ngModel)]="state.refreshState"
@@ -142,10 +143,24 @@ describe('PullToRefreshComponent', () => {
   >
     <div *ngFor="let i of this.state.data" style="text-align: center; padding: 20px">{{i}}</div>
   </PullToRefresh>
+=======
+    <PullToRefresh
+      [ngStyle]="dtPullToRefreshStyle"
+      [endReachedRefresh]="state.scrollRefresh"
+      [(ngModel)]="state.refreshState"
+      [direction]="state.down ? 'down' : 'up'"
+      [refreshing]="true"
+      [headerIndicator]="state.down ? {} : { deactivate: '下拉可以刷新' }"
+      [footerIndicator]="state.down ? {} : { deactivate: '上拉可以刷新' }"
+      (onRefresh)="pullToRefresh($event)"
+    >
+      <div *ngFor="let i of this.state.data" style="text-align: center; padding: 20px">{{ i }}</div>
+    </PullToRefresh>
+>>>>>>> upstream/master
 
-  <ng-template #loading>
-  <Icon type="loading"></Icon>
-  </ng-template>
+    <ng-template #loading>
+      <Icon type="loading"></Icon>
+    </ng-template>
   `
 })
 export class TestPullToRefreshComponent {

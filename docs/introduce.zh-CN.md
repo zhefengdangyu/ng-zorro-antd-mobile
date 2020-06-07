@@ -1,6 +1,6 @@
 ---
 order: 0
-title: Ant Design Mobile of Angular <div class="github-btn"><a class="gh-btn" href="http://github.com/NG-ZORRO/ng-zorro-antd-mobile/" target="_blank"><span class="gh-ico" aria-hidden="true"></span><span class="gh-text">Star</span></a><a class="gh-count" target="_blank" href="http://github.com/NG-ZORRO/ng-zorro-antd-mobile/stargazers">{{starCount}}</a></div>
+title: Ant Design Mobile of Angular <div class="github-btn"><a class="gh-btn" href="https://github.com/NG-ZORRO/ng-zorro-antd-mobile/" target="_blank"><span class="gh-ico" aria-hidden="true"></span><span class="gh-text">Star</span></a><a class="gh-count" target="_blank" href="https://github.com/NG-ZORRO/ng-zorro-antd-mobile/stargazers">{{starCount}}</a></div>
 ---
 
 这里是 **Ant Design** 移动规范的 **Angular** 实现，服务于阿里巴巴集团数据无线业务。
@@ -110,7 +110,7 @@ title: Ant Design Mobile of Angular <div class="github-btn"><a class="gh-btn" hr
 
 ## 扫码体验
 
-![ng-zorro-mobile](https://gw.alicdn.com/tfs/TB1KPm6dSzqK1RjSZFjXXblCFXa-260-260.png)
+![ng-zorro-mobile](https://img.alicdn.com/tfs/TB1QMx.JwHqK1RjSZJnXXbNLpXa-260-260.png)
 
 ## 特性
 
@@ -133,7 +133,7 @@ title: Ant Design Mobile of Angular <div class="github-btn"><a class="gh-btn" hr
 
 ## 支持 Angular 版本
 
-目前支持 Angular `^6.0.0` 版本。
+目前支持 Angular `^9.0.0` 版本。
 
 ## 安装
 
@@ -149,7 +149,7 @@ $ ng add ng-zorro-antd-mobile
 
 ## 链接
 
-- [首页](http://ng.mobile.ant.design)
+- [首页](https://ng.mobile.ant.design)
 - [Angular 官方文档](https://angular.io/)
 - [开发脚手架](https://cli.angular.io/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -157,15 +157,15 @@ $ ng add ng-zorro-antd-mobile
 
 ## 谁在使用
 
-- [阿里巴巴](http://www.alibaba.com/)
+- [阿里巴巴](https://www.alibaba.com/)
 
 > 如果你的公司和产品使用了 **NG-ZORRO-MOBILE**，欢迎到 [这里](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/3) 留言。
 
 ## 如何贡献
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/blob/master/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pulls)，或给我们 [报告 Bug](http://ng.mobile.ant.design/issue-helper/#/zh)。
+在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/blob/master/CONTRIBUTING.md)。如果你希望参与贡献，欢迎 [Pull Request](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pulls)，或给我们 [报告 Bug](https://ng.mobile.ant.design/issue-helper/#/zh)。
 
-> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)(本指南不提供此项目的实际支持服务！)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
+> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)(本指南不提供此项目的实际支持服务！)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](https://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
 
 ## 社区互助
 
@@ -177,4 +177,8 @@ $ ng add ng-zorro-antd-mobile
 2. [<img alt="Segment Fault" src="https://gw.alipayobjects.com/zos/rmsportal/hfYFfCvHTQTUKntlJbMF.svg" width="100" />](https://segmentfault.com/t/ng-zorro-mobile)（中文）
 3. [![Gitter](https://img.shields.io/gitter/room/ng-zorro/ng-zorro-antd-mobile.svg?style=flat-square)](https://gitter.im/ng-zorro/ng-zorro-antd-mobile)（English & 中文）
 4. 加入钉钉 **NG-ZORRO-MOBILE** 自助服务群（中文）<br/>
+<<<<<<< HEAD
    <img src="https://img.alicdn.com/tfs/TB1jMaZj3HqK1RjSZFkXXX.WFXa-1125-1485.jpg" width="300">
+=======
+   <img src="https://img.alicdn.com/tfs/TB1cABKAkL0gK0jSZFAXXcA9pXa-1125-1485.jpg" width="300">
+>>>>>>> upstream/master

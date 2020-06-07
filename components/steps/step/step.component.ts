@@ -17,12 +17,12 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => Step),
+      useExisting: forwardRef(() => StepComponent),
       multi: true
     }
   ]
 })
-export class Step implements OnInit {
+export class StepComponent implements OnInit {
   prefixCls = 'am-steps';
   stepItemCls = {};
   iconCls: object;
@@ -31,44 +31,29 @@ export class Step implements OnInit {
   isIconString: boolean = true;
   iconSize: string;
 
-  private _status: StatusEnum;
-  private _title: string;
-  private _description: string;
+  private _status: StepStatusEnum;
   private _icon: string | TemplateRef<any>;
 
   @Input()
-  get status(): StatusEnum {
+  get status(): StepStatusEnum {
     return this._status;
   }
-  set status(value: StatusEnum) {
+  set status(value: StepStatusEnum) {
     if (value) {
       this._status = value;
       this.setClass();
     }
   }
   @Input()
-  get title(): string {
-    return this._title;
-  }
-  set title(value: string) {
-    this._title = value;
-  }
+  title: string | TemplateRef<any> = null;
   @Input()
-  get description(): string {
-    return this._description;
-  }
-  set description(value: string) {
-    this._description = value;
-  }
+  description: string | TemplateRef<any> = null;
   @Input()
   get icon(): string | TemplateRef<any> {
     return this._icon;
   }
   set icon(value: string | TemplateRef<any>) {
     if (value) {
-      if (typeof value !== 'string') {
-        this.isIconString = false;
-      }
       this._icon = value;
       this.setClass();
     }
@@ -78,6 +63,10 @@ export class Step implements OnInit {
   clsStepItem: boolean = true;
 
   constructor(private _el: ElementRef) {}
+
+  isTemplateRef(value) {
+    return value instanceof TemplateRef;
+  }
 
   setClass() {
     this.iconCls = {
@@ -92,13 +81,13 @@ export class Step implements OnInit {
   ngOnInit() {}
 }
 
-export enum StatusEnum {
+export enum StepStatusEnum {
   WAIT = 'wait',
   PROCESS = 'process',
   FINISH = 'finish',
   ERROR = 'error'
 }
-export enum DirectionEnum {
+export enum StepDirectionEnum {
   VERTICAL = 'vertical',
   HORIZONTAL = 'horizontal'
 }

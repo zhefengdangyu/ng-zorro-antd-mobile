@@ -1,5 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+<<<<<<< HEAD
 import { en_US, ru_RU, zh_CN, sv_SE, da_DK } from 'ng-zorro-antd-mobile';
+=======
+>>>>>>> upstream/master
 
 @Component({
   selector: 'demo-date-picker-basic',
@@ -8,6 +11,7 @@ import { en_US, ru_RU, zh_CN, sv_SE, da_DK } from 'ng-zorro-antd-mobile';
     <List [className]="'date-picker-list'">
       <ListItem
         DatePicker
+<<<<<<< HEAD
         [extra]="currentDateFormat(value1)"
         [arrow]="'horizontal'"
         [mode]="'datetime'"
@@ -83,6 +87,16 @@ import { en_US, ru_RU, zh_CN, sv_SE, da_DK } from 'ng-zorro-antd-mobile';
       >
         Datetime
         <Brief>{{ name6 }}</Brief>
+=======
+        [extra]="currentDateFormat(value)"
+        [arrow]="'horizontal'"
+        [mode]="'datetime'"
+        [(ngModel)]="value"
+        (onOk)="onOk($event)"
+      >
+        Datetime
+        <Brief>{{ name }}</Brief>
+>>>>>>> upstream/master
       </ListItem>
     </List>
   `,
@@ -95,6 +109,7 @@ import { en_US, ru_RU, zh_CN, sv_SE, da_DK } from 'ng-zorro-antd-mobile';
   ]
 })
 export class DemoDatePickerBasicComponent {
+<<<<<<< HEAD
   locale = en_US;
   name1 = '选择';
   name2 = '选择';
@@ -114,6 +129,10 @@ export class DemoDatePickerBasicComponent {
   value4 = this.utcNow;
   value5 = new Date(1999, 1, 1, 1, 1);
   value6 = new Date(2031, 1, 1, 1, 1);
+=======
+  name = '选择';
+  value = new Date();
+>>>>>>> upstream/master
 
   currentDateFormat(date, format: string = 'yyyy-mm-dd HH:MM'): any {
     const pad = (n: number): string => (n < 10 ? `0${n}` : n.toString());
@@ -126,6 +145,7 @@ export class DemoDatePickerBasicComponent {
       .replace('ss', pad(date.getSeconds()));
   }
 
+<<<<<<< HEAD
   onOk1(result: Date) {
     this.name1 = this.currentDateFormat(result);
     this.value1 = result;
@@ -154,6 +174,11 @@ export class DemoDatePickerBasicComponent {
   onOk6(result: Date) {
     this.name6 = this.currentDateFormat(result);
     this.value6 = result;
+=======
+  onOk(result: Date) {
+    this.name = this.currentDateFormat(result);
+    this.value = result;
+>>>>>>> upstream/master
   }
 
   formatIt(date: Date, form: string) {

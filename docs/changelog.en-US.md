@@ -5,7 +5,7 @@ toc: false
 timeline: true
 ---
 
-`ng-zorro-antd-mobile` strictly follows [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/).
+`ng-zorro-antd-mobile` strictly follows [Semantic Versioning 2.0.0](https://semver.org/lang/zh-CN/).
 
 #### Release Schedule
 
@@ -13,6 +13,7 @@ timeline: true
 - Monthly release: minor version at the end of every month for new features.
 - Major version release is not included in this schedule for breadking change and new features.
 
+<<<<<<< HEAD
 ### Bug Fixes
 
 * **actionsheet:** fix actionsheet not destory unsubscribe for locale ([#236](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/236)) ([d719496](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/d719496))
@@ -21,6 +22,355 @@ timeline: true
 
 ## 0.11.2 (2019-01-11)
 
+=======
+## 2.0.1(2020-04-13)
+### Bug Fixes
+
+* **locale-provider:** fix provider LocaleProviderModule in ngModule will trigger error ([#662](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/662)) ([7f52fca](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7f52fca3950e67602c8578e42664ac566861437d))
+
+## 2.0.0(2020-04-07)
+
+### Features
+
+* **all:** support Angular 9 ([#652](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/652)) ([2150bcb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2150bcb955596b9297e34cc7fa6dae1d12625226))
+
+## 1.0.5(2020-03-17)
+
+### Features
+
+* **steps:** step title&description support templateRef input ([#650](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/650)) ([bb41050](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bb4105060cad850d9d6d106f8b6b2521bb6a5902))
+
+## 1.0.4(2020-03-10)
+
+### Bug Fixes
+
+* **carousel:** fix carousel slide width bug ([#646](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/646)) ([b26eb8c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b26eb8c9517c8a81f4169bebf2033846e99e1b17))
+* **input-item:** fix input cursor always turn to end position ([#639](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/639)) ([0f032ad](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0f032adae19d4827bde17f4952124ccce5421216))
+
+## 1.0.3(2020-01-08)
+
+### Bug Fixes
+
+* **date-picker:** cannot choose maximum and minimum time ([#627](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/627)) ([2225539](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/22255394a5d9cf9bb19cc0a647bdb33a106a31c0))
+* **date-picker:** fix mode:time can't choose maximum minimum,set maxDate minDate ([#629](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/629)) ([e685ffa](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/e685ffa65e533c529734ebe8eca85baddf01d89d))
+* **datepicker:** fix unit test failures ([#632](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/632)) ([7183052](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/71830525f4d7445fff95e1562c28dfcd940e8989))
+* **drawer:** drawer can not cover elements under background ([#631](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/631)) ([8794e89](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/8794e895364b53f068702ebbfd0f200df1bdcd40))
+
+## 1.0.2(2019-12-04)
+
+### Bug Fixes
+
+* **accordion:** fix accordion expand and collapse error when quick click ([#614](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/614)) ([567ff59](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/567ff59))
+* **calendar:** should get extra cell class name from cell not row ([#620](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/620)) ([0a11514](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0a11514))
+* **carousel:** fix carousel slide error when resize ([#615](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/615)) ([3ff1894](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3ff1894))
+* **checkbox:** fix checked initial status when disabled is true ([#598](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/598)) ([85511ca](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/85511ca))
+* **datepicker:** fix chinese prompt ([#616](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/616)) ([71576bb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/71576bb))
+* **list:** fix inputitem demo ([#606](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/606)) ([0a50951](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0a50951))
+* **list&range:** delete console.log ([#610](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/610)) ([762f200](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/762f200))
+* **pagination:** fix set locale not work bug ([#611](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/611)) ([756f5be](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/756f5be))
+* **searchbar:** Fix the keyboard not closed when the user submits ([#596](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/596)) ([5e20a54](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5e20a54))
+* **steps:** fix step import async ([#617](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/617)) ([ef4153c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ef4153c))
+* **tabs:** make popup components working right in Tabs&TabBar ([#621](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/621)) ([89bd218](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/89bd218))
+
+## 1.0.1(2019-09-24)
+
+### Bug Fixes
+
+* **picker:** remove lodash isEqual reference ([#592](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/592)) ([ee6f4b6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ee6f4b6))
+
+## 1.0.0(2019-09-23)
+
+### Bug Fixes
+
+* **date-picker:** fix NAN bug when fast scroll ([#589](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/589)) ([3e63d20](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3e63d20))
+
+* **picker:** fix select bug when data is a function ([#586](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/586)) ([26a07d7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/26a07d7))
+
+## 1.0.0-rc.0(2019-09-16)
+
+### Bug Fixes
+
+* **carousel:** fix carousel ignore vertical event when set left or right direction ([#581](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/581)) ([abb3a0a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/abb3a0a))
+
+* **carousel:** fix carousel style int other content error ([#582](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/582)) ([004e4e0](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/004e4e0))
+
+* **toast:** fix toast z-index ([#580](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/580)) ([7350600](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7350600))
+
+* **steps:** fix steps status icon ([#577](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/577)) ([fef7568](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/fef7568))
+
+* **accordion:** fix accordion not automatic expand bug ([#575](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/575)) ([19b90da](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/19b90da))
+
+* **pull-to-refresh:** fix pull-to-refresh not work bug ([#573](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/573)) ([6df7d7c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/6df7d7c))
+
+* **textarea-item:** fixe textarea-item autoheight issues([#571](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/571)) ([5aa3149](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5aa3149))
+
+* **swipe-action:** fix swipe-action not work in ionic bug ([#569](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/569)) ([f2d1600](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f2d1600))
+
+## 1.0.0-beta.2(2019-09-05)
+
+### Bug Fixes
+
+* **list:** fix typescript build error ([#565](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/565)) ([46e66f2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/46e66f2))
+
+* **website:** fix version map ([#562](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/562)) ([3744833](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3744833))
+
+* **codebox:** fix stackblitz package dependencies error ([#561](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/561)) ([61dcc28](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/61dcc28))
+
+* **codebox:** fix copy code error ([#560](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/560)) ([630f63c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/630f63c))
+
+* **codebox:** fix rawCode convert bug ([#558](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/558)) ([ddb89cb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ddb89cb))
+
+* **website:** fix website run error ([#557](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/557)) ([b44a095](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b44a095))
+
+## 1.0.0-beta.1(2019-09-03)
+
+### Bug Fixes
+
+* **stepper:** fix button status when the user enters ([#554](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/544)) ([0739e2c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0739e2c))
+
+* **modal:** fix func call error ([#543](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/543)) ([53cde92](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/53cde92))
+
+### Features
+* **All:** support Angular 8.0 ([#553](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/553)) ([c2fd82d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/c2fd82d))
+
+## 1.0.0-beta.0(2019-08-21)
+
+### BreakChange
+
+* **toast:** toast refactor ([454b55c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/454b55c))
+
+* **picker & modal & action-sheet:** popup refactor
+([62c4d60](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/62c4d60))
+
+* **input-item:** add label content API  ([#527](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/527)) ([109dbd6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/109dbd6))
+
+### Bug Fixes
+
+* **modal:** fix visable init value as false ([#535](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/535)) ([1f6391e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/1f6391e))
+* **radio:** delete duplicated API ([#508](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/508)) ([2fc7350](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2fc7350))
+* **textarea-item:** fix autoHeight error([#501](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/501)) ([#502](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/502)) ([50ade9b](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/50ade9b))
+* **picker:** fix okText dismissText API ([#499](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/499)) ([0c9bc52](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0c9bc52))
+
+### Features
+
+* **action-sheet:** update testing coverage ([#515](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/515)) ([b74db68](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b74db68))
+* **carousel:** update testing coverage ([#511](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/511)) ([7f80c13](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7f80c13))
+* **input-item:** add label content API  ([#527](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/527)) ([109dbd6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/109dbd6))
+* **input-item:** fix input-item cursor bug ([#500](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/500)) ([9f9f579](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/9f9f579))
+* **README:** add CodeFactor&Twitter ([#490](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/490)) ([6fe3caf](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/6fe3caf))
+
+## 0.12.5(2019-06-25)
+
+### Bug Fixes
+
+* **carousel:** fix carousel has one item width error. ([#482](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/482)) ([7ab3cba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7ab3cba))
+
+## 0.12.4 (2019-06-24)
+
+### Bug Fixes
+
+* **carousel:** fix vertical mode width error. ([#477](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/477)) ([b0ca5ba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b0ca5ba))
+* **date-picker:** add minuteStep support ([#479](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/479)) ([246c222](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/246c222))
+
+### Features
+
+* **calendar:** update testing coverage ([#474](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/474)) ([7dd77ba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7dd77ba))
+* **input-item:** fix value bug when clear ([#472](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/472)) ([51772f7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/51772f7))
+
+## 0.12.3 (2019-06-05)
+
+### Bug Fixes
+
+* **date-picker:** fix caculate time error. ([#456](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/456)) ([413178d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/413178d))
+* **date-picker:** fix new Date init in safari would be invlid date. ([#454](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/454)) ([87c62a3](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/87c62a3))
+* **radio-item-group:** fix checked error. ([#458](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/458)) ([#463](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/463)) ([0e3ca04](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0e3ca04))
+* **stackblitz:** set right version for @angular/compiler ([#466](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/466)) ([3bc4053](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3bc4053))
+* **picker:** fix return result error ([#462](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/462)) ([eeabc11](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/eeabc11))
+
+## 0.12.2 (2019-05-21)
+
+### Bug Fixes
+
+* **popupservice:** set popupservice providers in referenced components. ([#449](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/449)) ([a14ea6b](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a14ea6b))
+
+
+### Features
+
+* **toast:** support position top and bottom ([#450](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/450)) ([77c326a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/77c326a))
+
+## 0.12.1 (2019-05-20)
+
+### Bug Fixes
+
+* **calendar:** fix calendar timepicker display title error bug ([#444](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/444)) ([7ad01ba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7ad01ba))
+* **mobile site:** correct component name in mobile site ([#415](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/415)) ([f106942](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f106942))
+* **modal&input-item:** add essential providers to make demo work ([#421](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/421)) ([66057cf](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/66057cf))
+* **picker:** fix picker style error ([#434](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/434)) ([c09b85e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/c09b85e))
+* **badge:** fix badge when text value form empty to non empty ([#441](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/441)) ([fab7312](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/fab7312))
+* **carousel:** fix adaptive when switching screens ([#411](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/411)) ([4ff06d9](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/4ff06d9))
+
+
+### Features
+
+* **imagepicker:** add capture&disableDelete API ([#410](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/410)) ([cfd733e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/cfd733e))
+* **swipe-action:** add className api ([#436](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/436)) ([3a976c5](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3a976c5))
+* **toast:** provides a way for angular new API to self-inject ([#426](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/426)) ([ad31989](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ad31989))
+
+## 0.12.0 (2019-04-30)
+
+### BreakChange
+
+* **tabbar:** TabBarItem instead of TabPane&TabBarTab, make it more simple ([#399](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/399)) ([f82ceab](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f82ceab))
+* **grid:** change API OnClick to onClick ([#394](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/394)) ([bf3039a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bf3039a))
+
+### Bug Fixes
+
+* **grid:** change API OnClick to onClick ([#394](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/394)) ([bf3039a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bf3039a))
+* **schematics:** change url from https to http ([#393](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/393)) ([0c3ad0f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0c3ad0f))
+* **stepper:** fix stepper disabled bug ([#405](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/405)) ([acb2a95](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/acb2a95))
+
+### Features
+
+* **all:** export components API publicly ([#389](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/389)) ([dd9af23](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/dd9af23))
+* **checkboxitem&radioitem:** support wrap API ([#406](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/406)) ([db8a6c8](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/db8a6c8))
+* **checkboxItem&radioItem:** API sync with listItem ([#408](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/408)) ([6cf232f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/6cf232f))
+* **dependencies:** update dependencies ([#401](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/401)) ([dcf4a61](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/dcf4a61))
+* **docs:** update README.md ([#398](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/398)) ([80bd1b5](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/80bd1b5))
+* **styles:** sync with ant design mobile of react ([#403](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/403)) ([5c77b8c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5c77b8c))
+* **tabs&tabbar:** tabs&tabbar refactor ([#399](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/399)) ([f82ceab](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f82ceab))
+
+### Performance Improvements
+
+* **code-box:** perf code-box open stackblitz. ([#404](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/404)) ([9c39051](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/9c39051))
+* **site:** update homepage ([#397](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/397)) ([92ae470](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/92ae470))
+* **tabs&tabbar:** change prerenderingSiblingsNumber to -1 by default ([#407](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/407)) ([1db49eb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/1db49eb))
+
+## 0.11.9 (2019-04-18)
+
+### Bug Fixes
+
+* **calendar:** fix calendar concat antd mobile css bug ([#385](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/385)) ([cee534a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/cee534a))
+* **datepickerview:** fix days can't select 31 ([#383](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/383)) ([aac65b6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/aac65b6))
+* **inputitem:** fixed style flash ([#377](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/377)) ([97bf63e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/97bf63e))
+* **picker:** fix style error. ([#387](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/387)) ([d5128af](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/d5128af))
+* **carousel:** fix if carousel Out of sight stop carousel play. ([#382](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/382)) ([362245f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/362245f))
+
+
+### Features
+
+* **styles:** styles in sync with antd mobile of react ([#376](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/376)) ([0c4b966](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0c4b966))
+* **textarea:** modify warp style ([#379](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/379)) ([bcd5d1f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bcd5d1f))
+
+
+### Performance Improvements
+
+* **site:** use https by default ([#373](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/373)) ([cc693e5](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/cc693e5))
+
+## 0.11.8 (2019-04-04)
+
+### Bug Fixes
+
+* **tabbar:** fix tabbar set activeTab not work and add demo ([#345](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/345)) ([3f8becd](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3f8becd))
+* **accordion:** fix accordion support async load accordionPanel ([#355](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/355)) ([924bcc2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/924bcc2))
+* **carousel:** fix carousel vertical mode error ([#344](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/344)) ([e9ae898](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/e9ae898))
+* **inputitem:** fix inputitem extra support template ([#353](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/353)) ([aeb3cbe](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/aeb3cbe))
+* **inputitem:** fix inputitem label css init ([#364](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/364)) ([bd11c54](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bd11c54))
+* **picker:** fix async picker data need to update selected data ([#346](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/346)) ([fbcc0cf](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/fbcc0cf))
+* **picker:** fix picker wrap z-index same as mask ([#362](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/362)) ([3f2a83c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3f2a83c))
+
+### Features
+
+* **carousel:** feat carousel support dragging ([#350](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/350)) ([5dc49a4](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5dc49a4))
+
+
+### Performance Improvements
+
+* **modal:** perf modal import coremodule ([#348](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/348)) ([a3b9014](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a3b9014))
+
+## 0.11.7 (2019-03-12)
+
+### Bug Fixes
+
+* **assets:** fix logo name ([#319](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/319)) ([475eb14](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/475eb14))
+* **grid:** fix return contentType error ([#320](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/320)) ([dd88a52](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/dd88a52))
+* **input-item:** fix custom keyboard input value and defaultValue ([#330](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/330)) ([a73a7e8](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a73a7e8))
+* **popupservice:** fix popupservice get component name with build prod runtime error ([#333](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/333)) ([b69ee5a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b69ee5a))
+* **textarea-item:** fix textarea-item value protect ([#331](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/331)) ([ffe4f8d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ffe4f8d))
+
+## 0.11.6 (2019-03-04)
+
+### Bug Fixes
+
+* **accordion:** fix accordion support template and add support innerHtml ([#307](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/307)) ([15f90a6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/15f90a6))
+* **carousel:** fix carousel detect height change need to init carouseItem ([#290](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/290)) ([86be97d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/86be97d))
+* **carousel:** fix set Carousel component selectedIndex( = last) invalid ([#315](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/315)) ([193a4d6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/193a4d6))
+* **drawer:** synchronize code and documentation ([#311](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/311)) ([1d53a15](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/1d53a15))
+* **inputitem:** fix inputitem onChange does not trigger when typing Chinese characters ([#299](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/299)) ([e7a925d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/e7a925d))
+* **PopupService:** fix when using multiple PopupService working error ([#292](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/292)) ([3717db7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3717db7))
+* **swipe-action:** fix unable to respond to scrolling events error ([#300](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/300)) ([98bd525](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/98bd525))
+* **tabs:** disable descendants ([#296](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/296)) ([5ed613e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5ed613e))
+* **date-picker:** fix select error when ngmodel set to null ([#310](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/310)) ([58e88ca](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/58e88ca))
+
+
+### Features
+
+* **list:** renderHeader&renderFooter support String and Templates ([#313](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/313)) ([546b38d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/546b38d))
+
+
+### Performance Improvements
+
+* **logo:** update to the all new logo ([#314](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/314)) ([a66be30](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a66be30))
+
+
+## 0.11.5 (2019-02-21)
+
+### Bug Fixes
+
+* **actionsheet:** fix code title->message error ([#283](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/283)) ([f850e1a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f850e1a))
+* **date-picker-view:** fix value input not work ([#287](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/287)) ([7d74e54](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7d74e54))
+* **stepper:** fix stepper js float calculation bug ([#280](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/280)) ([5cd1f6c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5cd1f6c))
+* **swipe-action:** fix autoclose not work bug ([#282](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/282)) ([acb180e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/acb180e))
+
+
+### Performance Improvements
+
+* **tabbar:** enlarge tabbartab click zone ([#286](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/286)) ([5830cd6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5830cd6))
+
+## 0.11.4 (2019-02-14)
+
+### Bug Fixes
+
+* **carousel:** fix set Carousel component selectedIndex invalid. ([#269](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/269)) ([55ae6d2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/55ae6d2))
+* **input-item:** fix ios9 chinese character bug ([#249](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/249)) ([f421746](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f421746))
+* **notice-bar:** fix notice-bar-card color ([#274](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/274)) ([53f5b45](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/53f5b45))
+* **searchbar:** fix ios9 chinese character bug ([#250](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/250)) ([3e7efd4](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3e7efd4))
+* **date-picker:** fix not use onOk the next time show error ([#258](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/258)) ([2f5fc79](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2f5fc79))
+* **date-picker:** fix open next show error when set minDate ma… ([#256](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/256)) ([41f20f5](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/41f20f5))
+* **date-picker:** fix select interval when set min date and max date ([#267](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/267)) ([3fa56dc](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3fa56dc))
+* **date-picker:** fix set minDate error ([#243](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/243)) ([8fdbe8f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/8fdbe8f))
+* **pulltorefresh:** fix when up pull, then down pull, emit refresh error ([#248](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/248)) ([5fd57d7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5fd57d7))
+
+
+### Features
+
+* **button:** feat add dashed type ([#273](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/273)) ([8759db0](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/8759db0))
+* **grid:** feat support dynamic ng-content in Grid. ([#268](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/268)) ([2a579a2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2a579a2))
+* **grid:** support custom icon and local assets ([#257](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/257)) ([eafe8ec](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/eafe8ec))
+
+
+### Performance Improvements
+
+* **picker:** perf delete default data in component. ([#272](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/272)) ([ec748c3](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ec748c3))
+
+## 0.11.2 (2019-01-11)
+
+### Bug Fixes
+
+* **actionsheet:** fix Actionsheet not destory unsubscribe for locale ([#236](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/236)) ([d719496](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/d719496))
+* **carousel:** fix Carousel selectedIndex init work error ([#230](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/230)) ([5482cb2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5482cb2))
+* **pulltorefresh:** fix when not use ngmodel worked error ([#229](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/229)) ([5a3ba5d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5a3ba5d))
+
+>>>>>>> upstream/master
 ### Features
 
 * **actionsheet:** feat support locale ([#232](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/232)) ([39870da](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/39870da))
@@ -162,6 +512,33 @@ timeline: true
 * **textarea:** fixed textarea-item test case error ([#50](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/50)) ([f2bbdfb](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/f2bbdfb))
 * **showcase:** replace dingtalk qrcode ([#74](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/74)) ([b4e7483](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/b4e7483))
 
+<<<<<<< HEAD
+=======
+---
+## 0.9.5 （2018-10-15）
+
+### Bug Fixes
+
+* **codebox:** fix show code window back title always show '返回' ([#35](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/35)) ([0720fdc](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/0720fdc))
+* **codebox:** fix StackBlitz with dynamic component ([#41](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/41)) ([8adcbb0](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/8adcbb0))
+* **package.json:** delete not use version key ([#27](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/27)) ([fc3cf65](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/fc3cf65))
+* **popover:** add provider for PopoverOptions ([#30](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/30)) ([8f9e1d3](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/8f9e1d3))
+* **textarea:** fix textarea test case error ([#36](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/36)) ([97639fc](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/97639fc))
+* **package.json:** change run start way ([#42](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/42)) ([68a0453](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/68a0453))
+* **codebox:** fix show code window back title always show '返回' ([#29](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/29)) ([96bf9b8](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/96bf9b8))
+* **tabs:** disable useOnPan when swipeable is false ([#43](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/43)) ([2d63730](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/2d63730))
+
+### Features
+
+* **nav-bar:** add icon string support ([#38](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/38)) ([4a89b0c](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/4a89b0c))
+
+
+### Docs
+
+* **README:** add more status indicators in README ([#44](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/44)) ([a59797e](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/a59797e))
+
+
+>>>>>>> upstream/master
 ---
 ## 0.9.5 （2018-10-15）
 
@@ -207,6 +584,28 @@ timeline: true
 
 ### Features
 
+<<<<<<< HEAD
+=======
+## 0.9.4 (2018-10-10)
+
+
+### Bug Fixes
+
+* **button:** fix button with custom icon ([a3c6150](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/a3c6150))
+* **ci:** fix ci node version ([312fce6](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/312fce6))
+* **components:** change the way to import subject ([88864ab](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/88864ab))
+* **date-picker:** fix invaild date ([6620635](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/6620635))
+* **demo:** don’t  expand code ([6d65ebb](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/6d65ebb))
+* **pulltorefresh:** fix demo pulltorefresh ([8725c4b](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/8725c4b))
+* **input-item:** fixed custom-keyboard hide ([#21](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/21)) ([9b8f3da](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/9b8f3da))
+* **carousel:** fix last panel bug ([2c5cd92](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/2c5cd92))
+* **tabs:** unable get offsetWidth & offsetHeight when setInkBarStatus at first time sometime ([#7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/7)) ([6502082](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/6502082))
+* **steps:** udpate setTimeout time ([6da37ab](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/6da37ab))
+
+
+### Features
+
+>>>>>>> upstream/master
 * **ci:** update ci config ([0b178c4](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/0b178c4))
 * **list-item:** remove classname ([#20](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/20)) ([e0850f6](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/e0850f6))
 * **modal:** add modal test ([#18](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/18)) ([7c59b61](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/7c59b61))

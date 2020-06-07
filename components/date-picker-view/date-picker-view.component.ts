@@ -13,14 +13,20 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DatePickerComponent } from '../date-picker/date-picker.component';
+<<<<<<< HEAD
 import { Toast } from '../toast/toast.service';
+=======
+>>>>>>> upstream/master
 
 @Component({
   selector: 'DatePickerView, nzm-date-picker-view',
   templateUrl: './date-picker-view.component.html',
   encapsulation: ViewEncapsulation.None,
   providers: [
+<<<<<<< HEAD
     Toast,
+=======
+>>>>>>> upstream/master
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => DatePickerViewComponent),
@@ -28,7 +34,12 @@ import { Toast } from '../toast/toast.service';
     }
   ]
 })
+<<<<<<< HEAD
 export class DatePickerViewComponent extends DatePickerComponent implements OnInit, AfterViewInit, OnChanges, ControlValueAccessor {
+=======
+export class DatePickerViewComponent extends DatePickerComponent
+  implements OnInit, AfterViewInit, OnChanges, ControlValueAccessor {
+>>>>>>> upstream/master
   @Input()
   mode: string = 'date';
   @Input()
@@ -76,6 +87,11 @@ export class DatePickerViewComponent extends DatePickerComponent implements OnIn
   writeValue(value: Date): void {
     if (value) {
       this.value = value;
+<<<<<<< HEAD
+=======
+      this.optionInit();
+      this.init();
+>>>>>>> upstream/master
     }
   }
 

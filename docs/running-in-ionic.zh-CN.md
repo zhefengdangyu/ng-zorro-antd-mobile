@@ -33,7 +33,7 @@ $ ionic start PROJECT-NAME
 $ ng add ng-zorro-antd-mobile
 ```
 
-开发者可以通过增加参数来完成个性化的初始化配置，例如自定义主题，还可以快速生成模板代码，详细可以参考 [脚手架](http://ng.mobile.ant.design/#/docs/schematics/zh) 部分。
+开发者可以通过增加参数来完成个性化的初始化配置，例如自定义主题，还可以快速生成模板代码，详细可以参考 [脚手架](https://ng.mobile.ant.design/#/docs/schematics/zh) 部分。
 
 ### 4. 开发调试
 
@@ -43,7 +43,7 @@ $ ng add ng-zorro-antd-mobile
 $ ionic serve
 ```
 
-<img style="display: block;padding: 30px 30%;height: 260px;" src="https://gw.alicdn.com/tfs/TB18hC5dPDpK1RjSZFrXXa78VXa-440-550.png">
+<img style="display: block;padding: 30px 30%;height: 260px;" src="https://img.alicdn.com/tfs/TB15EhGJwHqK1RjSZFPXXcwapXa-500-539.png">
 
 ## 自行构建
 
@@ -75,7 +75,6 @@ import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

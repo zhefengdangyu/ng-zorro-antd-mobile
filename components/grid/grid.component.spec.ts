@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule, FlexModule, IconModule, GridModule } from '../..';
-
+import { NgZorroAntdMobilePipesModule } from '../pipes/ng-zorro-antd-mobile.pipes.module';
 describe('GridComponent', () => {
   let component: TestGridComponent;
   let fixture: ComponentFixture<TestGridComponent>;
@@ -12,7 +12,14 @@ describe('GridComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TestGridComponent],
-      imports: [BrowserAnimationsModule, CarouselModule, FlexModule, IconModule, GridModule]
+      imports: [
+        BrowserAnimationsModule,
+        CarouselModule,
+        FlexModule,
+        IconModule,
+        GridModule,
+        NgZorroAntdMobilePipesModule
+      ]
     }).compileComponents();
   }));
 
@@ -21,6 +28,15 @@ describe('GridComponent', () => {
     component = fixture.componentInstance;
     gridEle = fixture.debugElement.query(By.css('grid'));
     fixture.detectChanges();
+  });
+
+  it('should columnNum work', () => {
+    component.columnNum = 4;
+    fixture.detectChanges();
+    expect(gridEle.nativeElement.children[0].children.length).toBe(4, 'columnNum is work');
+    component.columnNum = 3;
+    fixture.detectChanges();
+    expect(gridEle.nativeElement.children[0].children.length).toBe(3, 'columnNum is work');
   });
 
   it('should data work', () => {
@@ -35,10 +51,7 @@ describe('GridComponent', () => {
     expect(gridEle.nativeElement.classList).toContain('am-grid-square', 'square is true');
     component.square = false;
     fixture.detectChanges();
-    expect(gridEle.nativeElement.classList).not.toContain(
-      'am-grid-square',
-      'square is false'
-    );
+    expect(gridEle.nativeElement.classList).not.toContain('am-grid-square', 'square is false');
   });
 
   it('should line work', () => {
@@ -54,22 +67,29 @@ describe('GridComponent', () => {
     expect(gridEle.nativeElement.classList).toContain('am-grid-carousel', 'carousel is true');
     component.isCarousel = false;
     fixture.detectChanges();
-    expect(gridEle.nativeElement.classList).not.toContain(
-      'am-grid-carousel',
-      'carousel is false'
-    );
+    expect(gridEle.nativeElement.classList).not.toContain('am-grid-carousel', 'carousel is false');
   });
 
-  it('OnClick work', () => {
+  it('should carouselMaxRow work', () => {
+    component.isCarousel = true;
+    component.carouselMaxRow = 2;
+    fixture.detectChanges();
+    expect(gridEle.nativeElement.querySelector('carouselslide').getElementsByTagName('flex').length).toBe(2, 'carouselMaxRow is work');
+    component.carouselMaxRow = 1;
+    fixture.detectChanges();
+    expect(gridEle.nativeElement.querySelector('carouselslide').getElementsByTagName('flex').length).toBe(1, 'carouselMaxRow is work');
+  });
+
+  it('onClick work', () => {
     component.data = Array.from(new Array(9)).map((val, i) => ({
       icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
       text: `name${i}`
     }));
     fixture.detectChanges();
-    component.OnClick = jasmine.createSpy('OnClick is callback');
+    component.onClick = jasmine.createSpy('onClick is callback');
     gridEle.nativeElement.querySelector('.am-grid-item-content').click();
     fixture.detectChanges();
-    expect(component.OnClick).toHaveBeenCalledTimes(1);
+    expect(component.onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should create', () => {
@@ -80,13 +100,16 @@ describe('GridComponent', () => {
 @Component({
   selector: 'test-grid',
   template: `
-    <Grid [data]="data"
-          [square]="square"
-          [hasLine]="hasLine"
-          [columnNum]="columnNum"
-          [isCarousel]="isCarousel"
-          (OnClick)="OnClick($event)"
+    <Grid
+      [data]="data"
+      [square]="square"
+      [hasLine]="hasLine"
+      [columnNum]="columnNum"
+      [isCarousel]="isCarousel"
+      [carouselMaxRow]="carouselMaxRow"
+      (onClick)="onClick($event)"
     ></Grid>
+    <Grid [activeStyle]="false" [data]="dataList" (onClick)="click($event)"></Grid>
   `
 })
 export class TestGridComponent {
@@ -97,9 +120,15 @@ export class TestGridComponent {
   square = true;
   hasLine = true;
   columnNum = 3;
+  carouselMaxRow = 1;
   isCarousel = false;
 
-  OnClick(event) {
+  dataList = Array.from(new Array(9)).map((_val, i) => ({
+    icon: `<img src="/assets/img/logo.svg" style="width:36px"/>`,
+    text: `name${i}`
+  }));
+
+  onClick(event) {
     console.log(event);
   }
 }

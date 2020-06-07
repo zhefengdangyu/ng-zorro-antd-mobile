@@ -1,25 +1,17 @@
-import {
-  Component,
-  ViewEncapsulation,
-  Input,
-  Output,
-  HostBinding,
-  TemplateRef,
-  EventEmitter
-} from '@angular/core';
-import { Models } from '../date/DataTypes';
+import { Component, ViewEncapsulation, Input, Output, HostBinding, TemplateRef, EventEmitter } from '@angular/core';
+import { DateModels } from '../date/DataTypes';
 
 @Component({
   selector: 'CalendarHeader, nzm-calendar-header',
   templateUrl: './header.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent {
+export class CalendarHeaderComponent {
   title: string;
   closeIcon_component: boolean = false;
   clearIcon: any;
 
-  private _locale: Models.Locale;
+  private _locale: DateModels.Locale;
   private _showClear: boolean;
   private _closeIcon: any = 'X';
 
@@ -60,11 +52,14 @@ export class HeaderComponent {
   constructor() {}
 
   triggerCancel() {
-    this.onCancel && this.onCancel.emit();
+    if (this.onCancel) {
+      this.onCancel.emit();
+    }
   }
 
   triggerClear() {
-    this.onClear && this.onClear.emit();
+    if (this.onClear) {
+      this.onClear.emit();
+    }
   }
-
 }

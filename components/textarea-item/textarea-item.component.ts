@@ -7,7 +7,10 @@ import {
   ViewChild,
   TemplateRef,
   AfterContentChecked,
-  forwardRef
+  forwardRef,
+  HostBinding,
+  ElementRef,
+  Renderer2
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -17,12 +20,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => TextareaItem),
+      useExisting: forwardRef(() => TextareaItemComponent),
       multi: true
     }
   ]
 })
+<<<<<<< HEAD
 export class TextareaItem implements OnInit, AfterContentChecked, ControlValueAccessor {
+=======
+export class TextareaItemComponent implements OnInit, AfterContentChecked, ControlValueAccessor {
+>>>>>>> upstream/master
   prefixCls: string = 'am-textarea';
   wrapCls: object;
   labelCls: object;
@@ -33,6 +40,7 @@ export class TextareaItem implements OnInit, AfterContentChecked, ControlValueAc
   isTitleString: boolean = true;
   maxLength: number = Infinity;
 
+  private _el: ElementRef;
   private _prefixListCls = 'am-list';
   private _value: string;
   private _defaultValue: string = '';
@@ -52,7 +60,7 @@ export class TextareaItem implements OnInit, AfterContentChecked, ControlValueAc
   private _isClear: boolean = false;
   private _isClickingClear: boolean = false;
 
-  @ViewChild('text')
+  @ViewChild('text', { static: true })
   textRef;
 
   @Input()
@@ -60,7 +68,7 @@ export class TextareaItem implements OnInit, AfterContentChecked, ControlValueAc
     return this._value;
   }
   set value(v: string) {
-    if (typeof v === undefined || v === null) {
+    if (typeof v === 'undefined' || v === null) {
       this._value = '';
     } else {
       this._value = v;
@@ -187,21 +195,35 @@ export class TextareaItem implements OnInit, AfterContentChecked, ControlValueAc
   @Output()
   onErrorClick: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() {}
+  @HostBinding('class.am-textarea-item')
+  clsItem: boolean = true;
+  @HostBinding('class.am-textarea-disabled')
+  clsDisabled: boolean;
+  @HostBinding('class.am-textarea-error')
+  clsError: boolean;
+  @HostBinding('class.am-textarea-focus')
+  clsFocus: boolean;
+  @HostBinding('class.am-textarea-item-single-line')
+  clsSingleLine: boolean;
+  @HostBinding('class.am-textarea-has-count')
+  clsHasCount: boolean;
+
+  constructor(private element: ElementRef, private render: Renderer2) {
+    this._el = element.nativeElement;
+  }
+
+  _onChange = (_: any) => {};
 
   _onChange = (_: any) => {};
 
   setCls() {
     this.hasCount = this._count > 0 && this._rows > 1;
-    this.wrapCls = {
-      [`${this._prefixListCls}-item`]: true,
-      [`${this.prefixCls}-item`]: true,
-      [`${this.prefixCls}-disabled`]: this._disabled,
-      [`${this.prefixCls}-error`]: this._error,
-      [`${this.prefixCls}-focus`]: this._focus,
-      [`${this.prefixCls}-item-single-line`]: this._rows === 1 && !this._autoHeight,
-      [`${this.prefixCls}-has-count`]: this.hasCount
-    };
+    this.render.addClass(this._el, this._prefixListCls + '-item');
+    this.clsSingleLine = this._rows === 1 && !this._autoHeight;
+    this.clsDisabled = this._disabled;
+    this.clsError = this._error;
+    this.clsFocus = this._focus;
+    this.clsHasCount = this.hasCount;
     this.labelCls = {
       [`${this.prefixCls}-label`]: true,
       [`${this.prefixCls}-label-2`]: this._labelNumber === 2,
@@ -275,14 +297,29 @@ export class TextareaItem implements OnInit, AfterContentChecked, ControlValueAc
     return text.replace(regexAstralSymbols, '_').length;
   }
 
+<<<<<<< HEAD
 
   writeValue(value: any): void {
     if (typeof value === undefined || value === null) {
+=======
+  writeValue(value: any): void {
+    if (typeof value === 'undefined' || value === null) {
+>>>>>>> upstream/master
       this._value = '';
     } else {
       this._value = value;
     }
+<<<<<<< HEAD
   }
+=======
+    this.setCharacterLength();
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+>>>>>>> upstream/master
   registerOnChange(fn: (_: any) => void): void {
     this._onChange = fn;
   }
@@ -290,13 +327,13 @@ export class TextareaItem implements OnInit, AfterContentChecked, ControlValueAc
   registerOnTouched(fn: any): void {}
 
   ngOnInit() {
+    this.textRef.nativeElement.value = this._value;
     this.setCls();
     this.setCharacterLength();
-    this.textRef.nativeElement.value = this._value;
   }
 
   ngAfterContentChecked() {
-    if (this._autoHeight && this._focus) {
+    if (this._autoHeight) {
       this.reAlignHeight();
     }
   }

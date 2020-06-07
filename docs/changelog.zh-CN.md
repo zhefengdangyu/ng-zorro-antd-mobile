@@ -5,7 +5,7 @@ toc: false
 timeline: true
 ---
 
-`ng-zorro-antd-mobile` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
+`ng-zorro-antd-mobile` 严格遵循 [Semantic Versioning 2.0.0](https://semver.org/lang/zh-CN/) 语义化版本规范。
 
 #### 发布周期
 
@@ -13,11 +13,361 @@ timeline: true
 - 次版本号：每月发布一个带有新特性的向下兼容的版本。
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
+<<<<<<< HEAD
 ## 0.11.2 (2019-01-11)
 
 ### Features
 
 * **actionsheet:** 支持 Locale 国际化 ([#232](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/232)) ([39870da](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/39870da))
+=======
+## 2.0.1(2020-04-13)
+### Bug Fixes
+
+* **locale-provider:** 修复 provider 中依赖 LocaleProviderModule 引发的错误 ([#662](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/662)) ([7f52fca](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7f52fca3950e67602c8578e42664ac566861437d))
+
+## 2.0.0(2020-04-07)
+
+### Features
+
+* **all:** 支持 Angular 9 ([#652](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/652)) ([2150bcb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2150bcb955596b9297e34cc7fa6dae1d12625226))
+
+## 1.0.5(2020-03-17)
+
+### Features
+
+* **steps:** step title&description input 增加 templateRef 类型 ([#650](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/650)) ([bb41050](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bb4105060cad850d9d6d106f8b6b2521bb6a5902))
+
+## 1.0.4(2020-03-10)
+
+### Bug Fixes
+
+* **carousel:** 修复走马灯slide宽度问题 ([#646](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/646)) ([b26eb8c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b26eb8c9517c8a81f4169bebf2033846e99e1b17))
+* **input-item:** 修复光标一直返回到最后的问题 ([#639](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/639)) ([0f032ad](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0f032adae19d4827bde17f4952124ccce5421216))
+
+## 1.0.3(2020-01-08)
+
+### Bug Fixes
+
+* **date-picker:** 修复时间选择范围问题 ([#627](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/627)) ([2225539](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/22255394a5d9cf9bb19cc0a647bdb33a106a31c0))
+* **date-picker:** 修复 mode:time 状态下时间选择范围问题 ([#629](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/629)) ([e685ffa](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/e685ffa65e533c529734ebe8eca85baddf01d89d))
+* **datepicker:** 修复单测失败例子 ([#632](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/632)) ([7183052](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/71830525f4d7445fff95e1562c28dfcd940e8989))
+* **drawer:** 修复无法遮盖背景元素的问题 ([#631](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/631)) ([8794e89](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/8794e895364b53f068702ebbfd0f200df1bdcd40))
+
+## 1.0.2(2019-12-04)
+
+### Bug Fixes
+
+* **accordion:** 修复快速点击 accordion 展开时错误([#614](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/614)) ([567ff59](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/567ff59))
+* **calendar:** 从 cell 而非 row 中获取 extra cell class 名([#620](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/620)) ([0a11514](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0a11514))
+* **carousel:** 修复 resize 时 carousel slide 展示错误 ([#615](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/615)) ([3ff1894](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3ff1894))
+* **checkbox:** 修复 disabled 状态为 true 时已点击的初始状态([#598](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/598)) ([85511ca](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/85511ca))
+* **datepicker:** 修复中文提示文案错误 ([#616](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/616)) ([71576bb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/71576bb))
+* **list:** 修复 inputitem demo ([#606](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/606)) ([0a50951](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0a50951))
+* **list&range:** 删除 console.log ([#610](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/610)) ([762f200](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/762f200))
+* **pagination:** 修复设置 locale 不生效错误 ([#611](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/611)) ([756f5be](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/756f5be))
+* **searchbar:** 修复用户提交时键盘未收起的问题 ([#596](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/596)) ([5e20a54](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5e20a54))
+* **steps:** 修复 step import async 错误 ([#617](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/617)) ([ef4153c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ef4153c))
+* **tabs:** 让 popup类组件在Tabs和TabBar里正常的面板里弹出 ([#621](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/621)) ([89bd218](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/89bd218))
+
+## 1.0.1(2019-09-24)
+
+### Bug Fixes
+
+* **picker:** 去除对 lodash isEqual 的引用 ([#592](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/592)) ([ee6f4b6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ee6f4b6))
+
+## 1.0.0(2019-09-23)
+
+### Bug Fixes
+
+* **date-picker:** 修复快速滑动时显示NAN的错误 ([#589](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/589)) ([3e63d20](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3e63d20))
+
+* **picker:** 修复 data input 为一个函数时引发的选择错误 ([#586](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/586)) ([26a07d7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/26a07d7))
+
+## 1.0.0-rc.0(2019-09-16)
+
+### Bug Fixes
+
+* **carousel:** 当设置为左右滑动方向时忽略垂直方向的事件 ([#581](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/581)) ([abb3a0a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/abb3a0a))
+
+* **carousel:** 修复走马灯样式错误 ([#582](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/582)) ([004e4e0](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/004e4e0))
+
+* **toast:** 修复 toast z-index ([#580](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/580)) ([7350600](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7350600))
+
+* **steps:** 修复 steps 状态icon错误 ([#577](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/577)) ([fef7568](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/fef7568))
+
+* **accordion:** 修复 accordion 无法自动展开错误 ([#575](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/575)) ([19b90da](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/19b90da))
+
+* **pull-to-refresh:** 修复 pull-to-refresh direction属性为空时的运行错误 ([#573](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/573)) ([6df7d7c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/6df7d7c))
+
+* **textarea-item:** 修复 textarea-item 自动高度错误 ([#571](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/571)) ([5aa3149](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5aa3149))
+
+* **swipe-action:** 修复 swipe-action 在 ionic 中无法正常运行错误 ([#569](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/569)) ([f2d1600](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f2d1600))
+
+## 1.0.0-beta.2(2019-09-05)
+
+### Bug Fixes
+
+* **list:** 修复 typescript 格式导致的编译报错 ([#565](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/565)) ([46e66f2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/46e66f2))
+
+* **website:** 修复官网 version 映射 ([#562](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/562)) ([3744833](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3744833))
+
+* **codebox:** 修复 stackblitz package 依赖展示错误 ([#561](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/561)) ([61dcc28](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/61dcc28))
+
+* **codebox:** 修复复制代码为对象的错误 ([#560](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/560)) ([630f63c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/630f63c))
+
+* **codebox:** 修复 rawCode 转换错误 ([#558](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/558)) ([ddb89cb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ddb89cb))
+
+* **website:** 修复官网运行错误 ([#557](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/557)) ([b44a095](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b44a095))
+
+## 1.0.0-beta.1(2019-09-03)
+
+### Bug Fixes
+
+* **stepper:** 修复用户输入时按钮状态错误 ([#554](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/544)) ([0739e2c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0739e2c))
+
+* **modal:** 修复函数调用错误 ([#543](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/543)) ([53cde92](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/53cde92))
+
+### Features
+* **All:** 支持 Angular 8.0 ([#553](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/pull/553)) ([c2fd82d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/c2fd82d))
+
+## 1.0.0-beta.0(2019-08-21)
+
+### BreakChange
+
+* **toast:** toast 重构 ([454b55c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/454b55c))
+
+* **picker & modal & action-sheet:** popup 相关重构
+([62c4d60](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/62c4d60))
+
+* **input-item:** 增加 label content API  ([#527](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/527)) ([109dbd6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/109dbd6))
+
+### Bug Fixes
+
+* **modal:** 修复 visable 默认值为false ([#535](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/535)) ([1f6391e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/1f6391e))
+* **radio:** 删除重复API ([#508](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/508)) ([2fc7350](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2fc7350))
+* **textarea-item:** 修复自动高度错误([#501](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/501)) ([#502](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/502)) ([50ade9b](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/50ade9b))
+* **picker:** 修复 okText & dismissText API ([#499](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/499)) ([0c9bc52](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0c9bc52))
+
+
+### Features
+
+* **action-sheet:** 增加单元测试 ([#515](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/515)) ([b74db68](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b74db68))
+* **carousel:** 增加单元测试 ([#511](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/511)) ([7f80c13](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7f80c13))
+* **input-item:** 增加 label content API  ([#527](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/527)) ([109dbd6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/109dbd6))
+* **input-item:** 修复 input-item cursor bug ([#500](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/500)) ([9f9f579](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/9f9f579))
+* **README:** 增加 CodeFactor&Twitter 标签 ([#490](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/490)) ([6fe3caf](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/6fe3caf))
+
+## 0.12.5(2019-06-25)
+
+### Bug Fixes
+
+* **carousel:** 修复只包含一个元素时的宽度错误 ([#482](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/482)) ([7ab3cba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7ab3cba))
+
+## 0.12.4 (2019-06-24)
+
+### Bug Fixes
+
+* **carousel:** 修复竖直模式时宽度错误 ([#477](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/477)) ([b0ca5ba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b0ca5ba))
+* **date-picker:** 增加 minuteStep 支持 ([#479](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/479)) ([246c222](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/246c222))
+
+### Features
+
+* **calendar:** 增加单测覆盖范围 ([#474](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/474)) ([7dd77ba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7dd77ba))
+* **input-item:** 修复 clear 时出现的值错误 ([#472](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/472)) ([51772f7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/51772f7))
+
+## 0.12.3 (2019-06-05)
+
+### Bug Fixes
+
+* **date-picker:** 修复时间计算错误 ([#456](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/456)) ([413178d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/413178d))
+* **date-picker:** 修复在safari中日期初始化可能出现无效日期 ([#454](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/454)) ([87c62a3](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/87c62a3))
+* **radio-item-group:** 修复可选项在运行时变更时导致选中状态出错 ([#458](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/458)) ([#463](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/463)) ([0e3ca04](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0e3ca04))
+* **stackblitz:** 为 @angular/compiler 设置正确的版本 ([#466](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/466)) ([3bc4053](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3bc4053))
+* **picker:** 修复返回结果错误 ([#462](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/462)) ([eeabc11](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/eeabc11))
+
+## 0.12.2 (2019-05-21)
+
+### Bug Fixes
+
+* **popupservice:** 在相关组件的providers里添加 popupservice ([#449](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/449)) ([a14ea6b](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a14ea6b))
+
+
+### Features
+
+* **toast:** 支持 top 和 bottom 两种位置 ([#450](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/450)) ([77c326a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/77c326a))
+
+## 0.12.1 (2019-05-20)
+
+### Bug Fixes
+
+* **calendar:** 修复 calendar timepicker 显示标题错误 ([#444](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/444)) ([7ad01ba](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7ad01ba))
+* **mobile site:** 修复无线站点中的组件名称格式错误 ([#415](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/415)) ([f106942](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f106942))
+* **picker:** 修复 picker 样式错误 ([#434](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/434)) ([c09b85e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/c09b85e))
+* **badge:** 修复文案从空到非空时 badge 错误 ([#441](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/441)) ([fab7312](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/fab7312))
+* **carousel:** 修复横竖屏切换时未动态调整的错误 ([#411](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/411)) ([4ff06d9](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/4ff06d9))
+
+
+### Features
+
+* **imagepicker:** 增加 capture&disableDelete API ([#410](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/410)) ([cfd733e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/cfd733e))
+* **swipe-action:** 增加 className api ([#436](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/436)) ([3a976c5](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3a976c5))
+* **toast:** 提供一种新的API方案自注入 ([#426](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/426)) ([ad31989](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ad31989))
+
+## 0.12.0 (2019-04-30)
+
+### BreakChange
+
+* **tabbar:** 使用TabBarItem 替代 TabPane和TabBarTab, 使用上更加简单
+* **grid:** 将 OnClick 修改为 onClick
+
+### Bug Fixes
+
+* **grid:** 将 OnClick 修改为 onClick ([#394](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/394)) ([bf3039a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bf3039a))
+* **schematics:** 将 url 从 https 切换到 http ([#393](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/393)) ([0c3ad0f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0c3ad0f))
+* **stepper:** 修复 stepper 不可用的问题 ([#405](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/405)) ([acb2a95](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/acb2a95))
+
+### Features
+
+* **all:** 公开导出组件库 API ([#389](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/389)) ([dd9af23](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/dd9af23))
+* **checkboxitem&radioitem:** 支持 wrap API ([#406](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/406)) ([db8a6c8](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/db8a6c8))
+* **checkboxItem&radioItem:** API 与 listItem 同步 ([#408](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/408)) ([6cf232f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/6cf232f))
+* **dependencies:** 更新三方依赖 ([#401](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/401)) ([dcf4a61](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/dcf4a61))
+* **docs:** 更新 README.md ([#398](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/398)) ([80bd1b5](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/80bd1b5))
+* **styles:** 与 ant design mobile of react 样式同步 ([#403](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/403)) ([5c77b8c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5c77b8c))
+* **tabs&tabbar:** tabs&tabbar 重构，支持动态增加面板、预加载以及自定义设置标签页尺寸，提升整体性能 ([#399](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/399)) ([f82ceab](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f82ceab))
+
+### Performance Improvements
+
+* **code-box:** 优化stackblitz中demo参数. ([#404](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/404)) ([9c39051](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/9c39051))
+* **site:** 更新首页 ([#397](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/397)) ([92ae470](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/92ae470))
+* **tabs&tabbar:** 默认将 prerenderingSiblingsNumber设置为-1，预加载逻辑与React版本能保持一致 ([#407](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/407)) ([1db49eb](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/1db49eb))
+
+## 0.11.9 (2019-04-18)
+
+### Bug Fixes
+
+* **calendar:** 修复样式更新后出现的样式问题 ([#385](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/385)) ([cee534a](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/cee534a))
+* **datepickerview:** 修复日选择无法选中31号的问题 ([#383](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/383)) ([aac65b6](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/aac65b6))
+* **inputitem:** 修复样式更新后出现的样式问题 ([#377](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/377)) ([97bf63e](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/97bf63e))
+* **picker:** 修复样式更新后出现的样式问题 ([#387](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/387)) ([d5128af](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/d5128af))
+* **carousel:** 修复走马灯不在视图内且页面没重新渲染的情况下会停止轮播的问题 ([#382](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/382)) ([362245f](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/362245f))
+
+### Features
+
+* **styles:** 与React版本进行样式同步 ([#376](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/376)) ([0c4b966](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/0c4b966))
+* **textarea:** 更改样式 ([#379](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/379)) ([bcd5d1f](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bcd5d1f))
+
+
+### Performance Improvements
+
+* **site:** 资源链接默认使用https ([#373](//github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/373)) ([cc693e5](//github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/cc693e5))
+
+## 0.11.8 (2019-04-04)
+
+### Bug Fixes
+
+* **tabbar:** 修复 tabbar 设置 activeTab 错误并修改 demo ([#345](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/345)) ([3f8becd](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3f8becd))
+* **accordion:** 修复 accordion 支持异步加载 accordionPanel ([#355](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/355)) ([924bcc2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/924bcc2))
+* **carousel:** 修复 carousel vertical 模式异常 ([#344](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/344)) ([e9ae898](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/e9ae898))
+* **inputitem:** 修复 inputitem extra 模板支持 ([#353](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/353)) ([aeb3cbe](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/aeb3cbe))
+* **inputitem:** 修复 inputitem label 样式初始化问题 ([#364](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/364)) ([bd11c54](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/bd11c54))
+* **picker:** 修复 异步 picker 需要更新选中数据 ([#346](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/346)) ([fbcc0cf](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/fbcc0cf))
+* **picker:** 修复 picker wrap z-index 与 mask保持一致 ([#362](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/362)) ([3f2a83c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3f2a83c))
+
+### Features
+
+* **carousel:** carousel 支持拖拽 ([#350](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/350)) ([5dc49a4](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5dc49a4))
+
+### Performance Improvements
+
+* **modal:** modal 引入 coremodule ([#348](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/348)) ([a3b9014](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a3b9014))
+
+## 0.11.7 (2019-03-12)
+
+### Bug Fixes
+
+* **assets:** 修复 logo 名称 ([#319](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/319)) ([475eb14](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/475eb14))
+* **grid:** 修复 contentType 返回错误 ([#320](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/320)) ([dd88a52](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/dd88a52))
+* **input-item:** 修复 custom keyboard input 值 ([#330](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/330)) ([a73a7e8](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a73a7e8))
+* **popupservice:** 修复 popupservice 获取 component 名称时 运行时报错 ([#333](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/333)) ([b69ee5a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/b69ee5a))
+* **textarea-item:** 修复 textarea-item 值保护 ([#331](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/331)) ([ffe4f8d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ffe4f8d))
+
+## 0.11.6 (2019-03-04)
+
+### Bug Fixes
+
+* **accordion:** 修复 accordion template 支持 ([#307](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/307)) ([15f90a6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/15f90a6))
+* **carousel:** 修复 carousel 检测高度变化 ([#290](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/290)) ([86be97d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/86be97d))
+* **carousel:** 修复设置selecedindex值超出当前最大值的问题 ([#315](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/315)) ([193a4d6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/193a4d6))
+* **drawer:** 更新文档 ([#311](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/311)) ([1d53a15](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/1d53a15))
+* **inputitem:** 修复输入中文时 onChange 不响应的问题 ([#299](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/299)) ([e7a925d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/e7a925d))
+* **PopupService:** 修复多 PopupService 运行错误 ([#292](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/292)) ([3717db7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3717db7))
+* **swipe-action:** 修复无法响应滚动事件问题([#300](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/300)) ([98bd525](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/98bd525))
+* **tabs:** 禁止 descendants ([#296](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/296)) ([5ed613e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5ed613e))
+* **date-picker:** 修复当 ngmodel 为 null 时选择出错的问题 ([#310](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/310)) ([58e88ca](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/58e88ca))
+
+
+### Features
+
+* **list:** renderHeader 和 renderFooter 支持 String和 Template 输入 ([#313](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/313)) ([546b38d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/546b38d))
+
+
+### Performance Improvements
+
+* **logo:** 更换全新的logo ([#314](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/314)) ([a66be30](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/a66be30))
+
+## 0.11.5 (2019-02-21)
+
+### Bug Fixes
+
+* **actionsheet:** 将模板中 title 改成 message ([#283](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/283)) ([f850e1a](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f850e1a))
+* **date-picker-view:** 修复 input 不生效的问题 ([#287](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/287)) ([7d74e54](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/7d74e54))
+* **stepper:** 修复 float 计算bug ([#280](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/280)) ([5cd1f6c](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5cd1f6c))
+* **swipe-action:** 修复 autoclose 不生效bug ([#282](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/282)) ([acb180e](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/acb180e))
+
+
+### Performance Improvements
+
+* **tabbar:** 扩大 tabbartab 点击区域 ([#286](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/286)) ([5830cd6](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5830cd6))
+
+## 0.11.4 (2019-02-14)
+
+### Bug Fixes
+
+* **carousel:** 修复设置 Carousel 选中序列失败的问题 ([#269](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/269)) ([55ae6d2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/55ae6d2))
+* **input-item:** 修复 iOS9 中文字符输入问题 ([#249](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/249)) ([f421746](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/f421746))
+* **notice-bar:** 修复 notice-bar-card 颜色问题 ([#274](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/274)) ([53f5b45](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/53f5b45))
+* **searchbar:** 修复 iOS9 中文字符输入问题 ([#250](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/250)) ([3e7efd4](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3e7efd4))
+* **date-picker:** 修复不使用onOK导致的下一次显示失败问题 ([#258](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/258)) ([2f5fc79](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2f5fc79))
+* **date-picker:** 修复设置最大最小日期后打开 Picker 显示错误 ([#256](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/256)) ([41f20f5](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/41f20f5))
+* **date-picker:** 修复选择最早最晚时间时的 interval ([#267](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/267)) ([3fa56dc](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/3fa56dc))
+* **date-picker:** 修复设置minDate错误 ([#243](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/243)) ([8fdbe8f](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/8fdbe8f))
+* **pulltorefresh:** 修复上划然后下划时导致的 refresh 信号错误 ([#248](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/248)) ([5fd57d7](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5fd57d7))
+
+
+### Features
+
+* **button:** 增加 dashed 样式 ([#273](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/273)) ([8759db0](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/8759db0))
+* **grid:** Grid 中支持动态的 ng-content ([#268](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/268)) ([2a579a2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/2a579a2))
+* **grid:** 支持 自定义 icon 和本地静态资源 ([#257](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/257)) ([eafe8ec](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/eafe8ec))
+
+
+### Performance Improvements
+
+* **picker:** 删除成员默认值 ([#272](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/272)) ([ec748c3](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/ec748c3))
+
+## 0.11.2 (2019-01-11)
+
+### Bug Fixes
+
+* **actionsheet:** 修复 Actionsheet 没有销毁 locale 订阅问题 ([#236](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/236)) ([d719496](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/d719496))
+* **carousel:** 修复 Carousel 选中序列初始化失败问题 ([#230](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/230)) ([5482cb2](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5482cb2))
+* **pulltorefresh:** 修复没有使用 NgModel 出现的错误 ([#229](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/229)) ([5a3ba5d](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/5a3ba5d))
+
+### Features
+
+* **actionsheet:** 支持 locale 国际化 ([#232](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/232)) ([39870da](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/39870da))
+>>>>>>> upstream/master
 * **carousel:** 仅有1个元素时禁止drag ([#239](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/239)) ([799ce51](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/799ce51))
 * **datepicker:** 增加disabled 属性 ([#233](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/233)) ([8f772a9](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/8f772a9))
 * **picker:** 增加 disabled 属性 ([#231](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/231)) ([02733b4](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/commit/02733b4))
@@ -158,6 +508,7 @@ timeline: true
 * **textarea:** 修复 textarea-item test case 错误 ([#50](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/50)) ([f2bbdfb](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/f2bbdfb))
 * **showcase:** 替换正确的钉钉QR码 ([#74](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/74)) ([b4e7483](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/b4e7483))
 
+<<<<<<< HEAD
 ---
 ## 0.9.5 （2018-10-15）
 
@@ -180,6 +531,30 @@ timeline: true
 * **README:** 在README中增加更多的状态指示 ([#44](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/44)) ([a59797e](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/a59797e))
 
 ---
+=======
+---
+## 0.9.5 （2018-10-15）
+
+### Bug Fixes
+
+* **codebox:** 修复英文网站中弹出代码框显示中文“返回“bug ([#35](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/35)) ([0720fdc](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/0720fdc))
+* **codebox:** 修复StackBliz中的问题 ([#41](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/41)) ([8adcbb0](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/8adcbb0))
+* **package.json:** 取消Package Json的版本号 ([#27](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/27)) ([fc3cf65](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/fc3cf65))
+* **popover:** 为 PopoverOptions 加入providers ([#30](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/30)) ([8f9e1d3](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/8f9e1d3))
+* **textarea:** 修复textarea test case错误 ([#36](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/36)) ([97639fc](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/97639fc))
+* **package.json:** 修复npm run start在windows中无法运行的错误 ([#42](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/42)) ([68a0453](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/68a0453))
+* **tabs:** 修复swipeable为false时useOnPan依然生效的问题 ([#43](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/43)) ([2d63730](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/2d63730))
+
+### Features
+
+* **nav-bar:** 增加 icon string类型支持 ([#38](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/38)) ([4a89b0c](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/4a89b0c))
+
+### Docs
+
+* **README:** 在README中增加更多的状态指示 ([#44](https://github.com/NG-ZORRO/ng-zorro-antd-mobile/issues/44)) ([a59797e](https://github.com/fisherspy/ng-zorro-antd-mobile/commit/a59797e))
+
+---
+>>>>>>> upstream/master
 ## 0.9.4 (2018-10-10)
 
 

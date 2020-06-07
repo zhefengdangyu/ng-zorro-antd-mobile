@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Checkbox } from './checkbox.component';
+import { CheckboxComponent } from './checkbox.component';
 import { CheckboxModule } from './checkbox.module';
 
 describe('checkbox', () => {
@@ -20,7 +20,7 @@ describe('checkbox', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TestCheckboxComponent);
     component = fixture.componentInstance;
-    checkboxEle = fixture.debugElement.query(By.directive(Checkbox));
+    checkboxEle = fixture.debugElement.query(By.directive(CheckboxComponent));
     fixture.detectChanges();
   });
 
@@ -59,6 +59,7 @@ describe('checkbox', () => {
     expect(component.onChange).toHaveBeenCalledTimes(1);
   });
 
+<<<<<<< HEAD
   it('checkbox item onChange work', () => {
     // const checkboxItem = fixture.debugElement.query(By.css('CheckboxItem'));
     // component.onChange = jasmine.createSpy('onChange callback');
@@ -67,6 +68,17 @@ describe('checkbox', () => {
     // checkboxItem.nativeElement.click();
     // fixture.detectChanges();
     // expect(component.onChange).toHaveBeenCalledTimes(1);
+=======
+  it('checkboxItem onChange work', () => {
+    const checkboxItem = fixture.debugElement.query(By.css('.am-list-thumb>.am-checkbox-wrapper')).nativeElement;
+    component.onChange = jasmine.createSpy('onChange callback');
+    component.disabled = false;
+    component.checked = false;
+    fixture.detectChanges();
+    checkboxItem.click();
+    fixture.detectChanges();
+    expect(component.onChange).toHaveBeenCalledTimes(1);
+>>>>>>> upstream/master
   });
 
   it('agreeItem onChange work', () => {
@@ -90,6 +102,7 @@ describe('checkbox', () => {
 @Component({
   selector: 'test-checkbox',
   template: `
+<<<<<<< HEAD
     <label Checkbox
            [disabled]="disabled"
            [checked]="checked"
@@ -103,17 +116,25 @@ describe('checkbox', () => {
                [(ngModel)]="checked"
                (onChange)= "onChange($event)"
     ></AgreeItem>
+=======
+    <label Checkbox [disabled]="disabled" [checked]="checked" (onChange)="onChange($event)"></label>
+    <CheckboxItem [disabled]="disabled" [(ngModel)]="checked" (onChange)="onChange($event)"></CheckboxItem>
+    <AgreeItem [disabled]="disabled" [(ngModel)]="checked" (onChange)="onChange($event)"></AgreeItem>
+>>>>>>> upstream/master
   `
 })
 export class TestCheckboxComponent {
   checked: boolean = false;
   disabled: boolean = false;
 
-  @ViewChild(Checkbox)
-  checkbox: Checkbox;
+  @ViewChild(CheckboxComponent)
+  checkbox: CheckboxComponent;
 
   onChange(e) {
     console.log('onChange', e);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 }

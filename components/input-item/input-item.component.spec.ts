@@ -1,9 +1,13 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, TemplateRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { InputItemModule } from './input-item.module';
 import { createFakeEvent, dispatchFakeEvent } from '../core/testing';
+<<<<<<< HEAD
 import { InputItem } from './input-item.component';
+=======
+import { InputItemComponent } from './input-item.component';
+>>>>>>> upstream/master
 import { FormsModule } from '@angular/forms';
 
 describe('InputComponent', () => {
@@ -56,12 +60,12 @@ describe('InputComponent', () => {
     component.value = 'test';
     fixture.detectChanges();
     inputEle = inputItem.nativeElement.querySelector('input');
-    expect(inputEle.value).toBe('test', 'type is text');
+    expect(inputEle.getAttribute('ng-reflect-model')).toBe('test', 'type is text');
 
     component.value = null;
     fixture.detectChanges();
     inputEle = inputItem.nativeElement.querySelector('input');
-    expect(inputEle.value).toBe('', 'value is undefined');
+    expect(inputEle.getAttribute('ng-reflect-model')).toBe('', 'value is undefined');
 
     component.type = 'money';
     fixture.detectChanges();
@@ -71,29 +75,61 @@ describe('InputComponent', () => {
     expect(fakeInput.innerText).toBe('23', 'type is money');
   });
 
+<<<<<<< HEAD
   it('should input chinese character work', () => {
+=======
+  it('should value override defaultValue work', () => {
+    component.value = 'test';
+    component.defaultValue = 'default test';
+    fixture.detectChanges();
+    inputEle = inputItem.nativeElement.querySelector('input');
+    expect(inputEle.getAttribute('ng-reflect-model')).toBe('test', 'type is text');
+
+    component.type = 'money';
+    fixture.detectChanges();
+    component.value = '23';
+    component.defaultValue = '26';
+    fixture.detectChanges();
+    const fakeInput = inputItem.nativeElement.querySelector('.fake-input');
+    expect(fakeInput.innerText).toBe('23', 'type is money');
+  });
+
+  it('should input chinese character work', fakeAsync(() => {
+>>>>>>> upstream/master
     const inputModelEle = inputModel.nativeElement.querySelector('input');
     inputModelEle.value = '哈哈';
     inputModelEle.dispatchEvent(new Event('compositionstart'));
     inputModelEle.dispatchEvent(new Event('input'));
     fixture.detectChanges();
+<<<<<<< HEAD
+=======
+    tick(0);
+>>>>>>> upstream/master
     expect(component.modelValue).toBe(undefined);
 
     inputModelEle.value = '哈哈';
     inputModelEle.dispatchEvent(new Event('compositionend'));
     inputModelEle.dispatchEvent(new Event('input'));
     fixture.detectChanges();
+<<<<<<< HEAD
     expect(component.modelValue).toBe('哈哈');
   });
+=======
+    tick(0);
+    expect(component.modelValue).toBe('哈哈');
+  }));
+>>>>>>> upstream/master
 
   it('should defaultValue work', () => {
+    component.value = null;
     component.defaultValue = 'test';
     fixture.detectChanges();
     inputEle = inputItem.nativeElement.querySelector('input');
-    expect(inputEle.value).toBe('test', 'type is text');
+    expect(inputEle.getAttribute('ng-reflect-model')).toBe('test', 'type is text');
 
     component.type = 'money';
     fixture.detectChanges();
+    component.value = '';
     component.defaultValue = '23';
     fixture.detectChanges();
     const fakeInput = inputItem.nativeElement.querySelector('.fake-input');
@@ -194,14 +230,25 @@ describe('InputComponent', () => {
   it('should extra work', () => {
     component.extra = '$';
     fixture.detectChanges();
-    const extraEle = inputItem.nativeElement.querySelector('.am-input-extra');
+    let extraEle = inputItem.nativeElement.querySelector('.am-input-extra');
     expect(extraEle.innerText).toBe('$');
+
+    component.extra = component.extraTpl;
+    fixture.detectChanges();
+    extraEle = inputItem.nativeElement.querySelector('.am-input-extra');
+    expect(extraEle.innerText).toBe('#');
   });
   it('should labelNumber work', () => {
     component.labelNumber = 3;
     fixture.detectChanges();
     const labelEle = inputItem.nativeElement.querySelector('.am-input-label');
     expect(labelEle.classList).toContain('am-input-label-3');
+  });
+  it('should content work', () => {
+    component.content = 'test content';
+    fixture.detectChanges();
+    const labelEle = inputModel.nativeElement.querySelector('.am-input-label');
+    expect(labelEle.innerText).toContain('test content');
   });
   it('should updatePlaceholder work', () => {
     component.updatePlaceholder = true;
@@ -289,49 +336,36 @@ describe('InputComponent', () => {
     fixture.detectChanges();
     expect(component.focusFn).toHaveBeenCalled();
   });
-  it('should OnChange work, type is text', () => {
-    component.clear = true;
-    component.value = 'test';
-    fixture.detectChanges();
-    component.clickTitle();
-    const clearEle = inputItem.nativeElement.querySelector('.am-input-clear');
-    clearEle.click();
-    expect(component.change).toHaveBeenCalled();
-
+  it('should OnChange work, type is text', fakeAsync(() => {
     component.inputItemComp.inputType = 'phone';
     component.inputItemComp.inputChange('12334');
     component.clickTitle();
+    tick(0);
     expect(component.inputItemComp.value).toBe('123 34');
 
     component.inputItemComp.inputChange('123123123123');
     component.clickTitle();
+    tick(0);
     expect(component.inputItemComp.value).toBe('123 1231 2312');
 
     component.inputItemComp.inputType = 'bankCard';
     component.inputItemComp.inputChange('1231212312');
     component.clickTitle();
+    tick(0);
     expect(component.inputItemComp.value).toBe('1231 2123 12');
 
     component.inputItemComp.inputType = 'number';
     component.inputItemComp.inputChange('sdf12hah3');
     component.clickTitle();
+    tick(0);
     expect(component.inputItemComp.value).toBe('123');
 
-    component.inputItemComp.inputType = 'text';
-    component.inputItemComp.inputChange('sdf12hah3');
-    component.clickTitle();
-    expect(component.inputItemComp.value).toBe('sdf12hah3');
-
     component.inputItemComp.inputType = 'password';
-    component.inputItemComp.inputChange('sdf12hah3');
+    component.inputItemComp.inputChange('passwordDemo');
     component.clickTitle();
-    expect(component.inputItemComp.value).toBe('sdf12hah3');
-
-    component.inputItemComp.inputType = 'test';
-    component.inputItemComp.inputChange('sdf12hah3');
-    component.clickTitle();
-    expect(component.inputItemComp.value).toBe('sdf12hah3');
-  });
+    tick(0);
+    expect(component.inputItemComp.value).toBe('passwordDemo');
+  }));
   it('should OnChange work, type is money', () => {
     component.type = 'money';
     fixture.detectChanges();
@@ -370,18 +404,41 @@ describe('InputComponent', () => {
     expect(fakeInput.classList).toContain('focus');
   });
 
+<<<<<<< HEAD
   it('should ngModel work', () => {
+=======
+  it('should ngModel work', fakeAsync(() => {
+>>>>>>> upstream/master
     const inputModelEle = inputModel.nativeElement.querySelector('input');
     inputModelEle.value = 'test-ng-model';
     inputModelEle.dispatchEvent(new Event('input'));
     fixture.detectChanges();
+<<<<<<< HEAD
     expect(component.modelValue).toBe('test-ng-model');
+=======
+    tick(0);
+    expect(component.modelValue).toBe('test-ng-model');
+  }));
+
+  it('should setDisabled work', () => {
+    component.inputItemComp.setDisabledState(true);
+    fixture.detectChanges();
+    expect(inputItem.nativeElement.classList).toContain('am-input-disabled', 'type is text');
+
+    component.type = 'money';
+    fixture.detectChanges();
+    component.inputItemComp.setDisabledState(true);
+    fixture.detectChanges();
+    component.clickTitle();
+    expect(component.focusFn).toHaveBeenCalledTimes(0);
+>>>>>>> upstream/master
   });
 });
 
 @Component({
   selector: 'test-stepper',
   template: `
+<<<<<<< HEAD
     <InputItem [type]="type"
                [value]="value"
                [defaultValue]="defaultValue"
@@ -411,6 +468,39 @@ describe('InputComponent', () => {
     <InputItem class="input-item-1" [(ngModel)]="modelValue"></InputItem>
     <div class="am-list-content" click = "blurFocus()">click to focus</div>
  `
+=======
+    <InputItem
+      [type]="type"
+      [value]="value"
+      [defaultValue]="defaultValue"
+      [editable]="editable"
+      [disabled]="disabled"
+      [clear]="clear"
+      [placeholder]="placeholder"
+      [maxLength]="maxLength"
+      [error]="error"
+      [extra]="extra"
+      [labelNumber]="labelNumber"
+      [updatePlaceholder]="updatePlaceholder"
+      [prefixListCls]="prefixListCls"
+      [name]="name"
+      [fontColor]="fontColor"
+      [moneyKeyboardAlign]="moneyKeyboardAlign"
+      [locale]="locale"
+      [focus]="focus"
+      (onChange)="change($event)"
+      (onBlur)="blur()"
+      (onFocus)="focusFn()"
+      (onErrorClick)="errorClick()"
+      (onExtraClick)="extraClick()"
+    >
+      <span (click)="clickTitle()">标题</span>
+    </InputItem>
+    <InputItem class="input-item-1" [(ngModel)]="modelValue" [content]="content"></InputItem>
+    <div class="am-list-content" click="blurFocus()">click to focus</div>
+    <ng-template #extraTemplate>#</ng-template>
+  `
+>>>>>>> upstream/master
 })
 export class TestInputComponent {
   type: string = 'text';
@@ -422,9 +512,13 @@ export class TestInputComponent {
   disabled: boolean = false;
   clear: boolean = false;
   maxLength: number;
+<<<<<<< HEAD
   fontColor:string;
+=======
+  fontColor: string;
+>>>>>>> upstream/master
   error: boolean = false;
-  extra: string = '';
+  extra: string | TemplateRef<any> = '';
   labelNumber: number = 5;
   updatePlaceholder: boolean = false;
   prefixListCls: string = 'am-list';
@@ -432,9 +526,13 @@ export class TestInputComponent {
   moneyKeyboardAlign: string = 'right';
   locale;
   focus;
+  content = 'content';
 
-  @ViewChild(InputItem)
-  inputItemComp: InputItem;
+  @ViewChild(InputItemComponent)
+  inputItemComp: InputItemComponent;
+
+  @ViewChild('extraTemplate')
+  extraTpl: TemplateRef<any>;
 
   errorClick = jasmine.createSpy('errorClick callback');
   extraClick = jasmine.createSpy('extraClick callback');

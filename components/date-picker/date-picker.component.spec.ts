@@ -2,14 +2,21 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+<<<<<<< HEAD
 import { en_US, zh_CN } from '../locale-provider/languages';
+=======
+import { en_US, zh_CN } from '../locale-provider/locale';
+>>>>>>> upstream/master
 import { DatePickerOptions, DatePickerModule, DatePickerComponent } from './index';
 import {
   Toast,
   ListModule,
   ToastModule,
   ButtonModule,
+<<<<<<< HEAD
   ToastComponent,
+=======
+>>>>>>> upstream/master
   LocaleProviderModule,
   LocaleProviderService
 } from '../..';
@@ -27,10 +34,14 @@ describe('DatePickerComponent', () => {
       declarations: [TestDatePickerBasicComponent],
       providers: [DatePickerOptions, LocaleProviderService, Toast],
       imports: [DatePickerModule, LocaleProviderModule, ButtonModule, ListModule, ToastModule, FormsModule]
+<<<<<<< HEAD
     }).compileComponents();
     TestBed.overrideModule(DatePickerModule, {
       set: { entryComponents: [ToastComponent, DatePickerComponent] }
+=======
+>>>>>>> upstream/master
     }).compileComponents();
+    TestBed.overrideModule(DatePickerModule, {}).compileComponents();
   }));
 
   beforeEach(() => {
@@ -51,7 +62,12 @@ describe('DatePickerComponent', () => {
     button.click();
     fixture.detectChanges();
     datePickerEle = document.querySelector('datepicker');
+<<<<<<< HEAD
     expect(datePickerEle.querySelector('.am-picker-col-item').innerText).toBe('2019', 'minDate is 2000');
+=======
+    const thisYear = new Date().getFullYear().toString();
+    expect(datePickerEle.querySelector('.am-picker-col-item').innerText).toBe(thisYear, `minDate is ${thisYear}`);
+>>>>>>> upstream/master
     datePickerEle.querySelector('.am-picker-popup-header-right').click();
   });
 
@@ -61,7 +77,12 @@ describe('DatePickerComponent', () => {
     button.click();
     fixture.detectChanges();
     datePickerEle = document.querySelector('datepicker');
+<<<<<<< HEAD
     expect(datePickerEle.querySelector('.am-picker-col-item').innerText).toBe('2019', 'minDate is 2000');
+=======
+    const thisYear = new Date().getFullYear().toString();
+    expect(datePickerEle.querySelector('.am-picker-col-item').innerText).toBe(thisYear, `minDate is ${thisYear}`);
+>>>>>>> upstream/master
     datePickerEle.querySelector('.am-picker-popup-header-right').click();
   });
 
@@ -106,6 +127,62 @@ describe('DatePickerComponent', () => {
       '2032',
       'maxDate is 2032'
     );
+    datePickerEle.querySelector('.am-picker-popup-header-right').click();
+  });
+
+  it('should time mode minDate work', () => {
+    component.mode = 'time';
+    component.minDate = new Date();
+    component.value1 = new Date(component.maxDate.getTime() - 60 * 1000);
+    fixture.detectChanges();
+    button.click();
+    fixture.detectChanges();
+    datePickerEle = document.querySelector('datepicker');
+    const target = datePickerEle.querySelector('.am-picker-col-mask');
+    dispatchTouchEvent(target, 'mousedown', 0, 200);
+    fixture.detectChanges();
+    dispatchTouchEvent(target, 'mousemove', 0, 100);
+    fixture.detectChanges();
+    dispatchTouchEvent(target, 'mouseup', 0, 0);
+    fixture.detectChanges();
+    datePickerEle.querySelector('.am-picker-popup-header-right').click();
+    fixture.detectChanges();
+    expect(component.value1.getHours()).toBe(component.minDate.getHours());
+    expect(component.value1.getMinutes()).toBe(component.minDate.getMinutes());
+  });
+
+  it('should time mode maxDate work', () => {
+    component.mode = 'time';
+    component.maxDate = new Date();
+    component.value1 = new Date(component.maxDate.getTime() + 60 * 1000);
+    fixture.detectChanges();
+    button.click();
+    fixture.detectChanges();
+    datePickerEle = document.querySelector('datepicker');
+    const target = datePickerEle.querySelector('.am-picker-col-mask');
+    dispatchTouchEvent(target, 'mousedown', 0, -100);
+    fixture.detectChanges();
+    dispatchTouchEvent(target, 'mousemove', 0, -200);
+    fixture.detectChanges();
+    dispatchTouchEvent(target, 'mouseup', 0, -300);
+    fixture.detectChanges();
+    datePickerEle.querySelector('.am-picker-popup-header-right').click();
+    fixture.detectChanges();
+    expect(component.value1.getHours()).toBe(component.maxDate.getHours());
+    expect(component.value1.getMinutes()).toBe(component.maxDate.getMinutes());
+  });
+
+  it('should minuteStep work', () => {
+    component.mode = 'datetime';
+    component.minuteStep = 5;
+    fixture.detectChanges();
+    button.click();
+    fixture.detectChanges();
+    datePickerEle = document.querySelector('datepicker');
+    const contentEles = datePickerEle.querySelectorAll('.am-picker-col-content');
+    const minuteEles = contentEles[contentEles.length - 1].querySelectorAll('.am-picker-col-item');
+    const step = minuteEles[1].innerText - minuteEles[0].innerText;
+    expect(step).toBe(5, 'minuteStep is 5');
     datePickerEle.querySelector('.am-picker-popup-header-right').click();
   });
 
@@ -206,6 +283,18 @@ describe('DatePickerComponent', () => {
     dispatchTouchEvent(target, 'mouseup', 0, 0);
     fixture.detectChanges();
   });
+
+  it('should ngmodel default value work', () => {
+    component.value1 = null;
+    component.name1 = null;
+    fixture.detectChanges();
+    button.click();
+    fixture.detectChanges();
+    datePickerEle = document.querySelector('datepicker');
+    datePickerEle.querySelector('.am-picker-popup-header-right').click();
+    fixture.detectChanges();
+    expect(component.value1.getTime()).not.toBeNaN();
+  });
 });
 
 @Component({
@@ -218,6 +307,10 @@ describe('DatePickerComponent', () => {
       [title]="title"
       [value]="value1"
       [locale]="locale"
+<<<<<<< HEAD
+=======
+      [minuteStep]="minuteStep"
+>>>>>>> upstream/master
       class="nzm-button"
       [minDate]="minDate"
       [maxDate]="maxDate"
@@ -317,6 +410,7 @@ export class TestDatePickerBasicComponent {
   value3 = new Date();
   value4 = this.utcNow;
 
+  minuteStep = 1;
   locale = en_US;
   title = 'result';
   mask = true;

@@ -3,84 +3,82 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'demo-swipe-action-basic',
   template: `
+<<<<<<< HEAD
     <NoticeBar *ngIf="!isMobile"
                style="margin-bottom: 10px"
                [option]="{'content':'该组件只支持Touch事件，请使用移动模式/设备打开此页。', 'marqueeProps': {fps: 100}}"
+=======
+    <NoticeBar
+      *ngIf="!isMobile"
+      style="margin-bottom: 10px"
+      [option]="{ content: '该组件只支持Touch事件，请使用移动模式/设备打开此页。', marqueeProps: { fps: 100 } }"
+>>>>>>> upstream/master
     ></NoticeBar>
-    <br/>
+    <br />
     <List>
-      <SwipeAction style="background-color: gray"
-                   [autoClose]="true"
-                   [right]="right"
-                   [left]="left"
-                   (onOpen)="open()"
-                   (onClose)="close()"
-      >
-        <ListItem [extra]="'More'"
-                  [arrow]="'horizontal'"
-                  (onClick)="click()"
-        >
+      <SwipeAction style="background-color: gray" [right]="right" [left]="left" (onOpen)="open()" (onClose)="close()">
+        <ListItem [extra]="'More'" [arrow]="'horizontal'" (onClick)="click()">
           Have left and right buttons
         </ListItem>
       </SwipeAction>
 
-      <SwipeAction style="background-color: gray"
-                   [autoClose]="true"
-                   [left]="left"
-                   (onOpen)="open()"
-                   (onClose)="close()"
+      <SwipeAction
+        style="background-color: gray"
+        [autoClose]="true"
+        [left]="left"
+        (onOpen)="open()"
+        (onClose)="close()"
       >
-        <ListItem [extra]="'More'"
-                  [arrow]="'horizontal'"
-                  (onClick)="click()"
-        >
+        <ListItem [extra]="'More'" [arrow]="'horizontal'" (onClick)="click()">
           Only left buttons
         </ListItem>
       </SwipeAction>
 
-      <SwipeAction style="background-color: gray"
-                   [autoClose]="true"
-                   [right]="right"
-                   (onOpen)="open()"
-                   (onClose)="close()"
+      <SwipeAction
+        style="background-color: gray"
+        [autoClose]="true"
+        [right]="right"
+        (onOpen)="open()"
+        (onClose)="close()"
       >
-        <ListItem [extra]="'More'"
-                  [arrow]="'horizontal'"
-                  (onClick)="click()"
-        >
+        <ListItem [extra]="'More'" [arrow]="'horizontal'" (onClick)="click()">
           Only right buttons
         </ListItem>
       </SwipeAction>
 
-      <SwipeAction style="background-color: gray"
-                   [autoClose]="true"
-                   [right]="rightDifferentWidth"
-                   (onOpen)="open()"
-                   (onClose)="close()"
+      <SwipeAction
+        style="background-color: gray"
+        [autoClose]="true"
+        [right]="rightDifferentWidth"
+        (onOpen)="open()"
+        (onClose)="close()"
       >
-        <ListItem [extra]="'More'"
-                  [arrow]="'horizontal'"
-                  (onClick)="click()"
-        >
+        <ListItem [extra]="'More'" [arrow]="'horizontal'" (onClick)="click()">
           Different button width
         </ListItem>
       </SwipeAction>
 
-      <SwipeAction style="background-color: gray"
-                   [autoClose]="true"
-                   [right]="right"
-                   (onOpen)="open()"
-                   (onClose)="close()"
+      <SwipeAction
+        style="background-color: gray"
+        [autoClose]="true"
+        [right]="right"
+        (onOpen)="open()"
+        (onClose)="close()"
       >
-        <ListItem [extra]="'More'"
-                  [arrow]="'horizontal'"
-                  (onClick)="itemClick()"
-        >
+        <ListItem [extra]="'More'" [arrow]="'horizontal'" (onClick)="itemClick()">
           List.Item with onClick
         </ListItem>
       </SwipeAction>
     </List>
-  `
+  `,
+  styles: [
+    `
+      /deep/.btnClass {
+        background-color: #f4333c;
+        color: white;
+      }
+    `
+  ]
 })
 export class DemoSwipeActionBasicComponent {
   isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
@@ -93,7 +91,7 @@ export class DemoSwipeActionBasicComponent {
     {
       text: 'Delete',
       onPress: () => console.log('delete'),
-      style: { backgroundColor: '#F4333C', color: 'white' }
+      className: 'btnClass'
     }
   ];
 
@@ -106,7 +104,7 @@ export class DemoSwipeActionBasicComponent {
     {
       text: 'long text',
       onPress: () => console.log('delete'),
-      style: { backgroundColor: '#F4333C', color: 'white' }
+      className: 'btnClass'
     }
   ];
 

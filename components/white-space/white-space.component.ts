@@ -1,16 +1,16 @@
 import { Component, Input, HostBinding } from '@angular/core';
 
-export type sizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type WhiteSpaceSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 @Component({
   selector: 'WhiteSpace, nzm-whitespace',
   template: ``
 })
-export class WhiteSpace {
+export class WhiteSpaceComponent {
   prefixCls: string = 'am-whitespace';
 
   @Input()
-  size: sizeType = 'md';
+  size: WhiteSpaceSizeType = 'md';
 
   @HostBinding('class.am-whitespace')
   amWhiteSpace: boolean = true;

@@ -9,11 +9,15 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy
 } from '@angular/core';
+<<<<<<< HEAD
 
 export interface RadioStatus {
   name: string;
   value: string;
 }
+=======
+import { RadioStatus } from './PropsType';
+>>>>>>> upstream/master
 
 @Component({
   selector: '[Radio], [nzm-radio]',
@@ -22,7 +26,11 @@ export interface RadioStatus {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+<<<<<<< HEAD
 export class Radio implements OnInit {
+=======
+export class RadioComponent implements OnInit {
+>>>>>>> upstream/master
   prefixCls: string = 'am-radio';
   classMap: object = {
     [this.prefixCls]: true,

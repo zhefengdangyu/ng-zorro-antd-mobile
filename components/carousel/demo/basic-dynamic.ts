@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <WingBlank>
       <div Button (onClick)="onClick1()">Click me to add child</div>
       <WhiteSpace></WhiteSpace>
+<<<<<<< HEAD
       <Carousel [infinite]="true"
                 (beforeChange)="beforeChange($event)"
                 (afterChange)="afterChange($event)"
@@ -13,6 +14,15 @@ import { Component } from '@angular/core';
         <CarouselSlide *ngFor="let item of state.data;let i = index" [ngStyle]="{'height': state.imgHeight}">
           <div style="display: inline-block; width: 100%;" [ngStyle]="{'height': state.imgHeight}">
             <img src="https://zos.alipayobjects.com/rmsportal/{{item}}.png" style="width: 100%;"/>
+=======
+      <Carousel [infinite]="true" (beforeChange)="beforeChange($event)" (afterChange)="afterChange($event)">
+        <CarouselSlide *ngFor="let item of state.data; let i = index" [ngStyle]="{ height: state.imgHeight }">
+          <div style="display: inline-block; width: 100%;" [ngStyle]="{ height: state.imgHeight }">
+            <img
+              src="https://zos.alipayobjects.com/rmsportal/{{ item }}.png"
+              style="pointer-events: none; width: 100%;"
+            />
+>>>>>>> upstream/master
           </div>
         </CarouselSlide>
       </Carousel>

@@ -33,6 +33,23 @@ export class PickerViewComponent extends PickerComponent implements OnInit, Afte
     this.init();
   }
 
+<<<<<<< HEAD
+=======
+  init() {
+    this.selectedTarget = [];
+    if (this.dataForRender.length === 0 && this.generateArrayData(this.options.data).length > 0) {
+      this.dataForRender.push(this.generateArrayData(this.options.data));
+    }
+    if (this.options.value.length > 0) {
+      this.getInitValueIndex(this.dataForRender);
+    } else {
+      for (let index = 0; index < this.dataForRender.length; index++) {
+        this.selectedTarget.push({ targetId: `${index}`, currentY: 0 });
+      }
+    }
+  }
+
+>>>>>>> upstream/master
   writeValue(value: any[]): void {
     if (value) {
       this.options.value = value;
@@ -44,7 +61,11 @@ export class PickerViewComponent extends PickerComponent implements OnInit, Afte
     this.onChange = fn;
   }
 
+<<<<<<< HEAD
   registerOnTouched(fn: any[]): void { }
+=======
+  registerOnTouched(fn: any[]): void {}
+>>>>>>> upstream/master
 
   ngOnInit() {
     this.pickerViewInit();

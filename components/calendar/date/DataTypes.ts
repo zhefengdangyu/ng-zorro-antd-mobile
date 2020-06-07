@@ -1,4 +1,4 @@
-export namespace Models {
+export namespace DateModels {
   export enum SelectType {
     None,
     Single,
@@ -6,7 +6,7 @@ export namespace Models {
     Only,
     Start,
     Middle,
-    End,
+    End
   }
 
   export interface Locale {
@@ -57,7 +57,7 @@ export namespace Models {
     title: string;
     firstDate: Date;
     lastDate: Date;
-    weeks: Models.CellData[][];
+    weeks: DateModels.CellData[][];
     component?: any;
     height?: number;
     y?: number;

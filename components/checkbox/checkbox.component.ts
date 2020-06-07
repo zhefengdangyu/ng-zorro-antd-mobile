@@ -9,12 +9,16 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy
 } from '@angular/core';
+<<<<<<< HEAD
 
 export interface OnChangeEvent {
   name: string;
   value: string;
   checked: boolean;
 }
+=======
+import { CheckboxOnChangeEvent } from './PropsType';
+>>>>>>> upstream/master
 
 @Component({
   selector: '[Checkbox], [nzm-checkbox]',
@@ -23,7 +27,11 @@ export interface OnChangeEvent {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+<<<<<<< HEAD
 export class Checkbox implements OnInit {
+=======
+export class CheckboxComponent implements OnInit {
+>>>>>>> upstream/master
   prefixCls: string = 'am-checkbox';
   classMap: object = {
     [this.prefixCls]: true,
@@ -42,10 +50,8 @@ export class Checkbox implements OnInit {
     return this._checked;
   }
   set checked(value: boolean) {
-    if (!this._disabled) {
-      this._checked = value;
-      this.updateClassMap();
-    }
+    this._checked = value;
+    this.updateClassMap();
   }
   @Input()
   get disabled(): boolean {
@@ -56,7 +62,7 @@ export class Checkbox implements OnInit {
     this.updateClassMap();
   }
   @Output()
-  onChange = new EventEmitter<OnChangeEvent>();
+  onChange = new EventEmitter<CheckboxOnChangeEvent>();
 
   @HostBinding('class.am-checkbox-wrapper')
   checkBoxWrapper: boolean = true;

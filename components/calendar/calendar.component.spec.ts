@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LocaleProviderService } from '../locale-provider/locale-provider.service';
 import { LocaleProviderModule } from '../locale-provider/locale-provider.module';
 import { ModalModule } from '../modal/modal.module';
+<<<<<<< HEAD
 import { Modal } from '../modal/modal.service';
 import { ModalComponent } from '../modal/modal.component';
 import { CalendarModule } from './calendar.module';
 import { dispatchTouchEvent } from '../core/testing';
+=======
+import { ModalService } from '../modal/modal.service';
+import { ModalComponent } from '../modal/modal.component';
+import { CalendarModule } from './calendar.module';
+import { dispatchTouchEvent } from '../core/testing';
+import { CalendarComponent } from './calendar.component';
+>>>>>>> upstream/master
 
 describe('CalendarComponent', () => {
   let component: TestCalendarBasicComponent;
@@ -18,11 +26,16 @@ describe('CalendarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TestCalendarBasicComponent],
+<<<<<<< HEAD
       providers: [LocaleProviderService, Modal],
       imports: [LocaleProviderModule, CalendarModule, FormsModule, ModalModule]
     }).compileComponents();
     TestBed.overrideModule(CalendarModule, {
       set: { entryComponents: [ModalComponent] }
+=======
+      providers: [LocaleProviderService],
+      imports: [LocaleProviderModule, CalendarModule, FormsModule, ModalModule]
+>>>>>>> upstream/master
     }).compileComponents();
   }));
 
@@ -60,12 +73,23 @@ describe('CalendarComponent', () => {
     component.state.now = new Date(2018, 8, 2);
     const disableDay = component.state.now.getDate() + 5 + '';
     fixture.detectChanges();
-    expect(calendarEle.nativeElement.querySelector('.row .cell .disable').innerText).toContain(
+    expect(calendarEle.nativeElement.querySelector('.row .cell.extra-classname .disable').innerText).toContain(
       disableDay,
       'getDateExtra is right'
     );
   });
 
+<<<<<<< HEAD
+=======
+  it('should check same day', () => {
+    component.state.show = true;
+    component.state.now = new Date(2018, 8, 2);
+    fixture.detectChanges();
+
+    expect(component.datepicker.isSameDate()).toContain('need two params', 'check same day is right');
+  });
+
+>>>>>>> upstream/master
   it('should ngModel one', () => {
     component.state.date = new Date(2018, 8, 2);
     component.state.show = true;
@@ -74,9 +98,15 @@ describe('CalendarComponent', () => {
     const displayDay = '2';
     fixture.detectChanges();
     calendarEle.nativeElement
+<<<<<<< HEAD
     .querySelectorAll('.date .row')[1]
     .querySelector('.cell')
     .click();
+=======
+      .querySelectorAll('.date .row')[1]
+      .querySelector('.cell')
+      .click();
+>>>>>>> upstream/master
     fixture.detectChanges();
     expect(calendarEle.nativeElement.querySelectorAll('.row .cell .date.date-selected')[0].innerText).toContain(
       displayDay,
@@ -102,10 +132,72 @@ describe('CalendarComponent', () => {
     );
   });
 
+<<<<<<< HEAD
+=======
+  it('should trigger clear', () => {
+    component.state.date = new Date(2018, 8, 2);
+    component.state.now = new Date(2018, 8, 2);
+    component.state.type = 'one';
+    component.state.show = true;
+    fixture.detectChanges();
+
+    calendarEle.nativeElement
+      .querySelectorAll('.date .row')[1]
+      .querySelector('.cell')
+      .click();
+    fixture.detectChanges();
+
+    calendarEle.nativeElement.querySelector('.right').click();
+    fixture.detectChanges();
+
+    expect(calendarEle.nativeElement.querySelector('.right').innerText).toBe('清除', 'trigger clear is right');
+  });
+
+  it('should write ngModel one throw error 1', () => {
+    component.state.date = [
+      new Date(2018, 8, 2),
+      new Date(new Date(2018, 8, 2).getFullYear(), new Date(2018, 8, 2).getMonth(), new Date(2018, 8, 2).getDate() + 1)
+    ];
+    component.state.now = new Date(2018, 8, 2);
+    component.state.type = 'one';
+    component.state.show = true;
+    const displayDay = '2';
+    fixture.detectChanges();
+    calendarEle.nativeElement
+      .querySelectorAll('.date .row')[1]
+      .querySelector('.cell')
+      .click();
+    fixture.detectChanges();
+    expect(calendarEle.nativeElement.querySelectorAll('.row .cell .date.date-selected')[0].innerText).toContain(
+      displayDay,
+      'write ngModel one throw error 1 is right'
+    );
+  });
+
+  it('should write ngModel one throw error 2', () => {
+    component.state.date = [];
+    component.state.now = new Date(2018, 8, 2);
+    component.state.type = 'one';
+    component.state.show = true;
+    const displayDay = '2';
+    fixture.detectChanges();
+    calendarEle.nativeElement
+      .querySelectorAll('.date .row')[1]
+      .querySelector('.cell')
+      .click();
+    fixture.detectChanges();
+    expect(calendarEle.nativeElement.querySelectorAll('.row .cell .date.date-selected')[0].innerText).toContain(
+      displayDay,
+      'write ngModel one throw error 2 is right'
+    );
+  });
+
+>>>>>>> upstream/master
   it('should ngModel range', () => {
     component.state.show = true;
     component.state.now = new Date(2018, 8, 2);
     component.state.type = 'range';
+<<<<<<< HEAD
     component.state.date = [new Date(2018, 8, 2), new Date(new Date(2018, 8, 2).getFullYear(), new Date(2018, 8, 2).getMonth(), new Date(2018, 8, 2).getDate() + 1)];
     const displayDay = '2';
     fixture.detectChanges();
@@ -113,6 +205,18 @@ describe('CalendarComponent', () => {
     .querySelectorAll('.date .row')[1]
     .querySelector('.cell')
     .click();
+=======
+    component.state.date = [
+      new Date(2018, 8, 2),
+      new Date(new Date(2018, 8, 2).getFullYear(), new Date(2018, 8, 2).getMonth(), new Date(2018, 8, 2).getDate() + 1)
+    ];
+    const displayDay = '2';
+    fixture.detectChanges();
+    calendarEle.nativeElement
+      .querySelectorAll('.date .row')[1]
+      .querySelector('.cell')
+      .click();
+>>>>>>> upstream/master
     fixture.detectChanges();
     expect(calendarEle.nativeElement.querySelectorAll('.row .cell .date.date-selected')[0].innerText).toContain(
       displayDay,
@@ -120,11 +224,47 @@ describe('CalendarComponent', () => {
     );
   });
 
+<<<<<<< HEAD
+=======
+  it('should show default value', () => {
+    component.state.show = true;
+    component.state.now = new Date(2018, 8, 2);
+    component.state.type = 'range';
+    component.state.defaultValue = [new Date(+now), new Date(+now + 86400000)];
+    const displayDay = '2';
+    fixture.detectChanges();
+    expect(calendarEle.nativeElement.querySelectorAll('.row .cell .date.date-selected')[0].innerText).toContain(
+      displayDay,
+      'show default value is right'
+    );
+  });
+
+  it('should show default time value', () => {
+    component.state.show = true;
+    component.state.now = new Date(2018, 8, 2);
+    component.state.type = 'range';
+    component.state.defaultValue = [new Date(+now), new Date(+now + 86400000)];
+    const displayDay = '2';
+    fixture.detectChanges();
+    expect(calendarEle.nativeElement.querySelectorAll('.row .cell .date.date-selected')[0].innerText).toContain(
+      displayDay,
+      'show default value is right'
+    );
+  });
+
+>>>>>>> upstream/master
   it('should write ngModel range', () => {
     component.state.show = true;
     component.state.now = new Date(2018, 8, 2);
     component.state.type = 'range';
+<<<<<<< HEAD
     component.state.date = [new Date(2018, 8, 2), new Date(new Date(2018, 8, 2).getFullYear(), new Date(2018, 8, 2).getMonth(), new Date(2018, 8, 2).getDate() + 1)];
+=======
+    component.state.date = [
+      new Date(2018, 8, 2),
+      new Date(new Date(2018, 8, 2).getFullYear(), new Date(2018, 8, 2).getMonth(), new Date(2018, 8, 2).getDate() + 1)
+    ];
+>>>>>>> upstream/master
     const displayDay = '2';
     fixture.detectChanges();
     calendarEle.nativeElement
@@ -142,6 +282,31 @@ describe('CalendarComponent', () => {
     );
   });
 
+<<<<<<< HEAD
+=======
+  it('should select single month range', () => {
+    component.state.show = true;
+    component.state.now = new Date(2018, 8, 10);
+    component.state.type = 'range';
+    component.state.date = [new Date(2018, 8, 10), new Date(2018, 8, 2)];
+    const displayDay = '2';
+    fixture.detectChanges();
+    calendarEle.nativeElement
+      .querySelectorAll('.date .row')[3]
+      .querySelector('.cell')
+      .click();
+    calendarEle.nativeElement
+      .querySelectorAll('.date .row')[1]
+      .querySelector('.cell')
+      .click();
+    fixture.detectChanges();
+    expect(calendarEle.nativeElement.querySelectorAll('.row .cell .date.date-selected')[0].innerText).toContain(
+      displayDay,
+      'select single month range is right'
+    );
+  });
+
+>>>>>>> upstream/master
   it('should min date', () => {
     component.state.show = true;
     component.state.now = new Date(2018, 8, 2);
@@ -168,12 +333,36 @@ describe('CalendarComponent', () => {
     );
   });
 
-  it('should show picker', () => {
+  it('should scroll date picker', () => {
     component.state.show = true;
     component.state.type = 'one';
     component.state.pickTime = true;
+    component.state.minDate = new Date(2018, 6, 2);
+    component.state.maxDate = new Date(2018, 10, 2);
     component.state.now = new Date(2018, 8, 2);
-    component.state.mimDate = new Date(2018, 8, 2);
+    fixture.detectChanges();
+    let touchEl = calendarEle.nativeElement.querySelector('.content .wrapper');
+
+    dispatchTouchEvent(touchEl, 'touchstart', 0, 0);
+    fixture.detectChanges();
+    dispatchTouchEvent(touchEl, 'touchmove', 0, 100);
+    fixture.detectChanges();
+    dispatchTouchEvent(touchEl, 'touchend', 0, 200);
+    fixture.detectChanges();
+
+    component.datepicker.datepicker.genMonthData();
+    component.datepicker.datepicker.createOnScroll()({ client: 750, top: 760, full: 750 });
+
+    expect(component.datepicker.datepicker.computeVisible(750, 760)).toBe(false, 'scroll date picker is right');
+  });
+
+  it('should show time picker', () => {
+    component.state.show = true;
+    component.state.type = 'one';
+    component.state.pickTime = true;
+    component.state.defaultTimeValue = new Date(2000, 0, 1, 8);
+    component.state.now = new Date(2018, 8, 2);
+    component.state.minDate = new Date(2018, 8, 2);
     component.state.maxDate = new Date(2018, 8, 3);
     fixture.detectChanges();
     calendarEle.nativeElement
@@ -185,9 +374,13 @@ describe('CalendarComponent', () => {
       'time-picker',
       'timepicker is right'
     );
+<<<<<<< HEAD
     const touchEl = calendarEle.nativeElement
       .querySelector('calendartimepicker')
       .querySelector('.am-picker-col-mask');
+=======
+    const touchEl = calendarEle.nativeElement.querySelector('calendartimepicker').querySelector('.am-picker-col-mask');
+>>>>>>> upstream/master
     dispatchTouchEvent(touchEl, 'touchstart', 0, 0);
     fixture.detectChanges();
     dispatchTouchEvent(touchEl, 'touchmove', 0, 30);
@@ -248,6 +441,7 @@ describe('CalendarComponent', () => {
     component.state.show = true;
     component.state.showShortcut = true;
     const disableDay = new Date().getDate() + '';
+    component.state.now = new Date();
     fixture.detectChanges();
     calendarEle.nativeElement.querySelectorAll('calendarshortcutpanel .item')[3].click();
     calendarEle.nativeElement.querySelectorAll('calendarshortcutpanel .item')[2].click();
@@ -281,10 +475,10 @@ describe('CalendarComponent', () => {
 
 const extra = {};
 const now = new Date(2018, 8, 2);
-extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)] = { info: 'Disable', disable: true };
-extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6)] = { info: 'Disable', disable: true };
-extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7)] = { info: 'Disable', disable: true };
-extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 8)] = { info: 'Disable', disable: true };
+extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5)] = { info: 'Disable', cellCls: 'extra-classname', disable: true };
+extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6)] = { info: 'Disable', cellCls: 'extra-classname', disable: true };
+extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7)] = { info: 'Disable', cellCls: 'extra-classname', disable: true };
+extra[+new Date(now.getFullYear(), now.getMonth(), now.getDate() + 8)] = { info: 'Disable', cellCls: 'extra-classname', disable: true };
 
 for (const key in extra) {
   if (extra.hasOwnProperty(key)) {
@@ -299,6 +493,7 @@ for (const key in extra) {
 @Component({
   selector: 'demo-calendar',
   template: `
+<<<<<<< HEAD
     <Calendar [(ngModel)]="this.state.date"
               [locale]="this.state.en ? 'enUS' : 'zhCN'"
               [enterDirection]="this.state._enterDirection"
@@ -318,6 +513,31 @@ for (const key in extra) {
               (onConfirm)="onConfirm($event)"
               (onSelectHasDisableDate)="onSelectHasDisableDate($event)"
     ></Calendar>`
+=======
+    <Calendar
+      [(ngModel)]="this.state.date"
+      [locale]="this.state.en ? 'enUS' : 'zhCN'"
+      [enterDirection]="this.state._enterDirection"
+      [visible]="this.state.show"
+      [getDateExtra]="this.state.getDateExtra"
+      [defaultDate]="this.state.now"
+      [minDate]="this.state.minDate"
+      [maxDate]="this.state.maxDate"
+      [pickTime]="this.state.pickTime"
+      [prefixCls]="this.state.prefixCls"
+      [type]="this.state.type"
+      [rowSize]="this.state.rowSize"
+      [showShortcut]="this.state.showShortcut"
+      [infinite]="this.state.infinite"
+      [defaultValue]="this.state.defaultValue"
+      [defaultTimeValue]="this.state.defaultTimeValue"
+      [onSelect]="this.state.onSelect"
+      (onCancel)="onCancel()"
+      (onConfirm)="onConfirm($event)"
+      (onSelectHasDisableDate)="onSelectHasDisableDate($event)"
+    ></Calendar>
+  `
+>>>>>>> upstream/master
 })
 export class TestCalendarBasicComponent {
   state: any = {
@@ -329,6 +549,7 @@ export class TestCalendarBasicComponent {
     type: 'range',
     _enterDirection: '',
     rowSize: 'normal',
+    prefixCls: 'calendar-spec',
     showShortcut: false,
     infinite: true,
     defaultValue: undefined,
@@ -339,6 +560,11 @@ export class TestCalendarBasicComponent {
       return extra[+date];
     }
   };
+
+  @ViewChild(CalendarComponent)
+  datepicker: CalendarComponent;
+
+  constructor() {}
 
   initPara() {
     this.state = {

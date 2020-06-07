@@ -1,16 +1,16 @@
 <div *ngIf="isHomeURL" class="page-wrapper">
   <header id="header" class="clearfix">
-    <i class="anticon anticon-menu nav-phone-icon" (click)="toggleHide()"></i>
+    <i class="nav-phone-icon" nz-icon nzType="menu" nzTheme="outline" (click)="toggleHide()"></i>
     <div nz-row>
       <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="8" [nzLg]="5" [nzXl]="5" [nzXXl]="4">
         <a id="logo" href>
-          <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/iiOzBpemTGnkYnQDwWGe.svg">
-          <img alt="NG-ZORRO-MOBILE" src="https://gw.alipayobjects.com/zos/rmsportal/ixyXsARcjiierIrrHCPd.svg">
+          <img alt="logo" src="https://gw.alicdn.com/tfs/TB18WVWJpzqK1RjSZSgXXcpAVXa-106-120.svg">
+          <img alt="NG-ZORRO-MOBILE" src="https://gw.alicdn.com/tfs/TB1_SROJwTqK1RjSZPhXXXfOFXa-511-57.svg">
         </a>
       </div>
       <div nz-col [nzXs]="0" [nzSm]="0" [nzMd]="16" [nzLg]="19" [nzXl]="19" [nzXXl]="20" class="nav nav-hide">
         <div id="search-box">
-          <i class="anticon anticon-search"></i>
+          <i nz-icon nzType="search"></i>
           <!-- <input *ngIf="useDocsearch" nz-input #searchInput style="font-size:11px" [placeholder]="language=='zh' ? '在 ng.mobile.ant.design 中搜索' : 'Search in ng.mobile.ant.design'"> -->
           <nz-select *ngIf="useDocsearch" [nzPlaceHolder]="language=='zh'?'搜索组件...':'Search Components...'" nzShowSearch [(ngModel)]="searchComponent" (ngModelChange)="navigateToPage($event)">
             <ng-template [ngForOf]="componentList" ngFor let-component>
@@ -22,7 +22,7 @@
           </nz-select>
         </div>
         <button nz-button nzGhost nzSize="small" class="header-lang-button" (click)="switchLanguage(language==='zh'?'en':'zh')">{{language=='zh'?'English':'中文'}}</button>
-        <nz-select nzSize="small" class="version" style="width: 72px;" [ngModel]="currentVersion" (ngModelChange)="navigateToVersion($event)">
+        <nz-select nzSize="small" class="version" style="width: 120px;" [ngModel]="currentVersion" (ngModelChange)="navigateToVersion($event)">
           <nz-option *ngFor="let version of versionList" [nzLabel]="version" [nzValue]="version"></nz-option>
         </nz-select>
         <ul nz-menu [nzMode]="'horizontal'" id="nav">
@@ -84,14 +84,18 @@
               <h2>Ant Design</h2>
               <div>
                 <a target="_blank " href="https://github.com/NG-ZORRO/ng-zorro-antd-mobile"><span>GitHub</span></a>
-                <span> - </span><span><i class="anticon anticon-github"></i></span>
+                <span> - </span><span><i nz-icon nzType="github"></i></span>
               </div>
               <div>
-                <a target="_blank " href="http://ng.ant.design">NG-ZORRO</a>
+                <a target="_blank " href="https://ng.ant.design">NG-ZORRO</a>
                 <span> - </span>Ant Design of Angular
               </div>
               <div>
+<<<<<<< HEAD:scripts/site/_site/src/app/app.component.html
                 <a target="_blank " href="http://mobile.ant.design">Ant Design Mobile</a>
+=======
+                <a target="_blank " href="https://mobile.ant.design">Ant Design Mobile</a>
+>>>>>>> upstream/master:scripts/site/_site/src/app/app.component.html
                 <span> - </span>React
               </div>
               <div>
@@ -99,7 +103,7 @@
                 <span> - </span>React
               </div>
               <div>
-                <a target="_blank " href="http://pro.ant.design">Ant Design Pro</a>
+                <a target="_blank " href="https://pro.ant.design">Ant Design Pro</a>
               </div>
               <div>
                 <a target="_blank "
@@ -117,7 +121,7 @@
                 <a href="https://cli.angular.io/" target="_blank">Angular CLI</a>
               </div>
               <div>
-                <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">AntD Library</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://library.ant.design/">AntD Library</a>
               </div>
             </div>
           </div>
@@ -137,7 +141,7 @@
                 <a href="https://github.com/NG-ZORRO/ng-zorro-antd/releases" target="_blank"><span>{{language==='zh'?'更新记录':'Change Log'}}</span></a>
               </div>
               <div>
-                <a target="_blank" rel="noopener noreferrer" [href]="'http://ng.mobile.ant.design/issue-helper/#/'+language">
+                <a target="_blank" rel="noopener noreferrer" [href]="'https://ng.mobile.ant.design/issue-helper/#/'+language">
                   <span>{{language==='zh'?'报告 Bug':'Bug Report'}}</span>
                 </a>
               </div>

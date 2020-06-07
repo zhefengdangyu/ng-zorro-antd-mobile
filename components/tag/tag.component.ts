@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   Component,
   OnInit,
@@ -6,13 +7,15 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+=======
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+>>>>>>> upstream/master
 
 @Component({
   selector: 'Tag, nzm-tag',
   templateUrl: './tag.component.html',
   encapsulation: ViewEncapsulation.None
 })
-
 export class TagComponent implements OnInit {
   prefixCls: string = 'am-tag';
   closed: boolean = false;

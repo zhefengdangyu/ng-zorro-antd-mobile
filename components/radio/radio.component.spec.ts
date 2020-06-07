@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Radio } from './radio.component';
+import { RadioComponent } from './radio.component';
 import { RadioModule } from './radio.module';
 
 describe('radio', () => {
@@ -20,7 +20,7 @@ describe('radio', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TestRadioComponent);
     component = fixture.componentInstance;
-    radioEle = fixture.debugElement.query(By.directive(Radio));
+    radioEle = fixture.debugElement.query(By.directive(RadioComponent));
     fixture.detectChanges();
   });
 
@@ -68,7 +68,14 @@ describe('radio', () => {
     component.onChange = jasmine.createSpy('onChange callback');
     component.disabled = true;
     fixture.detectChanges();
+<<<<<<< HEAD
     radioItemEle.nativeElement.querySelector('.second-radio-item').querySelector('.am-radio-wrapper').click();
+=======
+    radioItemEle.nativeElement
+      .querySelector('.second-radio-item')
+      .querySelector('.am-radio-wrapper')
+      .click();
+>>>>>>> upstream/master
     fixture.detectChanges();
     expect(component.onChange).toHaveBeenCalledTimes(0);
 
@@ -84,6 +91,7 @@ describe('radio', () => {
 @Component({
   selector: 'test-radio',
   template: `
+<<<<<<< HEAD
     <label Radio
            [name]="'radio'"
            [checked]="checked"
@@ -99,6 +107,18 @@ describe('radio', () => {
       </RadioItem>
     </RadioItemGroup>
  `
+=======
+    <label Radio [name]="'radio'" [checked]="checked" [disabled]="disabled" (onChange)="onChange($event)"></label>
+    <RadioItemGroup [(ngModel)]="selectedStatus.value" (onChange)="onChange($event)">
+      <RadioItem [name]="data[0].name" [value]="data[0].value">
+        {{ data[0].name }}
+      </RadioItem>
+      <RadioItem class="second-radio-item" [name]="data[1].name" [value]="data[1].value" [disabled]="disabled">
+        {{ data[1].name }}
+      </RadioItem>
+    </RadioItemGroup>
+  `
+>>>>>>> upstream/master
 })
 export class TestRadioComponent {
   value = false;
@@ -107,8 +127,8 @@ export class TestRadioComponent {
   selectedStatus = { value: 0, name: 'doctor' };
   data = [{ value: 0, name: 'doctor' }, { value: 1, name: 'bachelor' }];
 
-  @ViewChild(Radio)
-  radio: Radio;
+  @ViewChild(RadioComponent)
+  radio: RadioComponent;
 
   onChange(e) {
     console.log('onChange', e);

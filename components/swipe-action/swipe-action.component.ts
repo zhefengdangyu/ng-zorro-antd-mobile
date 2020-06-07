@@ -10,13 +10,16 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
 @Component({
   selector: 'SwipeAction, nzm-swipe-action',
   templateUrl: './swipe-action.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class SwipeAction implements OnInit, AfterViewInit, OnDestroy {
+export class SwipeActionComponent implements OnInit, AfterViewInit, OnDestroy {
   prefixCls: string = 'am-swipe';
   wrapCls: object = {};
 
@@ -60,12 +63,15 @@ export class SwipeAction implements OnInit, AfterViewInit, OnDestroy {
     };
   }
 
-  onCloseSwipe = () => {
+  onCloseSwipe = ev => {
     if (!(this._openedLeft || this._openedRight)) {
       return;
     }
-    this.close();
-  };
+    const pNode = ev.target.closest(`.${this.prefixCls}-actions`);
+    if (!pNode) {
+      this.close();
+    }
+  }
 
   close() {
     if (this._openedLeft || this._openedRight) {
@@ -77,6 +83,10 @@ export class SwipeAction implements OnInit, AfterViewInit, OnDestroy {
   }
 
   setBtnStyle(value) {
+    if (this._btnsLeftWidth === 0 || this._btnsRightWidth === 0) {
+      this._btnsLeftWidth = this.leftBtnRef ? this.leftBtnRef.nativeElement.offsetWidth : 0;
+      this._btnsRightWidth = this.rightBtnRef ? this.rightBtnRef.nativeElement.offsetWidth : 0;
+    }
     const limit = value > 0 ? this._btnsLeftWidth : -this._btnsRightWidth;
     const contentLeft = this.getContentEasing(value, limit);
     this.content.nativeElement.style.left = `${contentLeft}px`;
@@ -88,16 +98,15 @@ export class SwipeAction implements OnInit, AfterViewInit, OnDestroy {
     return Math.abs(value) - Math.abs(limit) > 0 ? limit : value;
   }
 
-  onTouchStart = e => {
+  onTouchStart(e) {
     this._startX = e.changedTouches[0].clientX;
     this._swiping = true;
-  };
+  }
 
   onTouchMove(e) {
     const deltaX = e.changedTouches[0].clientX - this._startX;
-    e.preventDefault();
-    this._needShowRight = deltaX < 0 && this.right.length > 0;
-    this._needShowLeft = deltaX > 0 && this.left.length > 0;
+    this._needShowRight = deltaX < -5 && this.right.length > 0;
+    this._needShowLeft = deltaX > 5 && this.left.length > 0;
     if (this.leftBtnRef) {
       this.leftBtnRef.nativeElement.style.visibility = this._needShowRight ? 'hidden' : 'visible';
     }

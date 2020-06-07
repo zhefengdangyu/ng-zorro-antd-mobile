@@ -1,33 +1,30 @@
 import {
-  Component,
   OnInit,
-  ElementRef,
-  ViewEncapsulation,
+  OnDestroy,
+  Component,
   ViewChild,
-  ViewContainerRef,
+  ElementRef,
   HostListener,
   AfterViewInit,
-  EventEmitter,
-  Output,
-  OnDestroy
+  ViewContainerRef,
+  ViewEncapsulation
 } from '@angular/core';
 import { PickerOptions } from './picker-options.provider';
-import * as data from './demo-data/address-data';
 import * as velocity from '../core/util/velocity';
 import * as touchEvent from '../core/util/touch-event';
 import { LocaleProviderService } from '../locale-provider/locale-provider.service';
 import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { PickerRef } from './picker-ref.class';
 
 @Component({
   selector: 'Picker',
   templateUrl: './picker.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PickerComponent<T = any, R = any> extends PickerRef<T, R> implements OnInit, AfterViewInit, OnDestroy {
   transitionName: string = 'am-slide-up-enter am-slide-up-enter-active';
   maskTransitionName: string = 'am-fade-enter am-fade-enter-active';
-  address: any[] = data.getData();
   startY: number = 0;
   differY: number = 0;
   currentY: number = 0;
@@ -36,7 +33,7 @@ export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
   index: number = 0;
   maxY: number = 0;
   lineHeight: number = 34;
-  data: any[] = [];
+  dataForRender: any[] = [];
   selectedTarget: any[] = [];
   isMouseDown: boolean = false;
   Velocity = velocity.getVelocity();
@@ -44,7 +41,7 @@ export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private _unsubscribe$: Subject<void> = new Subject<void>();
 
-  @ViewChild('picker', { read: ViewContainerRef })
+  @ViewChild('picker', { read: ViewContainerRef, static: true })
   private _picker: ViewContainerRef;
 
   @HostListener('mousedown', ['$event'])
@@ -135,42 +132,54 @@ export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
     this.dom.style.transform = `translateY(${this.currentY * this.lineHeight}px)`;
     this.index = Math.floor(Math.abs(this.currentY / 1));
     this.setCurrentSelected(parseInt(event.target.id, 0), this.index);
+<<<<<<< HEAD
     this.options.onPickerChange.emit(this.combineReslut());
     this.onChange(this.combineReslut());
+=======
+    if (this.options.value !== this.combineReslut()) {
+      this.options.onPickerChange.emit(this.combineReslut());
+      this.onChange(this.combineReslut());
+    }
+>>>>>>> upstream/master
   }
 
-  constructor(public elementRef: ElementRef, public options: PickerOptions, private _localeProviderService: LocaleProviderService) {
+  constructor(
+    public elementRef: ElementRef,
+    public options: PickerOptions,
+    private _localeProviderService: LocaleProviderService
+  ) {
+    super();
   }
 
+<<<<<<< HEAD
   onChange = (_: any[]) => { };
+=======
+  onChange = (_: any[]) => {};
+>>>>>>> upstream/master
 
   init() {
-    if (this.options.data.length > 0) {
-      this.address = this.options.data;
+    if (this.dataForRender.length === 0 && this.generateArrayData(this.options.data).length > 0) {
+      this.dataForRender.push(this.generateArrayData(this.options.data));
     }
-    if (this.data.length > 0) {
-      this.selectedTarget = [];
-      this.data = [];
-    }
-    this.data.push(this.generateArrayData(this.address));
     if (this.options.value.length > 0) {
-      this.getInitValueIndex(this.data);
+      this.getInitValueIndex(this.dataForRender);
     } else {
-      this.checkArrayDeep(this.address[0]);
-      for (let index = 0; index < this.data.length; index++) {
+      this.checkArrayDeep(this.options.data[0]);
+      for (let index = 0; index < this.dataForRender.length; index++) {
         this.selectedTarget.push({ targetId: `${index}`, currentY: 0 });
       }
     }
   }
 
   getInitValueIndex(dataTemp) {
-    this.selectedTarget = [];
-    this.options.value.forEach((element, i) => {
+    const self = this;
+    self.selectedTarget = [];
+    self.options.value.forEach((element, i) => {
       dataTemp.forEach((item, j) => {
         item.forEach((item1, k) => {
-          if (element === (item1.label || item1) && i === j) {
-            this.checkArrayDeep(this.data[i][k], false);
-            this.selectedTarget.push({ targetId: `${i}`, currentY: -k });
+          if ((element === item1.label || element === item1.value || element === item1) && i === j) {
+            self.checkArrayDeep(self.dataForRender[i][k], false);
+            self.selectedTarget.push({ targetId: `${i}`, currentY: -k });
           }
         });
       });
@@ -216,8 +225,16 @@ export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   checkArrayDeep(parent, init: boolean = true) {
     if (parent instanceof Object && parent.children && parent.children.length > 0) {
-      if (this.generateArrayData(parent.children).length > 0 && this.data.length < this.options.cols) {
-        this.data.push(this.generateArrayData(parent.children));
+      if (this.generateArrayData(parent.children).length > 0 && this.dataForRender.length < this.options.cols) {
+        let hasValue = false;
+        this.dataForRender.filter((item, index) => {
+          if (JSON.stringify(item) === JSON.stringify(parent.children)) {
+            hasValue = true;
+          }
+        });
+        if (!hasValue) {
+          this.dataForRender.push(this.generateArrayData(parent.children));
+        }
         if (init) {
           this.checkArrayDeep(parent.children[0]);
         }
@@ -237,8 +254,14 @@ export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   combineReslut() {
     const result = [];
-    this.selectedTarget.forEach(item => {
-      result.push(this.data[parseInt(item.targetId, 0)][-item.currentY]);
+    const self = this;
+    self.selectedTarget.forEach(item => {
+      if (self.dataForRender.length > 0 && self.dataForRender.length >= parseInt(item.targetId, 0) + 1) {
+        const curItem = self.dataForRender[parseInt(item.targetId, 0)][-item.currentY];
+        if (curItem !== undefined) {
+          result.push(curItem);
+        }
+      }
     });
     return result;
   }
@@ -263,11 +286,22 @@ export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.options.cascade) {
       return;
     }
-    const a = this.data.slice(0, target + 1);
-    this.data = a;
-    this.checkArrayDeep(this.data[target][index]);
+    const a = this.dataForRender.slice(0, target + 1);
+    this.dataForRender = a;
+    this.checkArrayDeep(this.dataForRender[target][index]);
+    if (this.selectedTarget.length > 0 && this.selectedTarget.length < this.dataForRender.length) {
+      for (let i = 0; i < this.dataForRender.length; i++) {
+        if (i > target) {
+          if (i < this.selectedTarget.length) {
+            this.selectedTarget[i] = { targetId: `${i}`, currentY: 0 };
+          } else {
+            this.selectedTarget.push({ targetId: `${i}`, currentY: 0 });
+          }
+        }
+      }
+    }
     setTimeout(() => {
-      this.data.forEach((item, i) => {
+      this.dataForRender.forEach((item, i) => {
         if (target !== `${i}` && i > target) {
           this._picker.element.nativeElement.children[i].children[2].style.transition = 'transform .3s';
           this._picker.element.nativeElement.children[i].children[2].style.transform = 'translateY(0px)';
@@ -276,12 +310,30 @@ export class PickerComponent implements OnInit, AfterViewInit, OnDestroy {
     }, 0);
   }
 
+  getInstance(): PickerComponent {
+    return this;
+  }
+
+  getElement(): HTMLElement {
+    return this.elementRef && this.elementRef.nativeElement;
+  }
+
+  close(): void {
+    if (this.options.hidePicker) {
+      this.options.hidePicker();
+    }
+  }
+
+  destroy(): void {
+    this.close();
+  }
+
   ngOnInit() {
     this.init();
     this._localeProviderService.localeChange.pipe(takeUntil(this._unsubscribe$)).subscribe(_ => {
       const locale: any = this._localeProviderService.getLocaleSubObj('Picker');
-      this.options.okText = locale.okText;
-      this.options.dismissText = locale.dismissText;
+      this.options.okText = this.options.okText === '确定' ? locale.okText : this.options.okText;
+      this.options.dismissText = this.options.dismissText === '取消' ? locale.dismissText : this.options.dismissText;
     });
   }
 

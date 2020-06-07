@@ -16,6 +16,7 @@
             "main": "./site/src/main.ts",
             "tsConfig": "./site/src/tsconfig.app.json",
             "polyfills": "./site/src/polyfills.ts",
+            "aot": true,
             "assets": [
               "site/src/assets",
               "site/src/favicon.ico",
@@ -34,6 +35,15 @@
           },
           "configurations": {
             "production": {
+<<<<<<< HEAD
+=======
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+>>>>>>> upstream/master
               "fileReplacements": [
                 {
                   "replace": "./site/src/environments/environment.ts",
@@ -45,11 +55,14 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
+              "extractLicenses": false,
               "vendorChunk": false,
               "buildOptimizer": true,
+<<<<<<< HEAD
               "serviceWorker": true
+=======
+              "serviceWorker": false
+>>>>>>> upstream/master
             }
           }
         },
@@ -59,8 +72,8 @@
             "browserTarget": "ng-zorro-antd-mobile:build"
           },
           "configurations": {
-            "prod": {
-              "browserTarget": "ng-zorro-antd-mobile:build:prod"
+            "production": {
+              "browserTarget": "ng-zorro-antd-mobile:build:production"
             }
           }
         },
@@ -92,8 +105,18 @@
           "options": {
             "tsConfig": "components/tsconfig.lib.json",
             "project": "components/ng-package.json"
+<<<<<<< HEAD
           }
         },
+=======
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "components/tsconfig.lib.prod.json"
+            }
+          }
+},
+>>>>>>> upstream/master
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -111,10 +134,13 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "less"
+      "style": "less"
     },
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

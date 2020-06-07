@@ -14,8 +14,9 @@ subtitle: 搜索栏
 
 ## API
 
-属性 | 说明 | 类型 | 默认值
+参数 | 说明 | 类型 | 默认值
 ----|-----|------|------
+<<<<<<< HEAD
 | ngModel  | 当前值，可双向绑定 | String|<span> </span> |
 | ngModelChange  | 值改变时回调 | (val: string): void |<span> </span> |
 | defaultValue |    搜索框的默认值     | String | <span> </span> |
@@ -38,3 +39,21 @@ subtitle: 搜索栏
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | focus   | 使 SearchBar 聚焦  | (): void |  -  |
+=======
+| `[defaultValue]` | 搜索框的默认值 | `string` | - |
+| `[value]` | 搜索框的当前值 | `string` | - |
+| `[placeholder]` | placeholder | `string` | - |
+| `[showCancelButton]` | 是否一直显示`取消`按钮 | `boolean` | `false` |
+| `[cancelText]` | 定制`取消`按钮的文字 | `string` | `'取消'` |
+| `[disabled]` | 设置禁用 | `boolean` | `false` |
+| `[maxLength]` | 最多允许输入的字符个数 | `number` | - |
+| `[(ngModel)]` | 当前值，可双向绑定 | `string`| - |
+| `(ngModelChange)` | 值改变时回调 | `EventEmitter<string>` | - |
+| `(onSubmit)` | submit 事件 (点击键盘的 enter) | `EventEmitter<string>` | - |
+| `(onChange)` | change 事件的回调 | `EventEmitter<string>` |- |
+| `(onFocus)` | focus 事件的回调 | `EventEmitter<void>` | - |
+| `(onBlur)` | blur 事件的回调 | `EventEmitter<void>` | - |
+| `(onCancel)` | 点击`取消`按钮触发 | `EventEmitter<string>` | - |
+| `(onClear)` | 点击 clear 图标触发 | `EventEmitter<string>` | - |
+| `(focus)` | SearchBar 聚焦时的回调事件 | `EventEmitter<void>` | - |
+>>>>>>> upstream/master

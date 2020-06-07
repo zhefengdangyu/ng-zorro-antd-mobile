@@ -50,6 +50,7 @@ import { SwipeActionModule } from './swipe-action/swipe-action.module';
 import { PullToRefreshModule } from './pull-to-refresh/pull-to-refresh.module';
 import { LocaleProviderModule } from './locale-provider/locale-provider.module';
 
+<<<<<<< HEAD
 export { ActivityIndicatorModule } from './activity-indicator/activity-indicator.module';
 export { CardModule } from './card/card.module';
 export { ResultModule } from './result/result.module';
@@ -117,6 +118,55 @@ export { ActionSheet } from './action-sheet/action-sheet.service';
 export { ActionSheetComponent } from './action-sheet/action-sheet.component';
 export { Picker } from './picker/picker.service';
 export { PickerComponent } from './picker/picker.component';
+=======
+export * from './tag/public-api';
+export * from './card/public-api';
+export * from './flex/public-api';
+export * from './grid/public-api';
+export * from './icon/public-api';
+export * from './list/public-api';
+export * from './menu/public-api';
+export * from './tabs/public-api';
+export * from './badge/public-api';
+export * from './modal/public-api';
+export * from './pipes/public-api';
+export * from './radio/public-api';
+export * from './range/public-api';
+export * from './steps/public-api';
+export * from './toast/public-api';
+export * from './button/public-api';
+export * from './drawer/public-api';
+export * from './picker/public-api';
+export * from './result/public-api';
+export * from './slider/public-api';
+export * from './switch/public-api';
+export * from './nav-bar/public-api';
+export * from './popover/public-api';
+export * from './stepper/public-api';
+export * from './tab-bar/public-api';
+export * from './calendar/public-api';
+export * from './carousel/public-api';
+export * from './checkbox/public-api';
+export * from './progress/public-api';
+export * from './accordion/public-api';
+export * from './input-item/public-api';
+export * from './notice-bar/public-api';
+export * from './pagination/public-api';
+export * from './search-bar/public-api';
+export * from './wing-blank/public-api';
+export * from './date-picker/public-api';
+export * from './white-space/public-api';
+export * from './picker-view/public-api';
+export * from './action-sheet/public-api';
+export * from './image-picker/public-api';
+export * from './swipe-action/public-api';
+export * from './textarea-item/public-api';
+export * from './locale-provider/public-api';
+export * from './pull-to-refresh/public-api';
+export * from './date-picker-view/public-api';
+export * from './segmented-control/public-api';
+export * from './activity-indicator/public-api';
+>>>>>>> upstream/master
 
 @NgModule({
   providers: [],
@@ -173,10 +223,14 @@ export { PickerComponent } from './picker/picker.component';
   ]
 })
 export class NgZorroAntdMobileModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<NgZorroAntdMobileModule> {
     return {
+<<<<<<< HEAD
       ngModule: NgZorroAntdMobileModule,
       providers: [ActionSheet, Toast, Modal, Picker]
+=======
+      ngModule: NgZorroAntdMobileModule
+>>>>>>> upstream/master
     };
   }
 }

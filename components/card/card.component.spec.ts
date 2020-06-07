@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardModule } from './card.module';
 
-describe('card', () => {
+describe('CardComponent', () => {
   let component;
   let fixture: ComponentFixture<TestCardComponent>;
   let cardEle;
@@ -66,11 +66,7 @@ describe('card', () => {
   selector: 'test-card',
   template: `
     <Card [full]="full">
-      <CardHeader [title]="title"
-                  [thumb]="thumb"
-                  [thumbStyle]="thumbStyle"
-                  [extra]="extra"
-    >
+      <CardHeader [title]="title" [thumb]="thumb" [thumbStyle]="thumbStyle" [extra]="extra">
         <ng-template #extra>
           <span>this is extra</span>
         </ng-template>

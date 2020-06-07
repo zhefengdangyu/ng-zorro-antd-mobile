@@ -113,6 +113,7 @@ describe('SwitchComponent', () => {
 @Component({
   selector: 'test-switch',
   template: `
+<<<<<<< HEAD
     <Switch [color]="color"
             [checked]="checked"
             [(ngModel)]="checked"
@@ -120,6 +121,16 @@ describe('SwitchComponent', () => {
             [platform]="platform"
             (onChange)="check($event)"
             (onClick)="onClick($event)"
+=======
+    <Switch
+      [color]="color"
+      [checked]="checked"
+      [(ngModel)]="checked"
+      [disabled]="disabled"
+      [platform]="platform"
+      (onChange)="check($event)"
+      (onClick)="onClick($event)"
+>>>>>>> upstream/master
     ></Switch>
   `
 })

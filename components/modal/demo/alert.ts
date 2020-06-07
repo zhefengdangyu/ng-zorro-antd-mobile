@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Modal, Toast } from 'ng-zorro-antd-mobile';
+import { ModalService, ToastService, ModalRef } from 'ng-zorro-antd-mobile';
 
 @Component({
   selector: 'demo-modal-alert',
@@ -18,21 +18,25 @@ import { Modal, Toast } from 'ng-zorro-antd-mobile';
       <div Button (onClick)="showPromise()">promise</div>
       <WhiteSpace></WhiteSpace>
     </WingBlank>
+<<<<<<< HEAD
   `,
   providers: [Toast]
+=======
+  `
+>>>>>>> upstream/master
 })
 export class DemoModalAlertComponent {
-  constructor(private _modal: Modal, private _toast: Toast) {}
+  constructor(private _modal: ModalService, private _toast: ToastService) {}
 
   showAlert() {
-    Modal.alert('Delete', 'Are you sure ?', [
+    this._modal.alert('Delete', 'Are you sure ?', [
       { text: 'Cancel', onPress: () => console.log('cancel') },
       { text: 'OK', onPress: () => console.log('ok') }
     ]);
   }
 
   showAlertMuchButtons(message) {
-    Modal.alert('Much Buttons', message, [
+    this._modal.alert('Much Buttons', message, [
       { text: 'Button1', onPress: () => console.log('第0个按钮被点击了') },
       { text: 'Button2', onPress: () => console.log('第1个按钮被点击了') },
       { text: 'Button2', onPress: () => console.log('第2个按钮被点击了') }
@@ -40,19 +44,26 @@ export class DemoModalAlertComponent {
   }
 
   showPromise() {
-    Modal.alert('Delete', 'Are you sure???', [
+    this._modal.alert('Delete', 'Are you sure???', [
       { text: 'Cancel', onPress: () => console.log('cancel') },
       {
         text: 'Ok',
         onPress: () =>
           new Promise(resolve => {
-            Toast.info('onPress Promise', 1000);
+            this._toast.info('onPress Promise', 1000);
             setTimeout(resolve, 1000);
           }),
+<<<<<<< HEAD
           style: {
             color: '#ffffff',
             background: '#00ff00'
           }
+=======
+        style: {
+          color: '#ffffff',
+          background: '#00ff00'
+        }
+>>>>>>> upstream/master
       }
     ]);
   }

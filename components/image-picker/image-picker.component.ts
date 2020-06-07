@@ -10,7 +10,7 @@ export interface ElementType {
   selector: 'ImagePicker, nzm-image-picker',
   templateUrl: './image-picker.component.html'
 })
-export class ImagePicker {
+export class ImagePickerComponent {
   prefixCls: string = 'am-image-picker';
   flexEl: ElementType[][] = [];
 
@@ -23,6 +23,8 @@ export class ImagePicker {
   @ViewChild('fileSelectorInput', { read: ViewContainerRef })
   private _fileSelectorInput: ViewContainerRef;
 
+  @Input() capture: boolean | string = false;
+  @Input() disableDelete: boolean = false;
   @Input()
   get files() {
     return this._files;
@@ -206,7 +208,7 @@ export class ImagePicker {
     return imgRotation;
   }
 
-  // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
+  // https://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
   getOrientation(file: any, callback: (_: number) => void) {
     const reader = new FileReader();
     reader.onload = e => {

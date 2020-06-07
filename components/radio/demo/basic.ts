@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'demo-radio-basic',
   template: `
     <div>
+<<<<<<< HEAD
       <List [renderHeader]=(renderHeader)>
         <RadioItemGroup [(ngModel)]="selectedStatus1.value" (onChange)="onChange($event)">
           <RadioItem *ngFor="let i of data"
@@ -11,12 +12,19 @@ import { Component } from '@angular/core';
                      [value]="i.value"
           >
             {{i.name}}
+=======
+      <List [renderHeader]="renderHeader">
+        <RadioItemGroup [(ngModel)]="selectedStatus1.value" (onChange)="onChange($event)">
+          <RadioItem *ngFor="let i of data" [name]="i.name" [value]="i.value">
+            {{ i.name }}
+>>>>>>> upstream/master
           </RadioItem>
         </RadioItemGroup>
       </List>
       <WhiteSpace [size]="'lg'"></WhiteSpace>
       <List>
         <RadioItemGroup [(ngModel)]="selectedStatus2.value" (onChange)="onChange2($event)">
+<<<<<<< HEAD
           <RadioItem *ngFor="let i of data2"
                      [name]="i.name"
                      [value]="i.value"
@@ -34,12 +42,25 @@ import { Component } from '@angular/core';
                      [disabled]="true"
           >
             {{i.name}}
+=======
+          <RadioItem *ngFor="let i of data2" [name]="i.name" [value]="i.value">
+            {{ i.name }}
+            <Brief>{{ i.extra }}</Brief>
+          </RadioItem>
+        </RadioItemGroup>
+      </List>
+      <List [renderHeader]="renderHeader2">
+        <RadioItemGroup [(ngModel)]="selectedStatus1.value" (onChange)="onChange($event)">
+          <RadioItem *ngFor="let i of data" [name]="i.name" [value]="i.value" [disabled]="true">
+            {{ i.name }}
+>>>>>>> upstream/master
           </RadioItem>
         </RadioItemGroup>
       </List>
       <WhiteSpace [size]="'lg'"></WhiteSpace>
       <List>
         <RadioItemGroup [(ngModel)]="selectedStatus2.value" (onChange)="onChange2($event)">
+<<<<<<< HEAD
           <RadioItem *ngFor="let i of data2"
                      [name]="i.name"
                      [value]="i.value"
@@ -47,18 +68,34 @@ import { Component } from '@angular/core';
           >
             {{i.name}}
             <Brief>{{i.extra}}</Brief>
+=======
+          <RadioItem *ngFor="let i of data2" [name]="i.name" [value]="i.value" [disabled]="disabled">
+            {{ i.name }}
+            <Brief>{{ i.extra }}</Brief>
+>>>>>>> upstream/master
           </RadioItem>
         </RadioItemGroup>
       </List>
       <Flex style="padding: 15px">
         <FlexItem style="padding: 15px 0; color: #888; flex: none">Radio demo(dustomized style)</FlexItem>
         <FlexItem>
+<<<<<<< HEAD
           <label Radio
                  class="my-radio"
                  [name]="'Last Agree Item'"
                  [value]="'Agree Submit'"
                  (onChange)="onChange3($event)"
           >Agree</label>
+=======
+          <label
+            Radio
+            class="my-radio"
+            [name]="'Last Agree Item'"
+            [value]="'Agree Submit'"
+            (onChange)="onChange3($event)"
+            >Agree</label
+          >
+>>>>>>> upstream/master
         </FlexItem>
       </Flex>
     </div>
@@ -77,7 +114,11 @@ import { Component } from '@angular/core';
 })
 export class DemoRadioBasicComponent {
   disabled: boolean = true;
+<<<<<<< HEAD
   selectedStatus1 = {value: 0, name: 'doctor'};
+=======
+  selectedStatus1 = { value: 0, name: 'doctor' };
+>>>>>>> upstream/master
   selectedStatus2 = { value: 0, name: 'basketball', extra: 'details' };
   data = [{ value: 0, name: 'doctor' }, { value: 1, name: 'bachelor' }];
   data2 = [{ value: 0, name: 'basketball', extra: 'details' }, { value: 1, name: 'football', extra: 'details' }];

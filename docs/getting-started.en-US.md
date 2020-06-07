@@ -5,7 +5,7 @@ title: Getting Started
 
 **NG-ZORRO-MOBILE** is dedicated to providing a **good development experience** for programmers.
 
-> Before delving into **NG-ZORRO-MOBILE**, a good knowledge of [Angular](https://angular.io/) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
+> Before delving into **NG-ZORRO-MOBILE**, a good knowledge of [Angular](https://angular.io/) and [JavaScript ES2015](https://babeljs.io/docs/learn-es2015/) is needed.
 
 ## Playground
 
@@ -56,7 +56,7 @@ Run your project now, you can see the image below now.
 $ ng serve --port 0 --open
 ```
 
-<img style="display: block;padding: 30px 30%;height: 260px;" src="https://gw.alicdn.com/tfs/TB18hC5dPDpK1RjSZFrXXa78VXa-440-550.png">
+<img style="display: block;padding: 30px 30%;height: 260px;" src="https://img.alicdn.com/tfs/TB15EhGJwHqK1RjSZFPXXcwapXa-500-539.png">
 
 ### 5. Building & Deployment
 

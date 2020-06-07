@@ -10,12 +10,16 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+<<<<<<< HEAD
 
 export interface CheckboxStatus {
   name: string;
   value: string;
   checked: boolean;
 }
+=======
+import { CheckboxStatus } from './PropsType';
+>>>>>>> upstream/master
 
 @Component({
   selector: 'AgreeItem, nzm-agree-item',
@@ -25,12 +29,20 @@ export interface CheckboxStatus {
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
+<<<<<<< HEAD
       useExisting: forwardRef(() => AgreeItem),
+=======
+      useExisting: forwardRef(() => AgreeItemComponent),
+>>>>>>> upstream/master
       multi: true
     }
   ]
 })
+<<<<<<< HEAD
 export class AgreeItem implements ControlValueAccessor {
+=======
+export class AgreeItemComponent implements ControlValueAccessor {
+>>>>>>> upstream/master
   prefixCls: string = 'am-checkbox';
   checked: boolean = false;
   private _disabled: boolean = false;
@@ -55,7 +67,11 @@ export class AgreeItem implements ControlValueAccessor {
   @HostBinding('class.am-checkbox-agree')
   checkboxAgree: boolean = true;
 
+<<<<<<< HEAD
   constructor(private cdr: ChangeDetectorRef) { }
+=======
+  constructor(private cdr: ChangeDetectorRef) {}
+>>>>>>> upstream/master
 
   change(event) {
     this.checked = event.checked;

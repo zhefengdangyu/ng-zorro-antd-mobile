@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <WingBlank>
       <WhiteSpace></WhiteSpace>
+<<<<<<< HEAD
         <Carousel class="my-carousel"
                   [autoplay]="true"
                   [infinite]="true"
@@ -16,6 +17,20 @@ import { Component } from '@angular/core';
             <div class="v-item">carousel {{item}}</div>
           </CarouselSlide>
         </Carousel>
+=======
+      <Carousel
+        class="my-carousel"
+        [autoplay]="true"
+        [infinite]="true"
+        [vertical]="true"
+        [dots]="false"
+        [dragging]="false"
+      >
+        <CarouselSlide *ngFor="let item of state.data">
+          <div class="v-item">carousel {{ item }}</div>
+        </CarouselSlide>
+      </Carousel>
+>>>>>>> upstream/master
     </WingBlank>
   `,
   styles: [

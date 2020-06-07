@@ -89,6 +89,9 @@
   &-inline {
     display: inline-block;
     padding: 0 @h-spacing-lg;
+    &.@{buttonPrefixCls}-icon {
+      display: inline-flex;
+    }
   }
 
   &-small {
@@ -106,5 +109,15 @@
 
   > .@{buttonPrefixCls}-icon {
     margin-right: 0.5em;
+  }
+
+  &-dashed {
+    .hairline-remove('all');
+    border: 1px dashed @color-text-disabled !important;
+
+    &.@{buttonPrefixCls}-disabled {
+      color: fade(@color-text-base-inverse, 60%);
+      opacity: 0.4;
+    }
   }
 }

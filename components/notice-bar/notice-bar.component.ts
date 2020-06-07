@@ -60,7 +60,12 @@ export class NoticeBarComponent implements OnInit, OnDestroy {
         width: this._width * 2 + 'px',
         'animation-name': animationName,
         'animation-delay': `${this._option.marqueeProps.leading}ms`,
+<<<<<<< HEAD
         'animation-duration': `${(1 / this._option.marqueeProps.fps) * this._width / util.getWidthHeight().width * 1000}s`,
+=======
+        'animation-duration': `${(((1 / this._option.marqueeProps.fps) * this._width) / util.getWidthHeight().width) *
+          1000}s`,
+>>>>>>> upstream/master
         'animation-iteration-count': `${count}`
       };
       this.marqueeScroll = 'scrolling';
@@ -71,6 +76,7 @@ export class NoticeBarComponent implements OnInit, OnDestroy {
   }
 
   insetKeyframe(animationName) {
+<<<<<<< HEAD
     util.insertKeyFrame(`@keyframes ${animationName} {
       0% { left: 0px; }
       100% { left: -${this._width}px }
@@ -87,6 +93,36 @@ export class NoticeBarComponent implements OnInit, OnDestroy {
       0% { left: 0px; }
       100% { left: -${this._width}px }
     }`, 'notice_bar_animation_cls');
+=======
+    util.insertKeyFrame(
+      `@keyframes ${animationName} {
+      0% { left: 0px; }
+      100% { left: -${this._width}px }
+    }`,
+      'notice_bar_animation_cls'
+    );
+    util.insertKeyFrame(
+      `@-webkit-keyframes ${animationName} {
+      0% { left: 0px; }
+      100% { left: -${this._width}px }
+    }`,
+      'notice_bar_animation_cls'
+    );
+    util.insertKeyFrame(
+      `@-moz-keyframes ${animationName} {
+      0% { left: 0px; }
+      100% { left: -${this._width}px }
+    }`,
+      'notice_bar_animation_cls'
+    );
+    util.insertKeyFrame(
+      `@-o-keyframes ${animationName} {
+      0% { left: 0px; }
+      100% { left: -${this._width}px }
+    }`,
+      'notice_bar_animation_cls'
+    );
+>>>>>>> upstream/master
   }
 
   ngOnInit() {
@@ -102,4 +138,8 @@ export class NoticeBarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     util.deleteKeyFrame('notice_bar_animation_cls');
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> upstream/master

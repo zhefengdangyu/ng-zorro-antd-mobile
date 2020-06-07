@@ -72,12 +72,22 @@ describe('PickerViewComponent', () => {
 @Component({
   selector: 'test-picker-view-basic',
   template: `
+<<<<<<< HEAD
     <PickerView [data]="seasons"
                 [cascade]="cascade"
                 [ngModel]="value"
                 [itemStyle]="itemStyle"
                 [indicatorStyle]="indicatorStyle"
                 (ngModelChange)="onChange($event)"
+=======
+    <PickerView
+      [data]="seasons"
+      [cascade]="cascade"
+      [ngModel]="value"
+      [itemStyle]="itemStyle"
+      [indicatorStyle]="indicatorStyle"
+      (ngModelChange)="onChange($event)"
+>>>>>>> upstream/master
     ></PickerView>
   `
 })

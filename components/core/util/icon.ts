@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 const svgSprite = contents => `
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xlink="https://www.w3.org/1999/xlink"
   id="__ANTD_MOBILE_SVG_SPRITE_NODE__"
   style="position:absolute;width:0;height:0"
 >

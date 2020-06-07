@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Modal, Toast } from 'ng-zorro-antd-mobile';
+import { ModalService } from 'ng-zorro-antd-mobile';
 
 @Component({
   selector: 'demo-modal-operation',
@@ -9,14 +9,18 @@ import { Modal, Toast } from 'ng-zorro-antd-mobile';
       <div Button (onClick)="showOpeartion()">operation</div>
       <WhiteSpace></WhiteSpace>
     </WingBlank>
+<<<<<<< HEAD
   `,
   providers: [Toast]
+=======
+  `
+>>>>>>> upstream/master
 })
 export class DemoModalOperationComponent {
-  constructor(private _modal: Modal, private _toast: Toast) {}
+  constructor(private _modal: ModalService) {}
 
   showOpeartion() {
-    Modal.operation([
+    this._modal.operation([
       { text: '标为未读', onPress: () => console.log('标为未读被点击了') },
       { text: '置顶聊天', onPress: () => console.log('置顶聊天被点击了') }
     ]);

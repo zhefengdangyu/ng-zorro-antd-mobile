@@ -15,7 +15,10 @@
     "lib": ["es2015", "dom"]
   },
   "angularCompilerOptions": {
+<<<<<<< HEAD
     "annotateForClosureCompiler": true,
+=======
+>>>>>>> upstream/master
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "fullTemplateTypeCheck": false,

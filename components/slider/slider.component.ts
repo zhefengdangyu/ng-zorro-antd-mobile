@@ -18,12 +18,20 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
+<<<<<<< HEAD
       useExisting: forwardRef(() => Slider),
+=======
+      useExisting: forwardRef(() => SliderComponent),
+>>>>>>> upstream/master
       multi: true
     }
   ]
 })
+<<<<<<< HEAD
 export class Slider implements OnInit, ControlValueAccessor {
+=======
+export class SliderComponent implements OnInit, ControlValueAccessor {
+>>>>>>> upstream/master
   prefixCls = 'am-slider';
   sliderLength: number;
   sliderStart: number;

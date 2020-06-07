@@ -89,31 +89,25 @@ describe('StepperComponent', () => {
     expect(component.defaultValue).toBe(11, 'value == defaultValue');
   });
   it('should step work', () => {
-    component.value = 5;
+    component.value = 1e-13;
     component.step = 2;
     fixture.detectChanges();
     downButton.click();
-    expect(component.value).toBe(3, 'step is 2');
+    expect(component.value).toBe(-1.9999999999999, 'step is 2');
     component.step = 3;
     fixture.detectChanges();
     upButton.click();
-    expect(component.value).toBe(6, 'step is 3');
+    expect(component.value).toBe(1.0000000000001, 'step is 3');
   });
 
   it('should showNumber work', () => {
     expect(stepperEle.nativeElement.classList).toContain('showNumber', 'showNumber');
     component.showNumber = false;
     fixture.detectChanges();
-    expect(stepperEle.nativeElement.classList).not.toContain(
-      'showNumber',
-      'showNumber is not show'
-    );
+    expect(stepperEle.nativeElement.classList).not.toContain('showNumber', 'showNumber is not show');
   });
   it('should disabled work', () => {
-    expect(stepperEle.nativeElement.classList).not.toContain(
-      'am-stepper-disabled',
-      'not contain am-stepper-disabled'
-    );
+    expect(stepperEle.nativeElement.classList).not.toContain('am-stepper-disabled', 'not contain am-stepper-disabled');
     component.disabled = true;
     component.value = 5;
     fixture.detectChanges();
@@ -133,10 +127,28 @@ describe('StepperComponent', () => {
     upButton.click();
     expect(component.value).toBe(5, 'click down button');
 
-    expect(stepperEle.nativeElement.classList).toContain(
-      'am-stepper-disabled',
-      'contain am-stepper-disabled'
+    expect(stepperEle.nativeElement.classList).toContain('am-stepper-disabled', 'contain am-stepper-disabled');
+
+    component.disabled = false;
+    component.value = 5;
+    fixture.detectChanges();
+
+    expect(stepperEle.nativeElement.querySelector('.am-stepper-handler-down').classList).not.toContain(
+      'am-stepper-handler-down-disabled',
+      'down-disabled'
     );
+    expect(stepperEle.nativeElement.querySelector('.am-stepper-handler-up').classList).not.toContain(
+      'am-stepper-handler-up-disabled',
+      'up-disabled'
+    );
+
+    downButton.click();
+    expect(component.value).toBe(4, 'click down button');
+
+    upButton.click();
+    expect(component.value).toBe(5, 'click down button');
+
+    expect(stepperEle.nativeElement.classList).not.toContain('am-stepper-disabled', 'contain am-stepper-disabled');
   });
 
   it('should readOnly work', fakeAsync(() => {
@@ -145,15 +157,15 @@ describe('StepperComponent', () => {
     fixture.detectChanges();
 
     inputEle.value = 34;
-    inputEle.dispatchEvent(new UIEvent('change'));
+    inputEle.dispatchEvent(new UIEvent('input'));
     expect(component.value).toBe(20, 'set input');
 
     inputEle.value = 4;
-    inputEle.dispatchEvent(new UIEvent('change'));
+    inputEle.dispatchEvent(new UIEvent('input'));
     expect(component.value).toBe(10, 'set input');
 
     inputEle.value = 15;
-    inputEle.dispatchEvent(new UIEvent('change'));
+    inputEle.dispatchEvent(new UIEvent('input'));
     expect(component.value).toBe(15, 'set input');
 
     component.readOnly = true;
@@ -174,6 +186,12 @@ describe('StepperComponent', () => {
   });
 
   it('should ngModel work', () => {
+<<<<<<< HEAD
+=======
+    component.modelValue = 4;
+    fixture.detectChanges();
+
+>>>>>>> upstream/master
     const downEl = stepperEles[1].nativeElement.querySelector('.am-stepper-handler-down');
     component.modelChange = jasmine.createSpy('modelChange callback');
     downEl.click();
@@ -184,6 +202,7 @@ describe('StepperComponent', () => {
 @Component({
   selector: 'test-stepper',
   template: `
+<<<<<<< HEAD
      <Stepper [defaultValue]="defaultValue"
               [value]="value"
               [min]="min"
@@ -205,6 +224,33 @@ describe('StepperComponent', () => {
               (ngModelChange)="modelChange($event)">
      </Stepper>
  `
+=======
+    <Stepper
+      [defaultValue]="defaultValue"
+      [value]="value"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [showNumber]="showNumber"
+      [disabled]="disabled"
+      [readOnly]="readOnly"
+      (onChange)="change($event)"
+    >
+    </Stepper>
+    <Stepper
+      [defaultValue]="defaultValue"
+      [ngModel]="modelValue"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [showNumber]="showNumber"
+      [disabled]="disabled"
+      [readOnly]="readOnly"
+      (ngModelChange)="modelChange($event)"
+    >
+    </Stepper>
+  `
+>>>>>>> upstream/master
 })
 export class TestStepperComponent {
   max = Infinity;

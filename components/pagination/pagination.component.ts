@@ -24,6 +24,10 @@ interface LocaleValue {
 export class PaginationComponent implements OnInit, OnDestroy {
   prefixCls = 'am-pagination';
 
+<<<<<<< HEAD
+=======
+  private hasSetLocale = false;
+>>>>>>> upstream/master
   private _locale: LocaleValue = {
     prevText: '',
     nextText: ''
@@ -46,6 +50,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
   }
   set locale(v) {
     this._locale = v;
+    this.hasSetLocale = true;
     this._unsubscribe$.next();
     this._unsubscribe$.complete();
   }
@@ -69,7 +74,13 @@ export class PaginationComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._localeProviderService.localeChange.pipe(takeUntil(this._unsubscribe$)).subscribe(_ => {
+<<<<<<< HEAD
       this._locale = <LocaleValue>this._localeProviderService.getLocaleSubObj('Pagination');
+=======
+      if (!this.hasSetLocale) {
+        this._locale = <LocaleValue>this._localeProviderService.getLocaleSubObj('Pagination');
+      }
+>>>>>>> upstream/master
     });
   }
 

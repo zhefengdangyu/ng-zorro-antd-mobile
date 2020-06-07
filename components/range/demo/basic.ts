@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <div class="am-demo-page">
       <div style="padding: 15px;font-size: 16px;">步骤条</div>
       <div class="am-demo-bd am-wingblank am-wingblank-lg">
+<<<<<<< HEAD
       <div><div class="sub-title">Basic range ngModel</div></div>
       <div>
             <Range [ngModel]="valueModel"
@@ -29,6 +30,33 @@ import { Component } from '@angular/core';
       </div>
       <div class="am-demo-bd am-wingblank am-wingblank-lg">
         <div><div class="sub-title">Disabled range</div></div>
+=======
+        <div><div class="sub-title">Basic range ngModel</div></div>
+        <div>
+          <Range [ngModel]="valueModel" [min]="0" [max]="20" (ngModelChange)="changeModel($event)"> </Range>
+        </div>
+      </div>
+      <div class="am-demo-bd am-wingblank am-wingblank-lg">
+        <div><div class="sub-title">Basic range</div></div>
+>>>>>>> upstream/master
+        <div>
+          <Range
+            [defaultValue]="[3, 10]"
+            [min]="0"
+            [max]="20"
+<<<<<<< HEAD
+            [disabled]="true"
+=======
+>>>>>>> upstream/master
+            (onChange)="change($event)"
+            (onAfterChange)="afterChange($event)"
+          ></Range>
+        </div>
+      </div>
+      <div class="am-demo-bd am-wingblank am-wingblank-lg">
+<<<<<<< HEAD
+=======
+        <div><div class="sub-title">Disabled range</div></div>
         <div>
           <Range
             [defaultValue]="[3, 10]"
@@ -41,6 +69,7 @@ import { Component } from '@angular/core';
         </div>
       </div>
       <div class="am-demo-bd am-wingblank am-wingblank-lg">
+>>>>>>> upstream/master
         <div><div class="sub-title">Range with customized style</div></div>
         <div>
           <Range

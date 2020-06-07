@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, ElementRef, HostBinding } from '@angular/core';
+=======
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef, HostBinding } from '@angular/core';
+>>>>>>> upstream/master
 
 @Component({
   selector: 'Grid, nzm-grid',
@@ -28,9 +32,25 @@ export class GridComponent implements OnInit {
   private _data = [];
 
   @Input()
-  columnNum: number = 4;
+  get columnNum(): number {
+    return this.defaultProps.columnNum;
+  }
+  set columnNum(value: number) {
+    if (typeof value === 'number') {
+      this.defaultProps.columnNum = value;
+      this.init();
+    }
+  }
   @Input()
-  carouselMaxRow: number = 2;
+  get carouselMaxRow(): number {
+    return this.defaultProps.carouselMaxRow;
+  }
+  set carouselMaxRow(value: number) {
+    if (typeof value === 'number') {
+      this.defaultProps.carouselMaxRow = value;
+      this.init();
+    }
+  }
   @Input()
   itemStyle: object = {};
   @Input()
@@ -41,7 +61,7 @@ export class GridComponent implements OnInit {
   get isCarousel(): boolean {
     return this.defaultProps.isCarousel;
   }
-  set isCarousel (value: boolean) {
+  set isCarousel(value: boolean) {
     this.defaultProps.isCarousel = value;
     this.init();
   }
@@ -53,7 +73,7 @@ export class GridComponent implements OnInit {
     this.init();
   }
   @Output()
-  OnClick: EventEmitter<any> = new EventEmitter();
+  onClick: EventEmitter<any> = new EventEmitter();
 
   @HostBinding('class.am-grid')
   amGrid: boolean = true;
@@ -72,15 +92,15 @@ export class GridComponent implements OnInit {
 
   constructor() {}
 
-  isTemplateRef(value: {}): boolean {
-    return value instanceof TemplateRef;
-  }
-
-  isURL(value: string): boolean {
-    if (value) {
-      return value.indexOf('http') >= 0;
+  getContentType(value: any): string {
+    if ((value.indexOf('http') >= 0 || value.indexOf('assets') >= 0) && value.indexOf('<') < 0) {
+      return 'url';
+    } else if (value.indexOf('<') >= 0) {
+      return 'innerHTML';
+    } else if (value instanceof TemplateRef) {
+      return 'TemplateRef';
     } else {
-      return false;
+      return 'icon';
     }
   }
 
@@ -151,7 +171,7 @@ export class GridComponent implements OnInit {
       data: data,
       index: index
     };
-    this.OnClick.emit(outputData);
+    this.onClick.emit(outputData);
   }
 
   ngOnInit() {

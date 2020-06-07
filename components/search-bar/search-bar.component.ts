@@ -25,7 +25,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SearchBar),
+      useExisting: forwardRef(() => SearchBarComponent),
       multi: true
     }
   ],
@@ -38,7 +38,11 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
     ])
   ]
 })
+<<<<<<< HEAD
 export class SearchBar implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy, ControlValueAccessor {
+=======
+export class SearchBarComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy, ControlValueAccessor {
+>>>>>>> upstream/master
   prefixCls: string = 'am-search';
   clearCls: object;
   wrapCls: object;
@@ -66,7 +70,7 @@ export class SearchBar implements OnInit, AfterViewInit, AfterViewChecked, OnDes
   private locale: any = {};
   private _unsubscribe$ = new Subject<void>();
 
-  @ViewChild('search')
+  @ViewChild('search', { static: true })
   inputElementRef;
 
   @Input()
@@ -224,6 +228,7 @@ export class SearchBar implements OnInit, AfterViewInit, AfterViewChecked, OnDes
     this.onSubmit.emit(this._value);
     this.setClass();
     this._blurFromOnClear = true;
+    this.inputElementRef.nativeElement.blur();
   }
 
   onSearchbarCancel() {

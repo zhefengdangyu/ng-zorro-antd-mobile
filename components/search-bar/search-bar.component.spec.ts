@@ -139,6 +139,7 @@ describe('SearchBarComponent', () => {
 @Component({
   selector: 'test-stepper',
   template: `
+<<<<<<< HEAD
   <SearchBar [value]="value"
              [disabled]="disabled"
              [setFocus]="focusObj"
@@ -163,6 +164,34 @@ describe('SearchBarComponent', () => {
   ></SearchBar>
   <a role="button" class="am-button" (click)="handleClick()"><span>click to focus</span></a>
  `
+=======
+    <SearchBar
+      [value]="value"
+      [disabled]="disabled"
+      [setFocus]="focusObj"
+      [maxLength]="maxLength"
+      [cancelText]="cancelText"
+      [placeholder]="placeholder"
+      [defaultValue]="defaultValue"
+      [showCancelButton]="showCancelButton"
+      (onSubmit)="submit($event)"
+      (onBlur)="blur()"
+      (onClear)="clear()"
+      (onFocus)="focus()"
+      (onCancel)="cancel()"
+      (onChange)="change($event)"
+    ></SearchBar>
+    <SearchBar
+      [ngModel]="modelValue"
+      [maxLength]="maxLength"
+      [cancelText]="cancelText"
+      [placeholder]="placeholder"
+      [showCancelButton]="showCancelButton"
+      (ngModelChange)="modelChange($event)"
+    ></SearchBar>
+    <a role="button" class="am-button" (click)="handleClick()"><span>click to focus</span></a>
+  `
+>>>>>>> upstream/master
 })
 export class TestSearchBarComponent {
   defaultValue = '';

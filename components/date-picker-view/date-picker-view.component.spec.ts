@@ -5,7 +5,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePickerViewModule } from './date-picker-view.module';
 import { DatePickerOptions, DatePickerModule } from '../date-picker/index';
 import { LocaleProviderService, LocaleProviderModule, ToastModule, Toast, ToastComponent } from '../..';
+<<<<<<< HEAD
 import { en_US } from '../locale-provider/languages';
+=======
+import { en_US } from '../locale-provider/locale';
+>>>>>>> upstream/master
 
 describe('DatePickerViewComponent', () => {
   let component: TestDatePickerViewBasicComponent;
@@ -21,9 +25,12 @@ describe('DatePickerViewComponent', () => {
       declarations: [TestDatePickerViewBasicComponent],
       providers: [DatePickerOptions, LocaleProviderService, Toast],
       imports: [DatePickerModule, DatePickerViewModule, LocaleProviderModule, ToastModule, FormsModule]
+<<<<<<< HEAD
     }).compileComponents();
     TestBed.overrideModule(DatePickerViewModule, {
       set: { entryComponents: [ToastComponent] }
+=======
+>>>>>>> upstream/master
     }).compileComponents();
   }));
 
@@ -87,12 +94,22 @@ describe('DatePickerViewComponent', () => {
 @Component({
   selector: 'test-date-picker-view-basic',
   template: `
+<<<<<<< HEAD
     <DatePickerView [mode]="mode"
                     [ngModel]="value1"
                     [locale]="locale"
                     [maxDate]="maxDate"
                     [minDate]="minDate"
                     (onValueChange)="onValueChange1($event)"
+=======
+    <DatePickerView
+      [mode]="mode"
+      [ngModel]="value1"
+      [locale]="locale"
+      [maxDate]="maxDate"
+      [minDate]="minDate"
+      (onValueChange)="onValueChange1($event)"
+>>>>>>> upstream/master
     ></DatePickerView>
   `
 })

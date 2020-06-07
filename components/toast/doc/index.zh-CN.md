@@ -14,6 +14,7 @@ subtitle: 轻提示
 - 有 Icon 的 Toast，字数为 4-6 个；没有 Icon 的 Toast，字数不宜超过 14 个。
 
 
+<<<<<<< HEAD
 ## API
 组件使用前，需要在对应module中加入entryComponents，如：`entryComponents: [ToastComponent]`。
 
@@ -22,18 +23,30 @@ subtitle: 轻提示
 - `Toast.info(content, duration, onClose, mask)`
 - `Toast.loading(content, duration, onClose, mask)`
 - `Toast.offline(content, duration, onClose, mask)`
+=======
+## API 调用
+```ts
+constructor(private _toast: ToastService) {}
+```
+- `this._toast.success(content, duration, onClose, mask)`
+- `this._toast.fail(content, duration, onClose, mask)`
+- `this._toast.info(content, duration, onClose, mask)`
+- `this._toast.loading(content, duration, onClose, mask)`
+- `this._toast.offline(content, duration, onClose, mask)`
+>>>>>>> upstream/master
 
 组件提供了五个静态方法，参数如下：
 
-属性 | 说明 | 类型 | 默认值
+参数 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| content    | 提示内容       | TemplateRef or String    | 无           |
-| duration   | 自动关闭的延时，单位秒 | number                 | 3          |
-| onClose    | 关闭后回调 |  Function                 | 无          |
-| mask    | 是否显示透明蒙层，防止触摸穿透 |  Boolean  | true          |
+| `[content]` | 提示内容 | `string \| TemplateRef` | - |
+| `[duration]` | 自动关闭的延时，单位毫秒 | `number` | `3000` |
+| `[onClose]` | 关闭后回调 | `Function` | - |
+| `[mask]` | 是否显示透明蒙层，防止触摸穿透 | `boolean` | `true` |
+| `[position]` | 弹出的位置 | `'top' \| 'middle' \| 'bottom'` | `'middle'` |
 
 > **注：**  duration = 0 时，onClose 无效，toast 不会消失；隐藏 toast 需要手动调用 hide
 
 还提供了全局配置和全局销毁方法：
 
-- `Toast.hide()`
+- `this._toast.hide()`

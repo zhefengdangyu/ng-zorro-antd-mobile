@@ -131,6 +131,7 @@ describe('SliderComponent', () => {
 @Component({
   selector: 'test-slider',
   template: `
+<<<<<<< HEAD
   <Slider [min]= "min"
           [max]="max"
           [dots]="dots"
@@ -161,6 +162,40 @@ describe('SliderComponent', () => {
           (onAfterChange)="afterChange($event)"
   ></Slider>
  `
+=======
+    <Slider
+      [min]="min"
+      [max]="max"
+      [dots]="dots"
+      [step]="step"
+      [marks]="marks"
+      [value]="value"
+      [disabled]="disabled"
+      [included]="included"
+      [railStyle]="railStyle"
+      [trackStyle]="trackStyle"
+      [handleStyle]="handleStyle"
+      [defaultValue]="defaultValue"
+      (onChange)="change($event)"
+      (onAfterChange)="afterChange($event)"
+    ></Slider>
+    <Slider
+      [min]="min"
+      [max]="max"
+      [dots]="dots"
+      [step]="step"
+      [marks]="marks"
+      [(ngModel)]="value"
+      [disabled]="disabled"
+      [included]="included"
+      [railStyle]="railStyle"
+      [trackStyle]="trackStyle"
+      [handleStyle]="handleStyle"
+      (ngModelChange)="modelChange($event)"
+      (onAfterChange)="afterChange($event)"
+    ></Slider>
+  `
+>>>>>>> upstream/master
 })
 export class TestSliderComponent implements OnInit {
   min = 0;

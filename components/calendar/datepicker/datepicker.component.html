@@ -1,18 +1,29 @@
 <CalendarWeekPanel [locale]="props.locale"></CalendarWeekPanel>
+<<<<<<< HEAD
 <div #layout
      class="wrapper"
      style="overflow-x:hidden;overflow-y:visible;-webkit-overflow-scrolling:touch;"
      (touchstart)="onTouchStart($event)"
      (touchmove)="onTouchMove($event)"
      (touchend)="onTouchEnd($event)"
+=======
+<div
+  #layout
+  class="wrapper"
+  style="overflow-x:hidden;overflow-y:visible;-webkit-overflow-scrolling:touch;"
+  (touchstart)="onTouchStart($event)"
+  (touchmove)="onTouchMove($event)"
+  (touchend)="onTouchEnd($event)"
+>>>>>>> upstream/master
 >
-  <div #panel [ngStyle]="{transform: transform}">
-    <div *ngIf="canLoadPrev()" class="load-tip">{{props.locale.loadPrevMonth}}</div>
+  <div #panel [ngStyle]="{ transform: transform }">
+    <div *ngIf="canLoadPrev()" class="load-tip">{{ props.locale.loadPrevMonth }}</div>
     <div class="months">
-      <SingleMonth *ngFor="let item of visibleMonth;let i = index;"
-                   style="display: block;"
-                   [data]="item.component"
-      ></SingleMonth>
+      <CalendarSingleMonth
+        *ngFor="let item of visibleMonth; let i = index"
+        style="display: block;"
+        [data]="item.component"
+      ></CalendarSingleMonth>
     </div>
   </div>
 </div>

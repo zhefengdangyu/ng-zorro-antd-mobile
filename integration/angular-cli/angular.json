@@ -22,6 +22,10 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+<<<<<<< HEAD
+=======
+            "aot": true,
+>>>>>>> upstream/master
             "assets": [
               "src/assets"
             ],

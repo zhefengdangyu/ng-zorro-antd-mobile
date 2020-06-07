@@ -18,7 +18,7 @@ import { CustomInputService } from './custom-input.service';
   encapsulation: ViewEncapsulation.None,
   providers: [CustomInputService]
 })
-export class CustomInput implements OnInit, OnDestroy {
+export class CustomInputComponent implements OnInit, OnDestroy {
   keyboardPrefixCls: string = 'am-number-keyboard';
   fakeInputCls: object;
   focus: boolean = false;
@@ -32,25 +32,31 @@ export class CustomInput implements OnInit, OnDestroy {
   private _setFocus: boolean = false;
   private _preventKeyboard: boolean;
   private _moneyKeyboardAlign: string;
+<<<<<<< HEAD
   private _fontColor:string;
+=======
+  private _fontColor: string;
+>>>>>>> upstream/master
 
   @Input()
   get value(): string {
     return this._value;
   }
   set value(v: string) {
-    if (typeof v === undefined || v === null) {
+    if (typeof v === 'undefined' || v === null) {
       this._value = '';
     } else if (this._maxLength !== undefined && this._maxLength >= 0) {
-      this._value = v.substr(0, this._maxLength);
+      this._value = v.toString().substr(0, this._maxLength);
     } else {
-      this._value = v;
+      this._value = v.toString();
     }
   }
   @Input()
   set defaultValue(value: string) {
     this._defaultValue = value;
-    this._value = this._defaultValue;
+    if (!this._value) {
+      this._value = this._defaultValue.toString();
+    }
   }
   @Input()
   set maxLength(value: number) {
@@ -122,7 +128,7 @@ export class CustomInput implements OnInit, OnDestroy {
     setTimeout(() => {
       this.addBlurListener();
     }, 50);
-  };
+  }
 
   doBlur = ev => {
     const value = this._value;
@@ -170,22 +176,22 @@ export class CustomInput implements OnInit, OnDestroy {
       CustomInputService.hideKeyboard();
     }
     this.setFakeInputCls();
-  };
+  }
 
   removeBlurListener = () => {
     document.removeEventListener('click', this.doBlur, false);
-  };
+  }
 
   addBlurListener = () => {
     document.addEventListener('click', this.doBlur, false);
-  };
+  }
 
   onInputBlur = value => {
     this.focus = false;
     this.setFakeInputCls();
     this.onBlur.emit(this._value);
     CustomInputService.hideKeyboard();
-  };
+  }
 
   onInputFocus = () => {
     this.onFocus.emit(this._value);
@@ -195,7 +201,7 @@ export class CustomInput implements OnInit, OnDestroy {
     setTimeout(() => {
       CustomInputService.showKeyboard();
     }, 100);
-  };
+  }
 
   setFakeInputCls = () => {
     this.fakeInputCls = {
@@ -203,11 +209,15 @@ export class CustomInput implements OnInit, OnDestroy {
       ['fake-input-disabled']: this._disabled,
       ['focus']: this.focus
     };
-  };
+  }
 
   setContainerCls = () => {
     this.clsFakeContainerLeft = this._moneyKeyboardAlign === 'left';
+<<<<<<< HEAD
   };
+=======
+  }
+>>>>>>> upstream/master
 
   onKeyboardClick = keyboardItemValue => {
     let valueAfterChange;
@@ -240,7 +250,11 @@ export class CustomInput implements OnInit, OnDestroy {
     this._ngZone.run(() => {
       this._value = valueAfterChange;
     });
+<<<<<<< HEAD
   };
+=======
+  }
+>>>>>>> upstream/master
 
   ngOnInit() {
     this._preventKeyboard = this._disabled || !this._editable;

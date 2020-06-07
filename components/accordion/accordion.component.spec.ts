@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, fakeAsync, tick, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,7 +27,7 @@ describe('AccordionComponent', () => {
     fixture.detectChanges();
   });
 
-  it ('should click work', () => {
+  it('should click work', () => {
     accordionEle.nativeElement.click();
   });
 
@@ -35,25 +35,19 @@ describe('AccordionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should expandall, accordion work', () => {
+  it('should accordionpanel open close work', () => {
     fixture.detectChanges();
     component.accordions = [{ title: 'Title 1', child: ['content 1', 'content 1'] }];
     component.activeKey = undefined;
-    component.expandAll = false;
+    component.expandAll = true;
     component.accordion = false;
     fixture.detectChanges();
-    let accordionPanelEle = accordionEle.nativeElement.querySelector('accordionpanel');
-  });
-
-  it('should expandall, accordion work', () => {
+    accordionEle.nativeElement.querySelector('.am-accordion-header').click();
     fixture.detectChanges();
-    component.accordions = [{ title: 'Title 1', child: ['content 1', 'content 1'] }];
-    component.activeKey = undefined;
-    component.expandAll = false;
-    component.accordion = false;
+    expect(accordionEle.nativeElement.querySelector('.am-accordion-content').classList).toContain('am-accordion-content-active');
+    accordionEle.nativeElement.querySelector('.am-accordion-header').click();
     fixture.detectChanges();
-    let accordionPanelEle = accordionEle.nativeElement.querySelector('accordionpanel');
-
+    expect(accordionEle.nativeElement.querySelector('.am-accordion-content-active')).toBeNull();
   });
 
   it('should expandall, accordion work', () => {
@@ -82,10 +76,10 @@ describe('AccordionComponent', () => {
 
   it('should toArray work', () => {
     fixture.detectChanges();
-    expect(component.accordionComponent.toArray('KEY')).toEqual([ 'KEY' ], 'toArray is work');
+    expect(component.accordionComponent.toArray('KEY')).toEqual(['KEY'], 'toArray is work');
   });
 
-  it ('should header click', () => {
+  it('should header click', () => {
     accordionEle.nativeElement.querySelector('.am-accordion-header').click();
   });
 });
@@ -100,22 +94,25 @@ describe('AccordionComponent', () => {
       [accordion]="accordion"
       (onChange)="onChange($event)"
     >
-      <AccordionPanel *ngFor="let item of accordions; let i = index;"
-                      [key]="i"
-                      [header]="item.title"
-                      [disabled]="item.inactive"
+      <AccordionPanel
+        *ngFor="let item of accordions; let i = index"
+        [key]="i"
+        [header]="item.title"
+        [disabled]="item.inactive"
       >
         <div *ngFor="let content of item.child">
-          {{content}}
+          {{ content }}
         </div>
       </AccordionPanel>
     </Accordion>
   `
 })
-export class TestAccordionComponent {
+export class TestAccordionComponent implements OnInit {
   defaultActiveKey = '0';
-  accordions: Array<any> = [{ title: 'Title 1', child: ['content 1', 'content 1', 'content 1'],  inactive: false },
-                            { title: 'Title 2', child: ['content 2', 'content 2', 'content 2'] }];
+  accordions: Array<any> = [
+    { title: 'Title 1', child: ['content 1', 'content 1', 'content 1'], inactive: false },
+    { title: 'Title 2', child: ['content 2', 'content 2', 'content 2'] }
+  ];
   expandAll = false;
   accordion = true;
   activeKey = undefined;
@@ -124,5 +121,14 @@ export class TestAccordionComponent {
 
   onChange(event) {
     console.log(event);
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.accordions = [
+        { title: 'Title 1', child: ['content 1', 'content 1', 'content 1'], inactive: false },
+        { title: 'Title 2', child: ['content 2', 'content 2', 'content 2'] }
+      ];
+    }, 0);
   }
 }

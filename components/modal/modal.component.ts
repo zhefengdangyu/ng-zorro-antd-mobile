@@ -1,4 +1,5 @@
 import {
+<<<<<<< HEAD
   Component,
   HostListener,
   Input,
@@ -10,6 +11,22 @@ import {
 } from '@angular/core';
 import { ModalOptions } from './modal-options.provider';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+=======
+  Input,
+  Output,
+  Component,
+  forwardRef,
+  ElementRef,
+  TemplateRef,
+  EventEmitter,
+  HostListener,
+  ViewEncapsulation
+} from '@angular/core';
+import { ModalOptions } from './modal-options.provider';
+import { Observable } from 'rxjs';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ModalRef } from './modal-ref.class';
+>>>>>>> upstream/master
 @Component({
   selector: 'Modal',
   templateUrl: './modal.component.html',
@@ -23,7 +40,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
+<<<<<<< HEAD
 export class ModalComponent implements ControlValueAccessor {
+=======
+export class ModalComponent<T = any, R = any> extends ModalRef<T, R> implements ControlValueAccessor {
+>>>>>>> upstream/master
   autoFocus = { focus: true, date: new Date() };
   transitionName: string = '';
   maskTransitionName: string = '';
@@ -39,9 +60,12 @@ export class ModalComponent implements ControlValueAccessor {
   onTouched: () => {};
 
   @Input()
+<<<<<<< HEAD
   get title(): string | TemplateRef<any> {
     return this.option.title;
   }
+=======
+>>>>>>> upstream/master
   set title(value: string | TemplateRef<any>) {
     this.option.title = value;
   }
@@ -112,7 +136,76 @@ export class ModalComponent implements ControlValueAccessor {
   }
   @Output()
   onClose: EventEmitter<any> = new EventEmitter();
+  @Output()
+  afterOpenEmitter: EventEmitter<any> = new EventEmitter<void>();
+  @Output()
+  afterCloseEmitter: EventEmitter<any> = new EventEmitter<void>();
 
+  @HostListener('mouseup', ['$event'])
+  @HostListener('touchend', ['$event'])
+  panend(event) {
+    if (this.option.closable || this.option.maskClosable || this.option.popup) {
+      if (
+        (event && event.target && event.target.getAttribute('role') === 'dialog') ||
+        event.target.getAttribute('role') === 'close'
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.option.close) {
+          this.option.close();
+        } else {
+          this.onClose.emit();
+          this.leaveAnimation();
+        }
+      }
+    }
+  }
+
+  constructor(public option: ModalOptions, public elementRef: ElementRef) {
+    super();
+  }
+
+  isTemplateRef(value: string | TemplateRef<any>) {
+    return value instanceof TemplateRef;
+  }
+
+  isNoTitle(value: string | TemplateRef<any>) {
+    return value === '' || value === null || value === undefined;
+  }
+
+  setTransitionName(visible: boolean) {
+    if (!visible) {
+      this.leaveAnimation();
+    } else {
+      if (this.option.animated) {
+        if (this.option.transparent) {
+          if (this.setActiveName(this.option.transitionName)) {
+            this.transitionName = this.setActiveName(this.option.transitionName);
+            this.maskTransitionName = this.setActiveName(this.option.maskTransitionName);
+          } else {
+            this.transitionName = this.maskTransitionName = this.setActiveName('am-fade');
+          }
+        } else {
+          if (this.setActiveName(this.option.transitionName)) {
+            this.transitionName = this.setActiveName(this.option.transitionName);
+            this.maskTransitionName = this.setActiveName(this.option.maskTransitionName);
+          } else {
+            this.transitionName = this.maskTransitionName = this.setActiveName('am-slide-up');
+          }
+        }
+        if (this.option.popup) {
+          this.transitionName =
+            this.option.animationType === 'slide-up'
+              ? this.setActiveName('am-slide-up')
+              : this.setActiveName('am-slide-down');
+          this.maskTransitionName = this.setActiveName('am-fade');
+        }
+      }
+      this.setClassMap();
+    }
+  }
+
+<<<<<<< HEAD
   @HostListener('mouseup', ['$event'])
   @HostListener('touchend', ['$event'])
   panend(event) {
@@ -173,6 +266,8 @@ export class ModalComponent implements ControlValueAccessor {
     }
   }
 
+=======
+>>>>>>> upstream/master
   setActiveName(name: string) {
     return name.length > 0 ? `${name}-enter ${name}-enter-active` : null;
   }
@@ -234,13 +329,21 @@ export class ModalComponent implements ControlValueAccessor {
     }
     setTimeout(() => {
       this.option.visible = false;
+<<<<<<< HEAD
       this.onChanged(this.option.visible);
+=======
+      if (this.onChanged) {
+        this.onChanged(this.option.visible);
+      }
+>>>>>>> upstream/master
     }, 200);
   }
 
   writeValue(value: boolean): void {
     if (value) {
       this.option.visible = value;
+<<<<<<< HEAD
+=======
     }
     this.setTransitionName(value);
   }
@@ -252,6 +355,60 @@ export class ModalComponent implements ControlValueAccessor {
   registerOnTouched(fn: () => {}): void {
     this.onTouched = fn;
   }
+
+  get afterOpen(): Observable<void> {
+    return this.afterOpenEmitter.asObservable();
+  }
+
+  get afterClose(): Observable<R> {
+    return this.afterCloseEmitter.asObservable();
+  }
+
+  getInstance(): ModalComponent {
+    return this;
+  }
+
+  getElement(): HTMLElement {
+    return this.elementRef && this.elementRef.nativeElement;
+  }
+
+  close(): void {
+    if (this.option.closeWithAnimation) {
+      this.option.closeWithAnimation();
+    } else {
+      this.onClose.emit();
+      this.leaveAnimation();
+>>>>>>> upstream/master
+    }
+    this.setTransitionName(value);
+  }
+
+<<<<<<< HEAD
+  registerOnChange(fn: (_: boolean) => {}): void {
+    this.onChanged = fn;
+  }
+
+  registerOnTouched(fn: () => {}): void {
+    this.onTouched = fn;
+=======
+  triggerOk(): void {
+    if (this.option.footer.length > 1) {
+      const button = this.option.footer[1];
+      button.onPress();
+    }
+  }
+
+  triggerCancel(): void {
+    if (this.option.footer.length > 0) {
+      const button = this.option.footer[0];
+      button.onPress();
+    }
+  }
+
+  destroy(): void {
+    this.close();
+>>>>>>> upstream/master
+  }
 }
 
 @Component({
@@ -260,8 +417,13 @@ export class ModalComponent implements ControlValueAccessor {
   encapsulation: ViewEncapsulation.None
 })
 export class ModalServiceComponent extends ModalComponent {
+<<<<<<< HEAD
   constructor(public option: ModalOptions) {
     super(option);
+=======
+  constructor(public option: ModalOptions, public elementRef: ElementRef) {
+    super(option, elementRef);
+>>>>>>> upstream/master
     this.setTransitionName(this.option.visible);
   }
 }

@@ -13,26 +13,34 @@ A lightweight feedback or tips, used to display content that does not interrupt 
 - Toast with Icon, 4-6 words is recommended.; Toast without Icon, the number of words should not exceed 14.
 
 
+<<<<<<< HEAD
 ## API
 Before use，entryComponents should be added in corresponding module，such as：`entryComponents: [ToastComponent]`.
+=======
+## API USE
+>>>>>>> upstream/master
 
-- `Toast.success(content, duration, onClose, mask)`
-- `Toast.fail(content, duration, onClose, mask)`
-- `Toast.info(content, duration, onClose, mask)`
-- `Toast.loading(content, duration, onClose, mask)`
-- `Toast.offline(content, duration, onClose, mask)`
+```ts
+constructor(private _toast: ToastService) {}
+```
+- `this._toast.success(content, duration, onClose, mask)`
+- `this._toast.fail(content, duration, onClose, mask)`
+- `this._toast.info(content, duration, onClose, mask)`
+- `this._toast.loading(content, duration, onClose, mask)`
+- `this._toast.offline(content, duration, onClose, mask)`
 
 The component provide several static methods：
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| content    | Toast content       | TemplateRef or String    | -           |
-| duration   | Delay time to close, which units is second | number                 | 3          |
-| onClose    | A callback function Triggered when the Toast is closed |  Function                 | -          |
-| mask    | Whether to show a transparent mask, which will prevent touch event of the whole page |  Boolean  | true          |
+| `[content]` | Toast content | `string \| TemplateRef` | - |
+| `[duration]` | Delay time to close, which units is millisecond | `number` | `3000` |
+| `[onClose]` | A callback function Triggered when the Toast is closed | `Function` | - |
+| `[mask]` | Whether to show a transparent mask, which will prevent touch event of the whole page | `boolean` | `true` |
+| `[position]` | Position of toast | `'top' \| 'middle' \| 'bottom'` | `'middle'` |
 
 > **Notice：** OnClose is invalid and Toast does not hide, If set duration = 0, toast will not auto hide, you have to manually do it.
 
 Provides global configuration and global destroy methods:
 
-- `Toast.hide()`
+- `this._toast.hide()`

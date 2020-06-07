@@ -3,17 +3,16 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'demo-tabs-basic',
   template: `
-    <Tabs [useOnPan]="true"
-          [swipeable]="true"
-          [activeTab]="index"
-          [page]="3"
-          [tabBarActiveTextColor]="'#1890ff'"
-          (onChange)="onChange($event)"
-          (onTabClick)="onTabClick($event)"
+    <Tabs
+      [page]="3"
+      [useOnPan]="true"
+      [swipeable]="true"
+      [activeTab]="index"
+      [tabBarActiveTextColor]="'#1890ff'"
+      (onChange)="onChange($event)"
+      (onTabClick)="onTabClick($event)"
     >
-      <TabPane style="display: flex; height: 150px; width: 100%; background-color: white; align-items: center;justify-content: center;"
-               [title]="titleTemplate"
-      >
+      <TabPane [title]="titleTemplate">
         <ng-template #titleTemplate>
           <Badge [text]="3">
             <div>First Tab</div>
@@ -23,9 +22,7 @@ import { Component } from '@angular/core';
           Content of first tab
         </div>
       </TabPane>
-      <TabPane style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-               [title]="titleTemplate1"
-      >
+      <TabPane [title]="titleTemplate1">
         <ng-template #titleTemplate1>
           <Badge [text]="'今日(20)'">
             <div>Second Tab</div>
@@ -35,9 +32,7 @@ import { Component } from '@angular/core';
           Content of second tab
         </div>
       </TabPane>
-      <TabPane style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-               [title]="titleTemplate2"
-      >
+      <TabPane [title]="titleTemplate2">
         <ng-template #titleTemplate2>
           <Badge [dot]="true">
             <div>Third Tab</div>
@@ -49,30 +44,31 @@ import { Component } from '@angular/core';
       </TabPane>
     </Tabs>
     <WhiteSpace></WhiteSpace>
-    <Tabs [activeTab]="index"
-          [page]="3"
-          [tabBarPosition]="'bottom'"
-          (onChange)="onChange($event)"
-          (onTabClick)="onTabClick($event)"
+    <Tabs
+      [page]="3"
+      [activeTab]="index"
+      [tabBarPosition]="'bottom'"
+      (onChange)="onChange($event)"
+      (onTabClick)="onTabClick($event)"
     >
-      <TabPane style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-               [title]="'First Tab'"
-      >
-        <div>
+      <TabPane [title]="'First Tab'">
+        <div
+          style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+        >
           Content of first tab
         </div>
       </TabPane>
-      <TabPane style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-               [title]="'Second Tab'"
-      >
-        <div>
+      <TabPane [title]="'Second Tab'">
+        <div
+          style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+        >
           Content of second tab
         </div>
       </TabPane>
-      <TabPane style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-               [title]="'Third Tab'"
-      >
-        <div>
+      <TabPane [title]="'Third Tab'">
+        <div
+          style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+        >
           Content of third tab
         </div>
       </TabPane>
@@ -88,7 +84,7 @@ import { Component } from '@angular/core';
 })
 export class DemoTabsBasicComponent {
   flag = true;
-  index = 0;
+  index = 1;
 
   onChange(item) {
     console.log('onChange', item);

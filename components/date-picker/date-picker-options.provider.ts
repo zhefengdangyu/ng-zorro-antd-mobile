@@ -1,5 +1,5 @@
-import { EventEmitter } from '@angular/core';
-import { zh_CN } from '../locale-provider/languages';
+import { EventEmitter, Injectable } from '@angular/core';
+import { zh_CN } from '../locale-provider/locale';
 export interface DatePickerOptionsInterface {
   mode: string;
   value: Date;
@@ -18,6 +18,7 @@ export interface DatePickerOptionsInterface {
   showErrorToastInterval: number;
 }
 
+@Injectable()
 export class DatePickerOptions implements DatePickerOptionsInterface {
   mode = 'date';
   value = new Date();

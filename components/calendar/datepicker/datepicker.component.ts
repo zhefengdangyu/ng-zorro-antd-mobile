@@ -1,13 +1,13 @@
 import { Component, HostBinding, OnInit, ViewEncapsulation, Input, ElementRef, ViewChild } from '@angular/core';
-import { Models } from '../date/DataTypes';
-import DatePicker from './datepicker.base.component';
+import { DateModels } from '../date/DataTypes';
+import { CalendarDatePickerBaseComponent } from './datepicker.base.component';
 
 @Component({
   selector: 'CalendarDatePicker, nzm-calendar-date-picker',
   templateUrl: './datepicker.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class DatePickerComponent extends DatePicker implements OnInit {
+export class CalendarDatePickerComponent extends CalendarDatePickerBaseComponent implements OnInit {
   constructor() {
     super();
   }
@@ -18,9 +18,9 @@ export class DatePickerComponent extends DatePicker implements OnInit {
   private _lastY: number = 0;
   private _delta: number = this._initDelta;
 
-  @ViewChild('layout')
+  @ViewChild('layout', { static: true })
   layoutDom: ElementRef;
-  @ViewChild('panel')
+  @ViewChild('panel', { static: true })
   panelDom: ElementRef;
 
   @Input()
@@ -58,8 +58,10 @@ export class DatePickerComponent extends DatePicker implements OnInit {
   @HostBinding('class.am-calendar') amCalendar: boolean = true;
   @HostBinding('class.date-picker') datePicker: boolean = true;
 
-  genMonthComponent = (data?: Models.MonthData) => {
-    if (!data) return;
+  genMonthComponent = (data?: DateModels.MonthData) => {
+    if (!data) {
+      return;
+    }
     return {
       monthData: data,
       locale: this.props.locale,
@@ -76,7 +78,7 @@ export class DatePickerComponent extends DatePicker implements OnInit {
     };
   }
 
-  computeHeight = (data: Models.MonthData, singleMonth) => {
+  computeHeight = (data: DateModels.MonthData, singleMonth) => {
     if (singleMonth && singleMonth.wrapperDivDOM) {
       if (!data.height && !singleMonth.wrapperDivDOM.clientHeight) {
         setTimeout(() => this.computeHeight(data, singleMonth), 500);
@@ -90,7 +92,10 @@ export class DatePickerComponent extends DatePicker implements OnInit {
   setLayout = (dom: HTMLDivElement) => {
     if (dom) {
       const { onLayout } = this.props;
-      onLayout && onLayout(dom.clientHeight);
+
+      if (onLayout) {
+        onLayout(dom.clientHeight);
+      }
 
       const scrollHandler = this.createOnScroll();
       dom.onscroll = evt => {
@@ -108,7 +113,7 @@ export class DatePickerComponent extends DatePicker implements OnInit {
   }
 
   onTouchStart(event) {
-    this._lastY = event.touches[0].screenY;
+    this._lastY = event.touches[0].screenY || event.touches[0].pageY;
     this._delta = this._initDelta;
   }
 
@@ -117,7 +122,7 @@ export class DatePickerComponent extends DatePicker implements OnInit {
     const isReachTop = ele.scrollTop === 0;
 
     if (isReachTop) {
-      this._delta = event.touches[0].screenY - this._lastY;
+      this._delta = (event.touches[0].screenY || event.touches[0].pageY) - this._lastY;
       if (this._delta > 0) {
         event.preventDefault();
         if (this._delta > 80) {
@@ -141,13 +146,17 @@ export class DatePickerComponent extends DatePicker implements OnInit {
       this.visibleMonth = this.state.months.slice(0, this.props.initalMonths);
 
       this.state.months.forEach(m => {
-        m.updateLayout && m.updateLayout();
+        if (m.updateLayout) {
+          m.updateLayout();
+        }
       });
     }
     this.setTransform(this._panel.style, `translate3d(0,0,0)`);
     this.setTransition(this._panel.style, '.3s');
     setTimeout(() => {
-      this._panel && this.setTransition(this._panel.style, '');
+      if (this._panel) {
+        this.setTransition(this._panel.style, '');
+      }
     }, 300);
   }
 

@@ -29,6 +29,7 @@ describe('NoticeBarComponent', () => {
 
   it('should option work', () => {
     component.option = {
+<<<<<<< HEAD
       'content': '我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！',
       'fontSize': '14px',
       'icon': component.icon,
@@ -37,6 +38,17 @@ describe('NoticeBarComponent', () => {
       'scrolling': false,
       'marqueeProps': { loop: false, leading: 500, trailing: 8000, fps: 200, style: {} }
       };
+=======
+      content:
+        '我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！',
+      fontSize: '14px',
+      icon: component.icon,
+      action: component.action,
+      mode: 'closable',
+      scrolling: false,
+      marqueeProps: { loop: false, leading: 500, trailing: 8000, fps: 200, style: {} }
+    };
+>>>>>>> upstream/master
     fixture.detectChanges();
     expect(noticeBarEle.nativeElement.querySelector('.am-notice-bar-operation').classList).toContain(
       'am-notice-bar-operation',
@@ -44,9 +56,13 @@ describe('NoticeBarComponent', () => {
     );
   });
 
+<<<<<<< HEAD
   it('OnClick work', () => {
+=======
+  it('onClick work', () => {
+>>>>>>> upstream/master
     fixture.detectChanges();
-    component.onClick = jasmine.createSpy('OnClick is callback');
+    component.onClick = jasmine.createSpy('onClick is callback');
     noticeBarEle.nativeElement.querySelector('.am-notice-bar').click();
     fixture.detectChanges();
     expect(component.onClick).toHaveBeenCalledTimes(1);
@@ -56,7 +72,11 @@ describe('NoticeBarComponent', () => {
 @Component({
   selector: 'demo-notice-bar-basic',
   template: `
+<<<<<<< HEAD
     <NoticeBar [option]="option" (onClick)="onClick()" >
+=======
+    <NoticeBar [option]="option" (onClick)="onClick()">
+>>>>>>> upstream/master
       <ng-template #iconDom>
         <Icon [type]="'check-circle-o'" [size]="'xxs'"></Icon>
       </ng-template>
@@ -72,6 +92,7 @@ export class TestNoticeBarComponent {
   @ContentChild('action')
   action: TemplateRef<void>;
   option = {
+<<<<<<< HEAD
     'content': '我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！',
     'fontSize': '24px',
     'icon': this.icon,
@@ -80,6 +101,17 @@ export class TestNoticeBarComponent {
     'scrolling': true,
     'marqueeProps': { loop: true, leading: 500, trailing: 8000, fps: 200, style: {} }
     };
+=======
+    content:
+      '我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！',
+    fontSize: '24px',
+    icon: this.icon,
+    action: this.action,
+    mode: 'closable',
+    scrolling: true,
+    marqueeProps: { loop: true, leading: 500, trailing: 8000, fps: 200, style: {} }
+  };
+>>>>>>> upstream/master
 
   onClick() {
     console.log('1');

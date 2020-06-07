@@ -11,6 +11,8 @@ export class ActionSheetOptions {
   className?: string;
   transitionName?: string = 'am-slide-up';
   maskTransitionName?: string = 'am-fade';
+  locale?;
+  close?: () => void;
 }
 
 @Injectable()
@@ -23,7 +25,10 @@ export class ShareOption {
 export class ShareActionSheetWithOptions extends ActionSheetOptions {
   options: ShareOption[] | ShareOption[][];
   cancelButtonText?: string = 'Cancel';
+<<<<<<< HEAD
   locale?;
+=======
+>>>>>>> upstream/master
 }
 
 @Injectable()

@@ -1,9 +1,18 @@
-import { Component, Input, ChangeDetectorRef, Output, EventEmitter, ViewEncapsulation, HostBinding } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectorRef,
+  Output,
+  EventEmitter,
+  ViewEncapsulation,
+  HostBinding,
+  TemplateRef
+} from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AccordionService } from '../accordion.service';
-
+import { isTemplateRef } from '../../core/util/check';
 @Component({
-  selector: 'AccordionPanel',
+  selector: 'AccordionPanel, nzm-accordion-panel',
   templateUrl: './accordion-group.component.html',
   encapsulation: ViewEncapsulation.None,
   animations: [
@@ -28,7 +37,7 @@ export class AccordionGroupComponent {
   @Input()
   key: string;
   @Input()
-  header: string;
+  header: string | TemplateRef<void>;
   @Input()
   isOpened: boolean = false;
   @Input()
@@ -39,6 +48,7 @@ export class AccordionGroupComponent {
   onClose = new EventEmitter();
   @Output()
   onChange = new EventEmitter();
+  isTemplateRef = isTemplateRef;
 
   @HostBinding('class.am-accordion-item') public amItem = true;
   @HostBinding('class.am-accordion-item-active') public isActive = this.isOpened;
@@ -81,7 +91,9 @@ export class AccordionGroupComponent {
 
   slideAnimationDoen(event) {
     if (event.fromState === 'down' && event.toState === 'up') {
-      this.isShowChild = false;
+      setTimeout(() => {
+        this.isShowChild = false;
+      }, 0);
     }
   }
 }
